@@ -9,7 +9,7 @@ const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
   
   // Détection de la section active
-  const sections = ['home', 'about', 'services', 'projects', 'contact']
+  const sections = ['home', 'about', 'services', "skills", 'projects', 'contact']
   const scrollPosition = window.scrollY + 100
   
   for (const sectionId of sections) {
@@ -47,6 +47,7 @@ const menuItems = [
   { id: 'home', label: 'Accueil' },
   { id: 'about', label: 'À propos' },
   { id: 'services', label: 'Services' },
+  { id: 'skills', label: 'Compétences' },
   { id: 'projects', label: 'Projets' },
   { id: 'contact', label: 'Contact' }
 ]

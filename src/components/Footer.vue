@@ -16,18 +16,17 @@ const footerLinks = {
     { label: 'Contact', href: '#contact' }
   ],
   services: [
-    { label: 'Développement Web', href: '#services' },
-    { label: 'Applications Mobile', href: '#services' },
-    { label: 'UI/UX Design', href: '#services' },
-    { label: 'Consulting', href: '#services' }
+    { label: 'Développement Web Laravel', href: '#services' },
+    { label: 'Backend & API RESTful', href: '#services' },
+    { label: 'Data Science & ML', href: '#services' },
+    { label: 'Automatisation & Scripts IA', href: '#services' }
   ],
   social: [
-    { label: 'LinkedIn', href: '#', icon: '💼' },
-    { label: 'GitHub', href: '#', icon: '⚡' },
-    { label: 'Twitter', href: '#', icon: '🐦' },
-    { label: 'Instagram', href: '#', icon: '📷' }
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andrianantenaina-angelo/', icon: '../../public/in-logo.svg' },
+    { label: 'Facebook', href: 'https://www.facebook.com/andrianantenaina.angelo.ia', icon: '../../public/fb-logo.svg' }
   ]
 }
+
 </script>
 
 <template>
@@ -40,8 +39,8 @@ const footerLinks = {
               <span class="logo-text">Portfolio</span>
             </div>
             <p class="brand-description">
-              Développeur Full Stack passionné par la création d'expériences web 
-              exceptionnelles et l'innovation technologique.
+              Développeur logiciel & IA basé à Madagascar, je conçois des applications web, 
+              data et intelligentes sur mesure.
             </p>
             <div class="brand-social">
               <a 
@@ -50,10 +49,13 @@ const footerLinks = {
                 :href="social.href"
                 class="social-link"
                 :title="social.label"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <span>{{ social.icon }}</span>
+                <img :src="social.icon" :alt="social.label" class="social-icon-img" />
               </a>
             </div>
+
           </div>
           
           <div class="footer-links">
@@ -79,18 +81,18 @@ const footerLinks = {
               <h4 class="column-title">Contact</h4>
               <ul class="link-list">
                 <li>
-                  <a href="mailto:contact@monportfolio.dev" class="footer-link">
-                    📧 contact@monportfolio.dev
+                  <a href="mailto:a.angelo.mada@gmail.com" class="footer-link">
+                    📧a.angelo.mada@gmail.com
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+33612345678" class="footer-link">
-                    📱 +33 6 12 34 56 78
+                  <a href="tel:+261345992047" class="footer-link">
+                    📱+261 345 992 047
                   </a>
                 </li>
                 <li>
                   <span class="footer-link">
-                    📍 Paris, France
+                    📍Fianarantsoa, Madagascar
                   </span>
                 </li>
               </ul>

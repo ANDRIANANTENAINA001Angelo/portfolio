@@ -19,63 +19,95 @@ const { stop } = useIntersectionObserver(
 const services = [
   {
     id: 1,
-    icon: '🎨',
-    title: 'Design UI/UX',
-    description: 'Création d\'interfaces utilisateur modernes et intuitives avec une attention particulière à l\'expérience utilisateur.',
-    features: ['Design System', 'Prototypage', 'Wireframing', 'Tests utilisateurs'],
-    price: 'À partir de 2000€'
+    icon: '🧠',
+    title: 'Conception & Architecture logicielle',
+    description: 'Transformez vos idées en projets bien cadrés, prêts à être développés sans imprévus.',
+    features: [
+      'Audit fonctionnel & recueil des besoins',
+      'Cahier des charges clair (fonctionnel & technique)',
+      'Architecture technique, diagrammes & API REST',
+      'Livrables PDF compréhensibles, prêts à être transmis'
+    ]
   },
   {
     id: 2,
     icon: '💻',
-    title: 'Développement Web',
-    description: 'Développement d\'applications web performantes et scalables avec les technologies les plus récentes.',
-    features: ['Vue.js / React', 'Node.js', 'API REST', 'Base de données'],
-    price: 'À partir de 3000€'
+    title: 'Développement d’applications web & mobile',
+    description: 'Conception d’applications sur mesure, performantes et prêtes à évoluer avec votre activité.',
+    features: [
+      'Interfaces modernes, fluides et intuitives',
+      'Fonctionnalités backend puissantes et sécurisées',
+      'API REST robustes et base de données adaptée',
+      'Code propre, testé, maintenable et bien documenté'
+    ]
   },
   {
     id: 3,
-    icon: '📱',
-    title: 'Applications Mobile',
-    description: 'Création d\'applications mobiles natives et cross-platform pour iOS et Android.',
-    features: ['React Native', 'Flutter', 'App Store', 'Play Store'],
-    price: 'À partir de 4000€'
+    icon: '📊',
+    title: 'Analyse de données & tableaux de bord',
+    description: 'Faites parler vos données pour mieux comprendre, décider et agir.',
+    features: [
+      'Nettoyage et structuration des données',
+      'Tableaux de bord clairs, interactifs & visuellement engageants',
+      'Analyses statistiques et exploration métier (approche BI)',
+      'Rapports visuels & présentations synthétiques'
+    ]
   },
   {
     id: 4,
-    icon: '🚀',
-    title: 'Optimisation & SEO',
-    description: 'Amélioration des performances et du référencement naturel de vos sites web existants.',
-    features: ['Performance', 'SEO technique', 'Core Web Vitals', 'Analytics'],
-    price: 'À partir de 1500€'
+    icon: '🤖',
+    title: 'Intelligence Artificielle & Prédiction',
+    description: 'Des modèles prédictifs et intelligents pour gagner du temps et anticiper vos résultats.',
+    features: [
+      'Machine Learning & Deep Learning sur mesure',
+      'Modèles supervisés / non supervisés adaptés à vos données',
+      'Exemples : prédiction des ventes, scoring client, analyse de texte (NLP)',
+      'Déploiement via API, interface web ou notebook interactif'
+    ]
   },
   {
     id: 5,
-    icon: '☁️',
-    title: 'Déploiement Cloud',
-    description: 'Mise en production et hébergement de vos applications sur des plateformes cloud sécurisées.',
-    features: ['AWS / Azure', 'Docker', 'CI/CD', 'Monitoring'],
-    price: 'À partir de 1000€'
+    icon: '🚀',
+    title: 'Déploiement & Automatisation',
+    description: 'Mettez vos apps en ligne et automatisations en place, de façon fiable, scalable et sécurisée.',
+    features: [
+      'Conteneurisation avec Docker',
+      'Déploiement sur VPS / Render / Railway',
+      'Scripts de CI/CD simples et efficaces',
+      'Sécurisation et surveillance basique'
+    ]
   },
   {
     id: 6,
-    icon: '🛠️',
-    title: 'Maintenance & Support',
-    description: 'Maintenance continue, mises à jour et support technique pour vos applications en production.',
-    features: ['Support 24/7', 'Mises à jour', 'Sauvegardes', 'Sécurité'],
-    price: 'À partir de 800€/mois'
+    icon: '🔌',
+    title: 'Intégration API & services tiers',
+    description: 'Connectez vos outils entre eux pour automatiser et enrichir vos process.',
+    features: [
+      'APIs REST / GraphQL / Webhooks',
+      'Scraping & collecte automatique',
+      'Connexion Airtable, Stripe, ...',
+      'Extraction vers Excel / PDF / CSV'
+    ]
   }
 ]
+
+
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
+
 </script>
 
 <template>
   <section id="services" ref="servicesRef" class="services section-padding">
     <div class="container">
       <div class="section-header" :class="{ 'visible': isVisible }">
-        <h2 class="section-title fade-in">Mes Services</h2>
-        <p class="section-subtitle fade-in">
-          Des solutions complètes pour tous vos besoins digitaux
-        </p>
+        <h2 class="section-title ">Mes Services</h2>
+        <div class="section-divider"></div>
       </div>
       
       <div class="services-grid">
@@ -110,16 +142,6 @@ const services = [
   </section>
 </template>
 
-<script lang="ts">
-const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
-}
-
-
-</script>
 
 <style scoped>
 .services {
@@ -146,13 +168,22 @@ const scrollToSection = (sectionId: string) => {
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
+  color: var(--text-primary);
   margin-bottom: 1rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-primary);
+  margin: 0 auto;
+  border-radius: 2px;
 }
 
 .section-subtitle {
@@ -168,6 +199,7 @@ const scrollToSection = (sectionId: string) => {
   gap: 2rem;
   position: relative;
   z-index: 1;
+  align-items: stretch; /* Assure que toutes les cartes ont la même hauteur */
 }
 
 .service-card {
@@ -178,6 +210,9 @@ const scrollToSection = (sectionId: string) => {
   opacity: 0;
   transform: translateY(50px);
   cursor: pointer;
+  display: flex; /* Ajouté pour le flexbox */
+  flex-direction: column; /* Ajouté pour organiser le contenu en colonne */
+  height: 100%; /* Assure que la carte prend toute la hauteur disponible */
 }
 
 .service-card.visible {
@@ -242,6 +277,12 @@ const scrollToSection = (sectionId: string) => {
   filter: grayscale(100%) brightness(2);
 }
 
+.service-content {
+  display: flex; /* Ajouté pour le flexbox */
+  flex-direction: column; /* Ajouté pour organiser le contenu en colonne */
+  flex: 1; /* Ajouté pour que le contenu prenne tout l'espace disponible */
+}
+
 .service-title {
   font-size: 1.5rem;
   font-weight: 600;
@@ -260,6 +301,7 @@ const scrollToSection = (sectionId: string) => {
   list-style: none;
   padding: 0;
   margin-bottom: 2rem;
+  flex: 1; /* Ajouté pour que les features prennent l'espace disponible */
 }
 
 .service-features li {
@@ -283,6 +325,7 @@ const scrollToSection = (sectionId: string) => {
   align-items: center;
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
+  margin-top: auto; /* Ajouté pour pousser le footer vers le bas */
 }
 
 .service-price {

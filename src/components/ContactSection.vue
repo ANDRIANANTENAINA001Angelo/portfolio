@@ -91,26 +91,26 @@ const contactInfo = [
   {
     icon: '📧',
     title: 'Email',
-    value: 'alexandre.dubois@dev.com',
-    link: 'mailto:alexandre.dubois@dev.com'
+    value: 'a.angelo.mada@gmail.com',
+    link: 'mailto:a.angelo.mada@gmail.com'
   },
   {
     icon: '📱',
     title: 'Téléphone',
-    value: '+33 6 12 34 56 78',
-    link: 'tel:+33612345678'
+    value: '+261 345 992 047',
+    link: 'tel:+261345992047'
   },
   {
     icon: '📍',
     title: 'Localisation',
-    value: 'Paris, France',
+    value: 'Fianarantsoa, Madagascar',
     link: '#'
   },
   {
     icon: '💼',
     title: 'LinkedIn',
     value: 'Mon profil LinkedIn',
-    link: 'https://linkedin.com'
+    link: 'https://www.linkedin.com/in/andrianantenaina-angelo/'
   }
 ]
 </script>
@@ -120,9 +120,7 @@ const contactInfo = [
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Contactez-moi</h2>
-        <!-- <p class="section-subtitle">
-          Discutons de votre prochain projet ensemble
-        </p> -->
+        <div class="section-divider"></div>
       </div>
       
       <div class="contact-content">
@@ -147,7 +145,7 @@ const contactInfo = [
               </div>
               <div class="contact-text">
                 <h4>{{ info.title }}</h4>
-                <a :href="info.link" class="contact-link">{{ info.value }}</a>
+                <a :href="info.link" class="contact-link" target="_blank">{{ info.value }}</a>
               </div>
             </div>
           </div>
@@ -155,10 +153,8 @@ const contactInfo = [
           <div class="social-links">
             <h4>Suivez-moi</h4>
             <div class="social-icons">
-              <a href="#" class="social-icon">⚡</a>
-              <a href="#" class="social-icon">💼</a>
-              <a href="#" class="social-icon">🐦</a>
-              <a href="#" class="social-icon">📷</a>
+              <a href="https://www.linkedin.com/in/andrianantenaina-angelo/" class="social-icon" target="_blank"><img src="../../public/fb-logo.svg" alt=""></a>
+              <a href="https://www.facebook.com/andrianantenaina.angelo.ia" class="social-icon" target="_blank"><img src="../../public/in-logo.svg" alt=""></a>
             </div>
           </div>
         </div>
@@ -380,6 +376,14 @@ const contactInfo = [
   font-size: 1.2rem;
   transition: all 0.3s ease;
   color: var(--text-primary, #FFFFFF);
+}
+
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-primary);
+  margin: 0 auto;
+  border-radius: 2px;
 }
 
 .social-icon:hover {

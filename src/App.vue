@@ -7,6 +7,7 @@ import ServicesSection from './components/ServicesSection.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import Footer from './components/Footer.vue'
+import Skills from './components/Skills.vue'
 
 onMounted(() => {
   // Smooth scroll behavior
@@ -21,6 +22,7 @@ onMounted(() => {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <Skills />
       <ProjectsSection />
       <ContactSection />
     </main>

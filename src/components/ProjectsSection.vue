@@ -19,92 +19,91 @@ const { stop } = useIntersectionObserver(
 )
 
 const filters = [
-  { id: 'all', label: 'Tout' },
-  { id: 'web', label: 'Web' },
-  { id: 'mobile', label: 'Mobile' },
-  { id: 'ecommerce', label: 'E-commerce' }
+  { id: 'all', label: 'Tous' },
+  { id: 'software', label: 'Software' },
+  { id: 'data', label: 'Data Science' },
+  // { id: 'ia', label: 'IA' },
+  { id: 'api', label: 'API' },
 ]
 
 const projects = [
   {
+    id: 4,
+    title: 'Prédiction Salaire API',
+    tags: ['data', 'api',"ia"],
+    description: "API ML de prédiction de salaire basée sur du web scraping.",
+    longDescription: "Scraping, entraînement de modèle ML, déploiement API REST avec Swagger.",
+    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
+    technologies: ['Python', 'Flask', 'Sklearn', 'Swagger'],
+    link: 'https://github.com/ANDRIANANTENAINA001Angelo/data-to-model-pipeline',
+    github: 'https://github.com/ANDRIANANTENAINA001Angelo/data-to-model-pipeline',
+    featured: true
+  },
+  {
+    id: 5,
+    title: 'ChatterBot',
+    tags: ['data',"api","ai"],
+    description: 'Assistant conversationnel simple via API Flask.',
+    longDescription: 'Bot basé sur ChatterBot, API REST pour intégration facile, organisation propre du code.',
+    image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=800',
+    technologies: ['Python', 'Flask', 'ChatterBot', 'JSON'],
+    link: 'https://github.com/ANDRIANANTENAINA001Angelo/ChatterBot',
+    github: 'https://github.com/ANDRIANANTENAINA001Angelo/ChatterBot',
+    featured: false
+  },
+  {
+    id: 6,
+    title: 'Face Detector',
+    tags: ['data',"api","ai"],
+    description: 'Détection de visages avec OpenCV.',
+    longDescription: 'Détection basique de visage, démo dans notebook, API Flask.',
+    image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=800',
+    technologies: ['Python', 'OpenCV', 'Flask'],
+    link: 'https://github.com/ANDRIANANTENAINA001Angelo/face_detector',
+    github: 'https://github.com/ANDRIANANTENAINA001Angelo/face_detector',
+    featured: false
+  },  
+{
     id: 1,
-    title: 'E-Commerce Moderne',
-    category: 'ecommerce',
-    description: 'Plateforme e-commerce complète avec panier, paiement et gestion des commandes.',
-    longDescription: 'Une plateforme e-commerce moderne développée avec Vue.js et Node.js, intégrant Stripe pour les paiements, un système de gestion des stocks en temps réel, et une interface d\'administration complète.',
+    title: 'Ticket Place',
+    tags: ['software', 'api'],
+    description: "Système de billetterie Laravel avec API REST et gestion des tickets.",
+    longDescription: "Plateforme de réservation de places pour événements, documentation Swagger, auth avec Sanctum.",
     image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['Vue.js', 'Node.js', 'MongoDB', 'Stripe'],
-    link: '#',
-    github: '#',
+    technologies: ['Laravel', 'API REST', 'Sanctum', 'Swagger'],
+    link: 'https://github.com/ANDRIANANTENAINA001Angelo/ticket-place',
+    github: 'https://github.com/ANDRIANANTENAINA001Angelo/ticket-place',
     featured: true
   },
   {
     id: 2,
-    title: 'App Mobile Fitness',
-    category: 'mobile',
-    description: 'Application mobile de fitness avec suivi des performances et programmes d\'entraînement.',
-    longDescription: 'Application mobile cross-platform développée avec React Native, permettant le suivi des entraînements, la création de programmes personnalisés, et l\'intégration avec les wearables.',
-    image: 'https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['React Native', 'Firebase', 'Redux', 'HealthKit'],
-    link: '#',
-    github: '#',
+    title: 'Paiement Pension',
+    tags: ['software'],
+    description: "Application Laravel de gestion de pension et paiements.",
+    longDescription: "Gestion des pensionnaires, suivi des paiements, architecture propre, Laravel Filament.",
+    image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
+    technologies: ['Laravel', 'Filament', 'MVC', 'Blade'],
+    link: 'https://github.com/ANDRIANANTENAINA001Angelo/payement-pension',
+    github: 'https://github.com/ANDRIANANTENAINA001Angelo/payement-pension',
     featured: false
   },
   {
     id: 3,
-    title: 'Dashboard Analytics',
-    category: 'web',
-    description: 'Tableau de bord analytique avec visualisations interactives et rapports en temps réel.',
-    longDescription: 'Dashboard moderne avec visualisations de données en temps réel, développé avec Vue.js et D3.js. Intègre plusieurs sources de données et permet l\'export de rapports personnalisés.',
-    image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['Vue.js', 'D3.js', 'Python', 'PostgreSQL'],
-    link: '#',
-    github: '#',
-    featured: true
-  },
-  {
-    id: 4,
-    title: 'Site Corporate',
-    category: 'web',
-    description: 'Site vitrine corporate avec CMS intégré et optimisation SEO avancée.',
-    longDescription: 'Site web corporate élégant avec système de gestion de contenu personnalisé, optimisé pour le SEO et les performances. Inclut un blog, une galerie et un système de contact avancé.',
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['Nuxt.js', 'Strapi', 'TailwindCSS', 'Netlify'],
-    link: '#',
-    github: '#',
-    featured: false
-  },
-  {
-    id: 5,
-    title: 'Marketplace B2B',
-    category: 'ecommerce',
-    description: 'Plateforme marketplace B2B avec gestion multi-vendeurs et système de commissions.',
-    longDescription: 'Marketplace complexe permettant à plusieurs vendeurs de proposer leurs produits, avec système de commissions automatique, gestion des livraisons et interface d\'administration avancée.',
+    title: 'API Dynamique PHP',
+    tags: ['software', 'api'],
+    description: "API REST full générique pour base de données.",
+    longDescription: "Génération dynamique d'API CRUD pour toutes tables d'une base de données.",
     image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['React', 'Node.js', 'MySQL', 'AWS'],
-    link: '#',
-    github: '#',
+    technologies: ['PHP', 'REST', 'MySQL'],
+    link: 'https://github.com/ANDRIANANTENAINA001Angelo/API-Dynamique',
+    github: 'https://github.com/ANDRIANANTENAINA001Angelo/API-Dynamique',
     featured: true
-  },
-  {
-    id: 6,
-    title: 'App de Livraison',
-    category: 'mobile',
-    description: 'Application de livraison avec géolocalisation et suivi en temps réel.',
-    longDescription: 'Application mobile complète pour service de livraison, incluant géolocalisation GPS, notifications push, paiement intégré et interface chauffeur séparée.',
-    image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['Flutter', 'Firebase', 'Google Maps', 'PayPal'],
-    link: '#',
-    github: '#',
-    featured: false
   }
 ]
 
 const filteredProjects = computed(() => {
-  if (selectedFilter.value === 'all') {
-    return projects
-  }
-  return projects.filter(project => project.category === selectedFilter.value)
+  if (selectedFilter.value === 'all') return projects
+  return projects.filter(project => project.tags.includes(selectedFilter.value))
 })
 
 const openProjectModal = (project) => {
@@ -120,10 +119,8 @@ const closeProjectModal = () => {
   <section id="projects" ref="projectsRef" class="projects section-padding">
     <div class="container">
       <div class="section-header" :class="{ 'visible': isVisible }">
-        <h2 class="section-title fade-in">Mes Projets</h2>
-        <p class="section-subtitle fade-in">
-          Découvrez quelques-unes de mes réalisations récentes
-        </p>
+        <h2 class="section-title">Mes Projets</h2>
+        <div class="section-divider"></div>
       </div>
       
       <div class="filters" :class="{ 'visible': isVisible }">
@@ -393,6 +390,30 @@ const closeProjectModal = () => {
 
 .project-content {
   padding: 1.5rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-primary);
+  margin: 0 auto;
+  border-radius: 2px;
 }
 
 .project-header {
