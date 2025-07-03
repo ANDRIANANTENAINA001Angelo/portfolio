@@ -1,31 +1,25 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import Navigation from './components/Navigation.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
 import ServicesSection from './components/ServicesSection.vue'
+import CompetencesSection from './components/CompetencesSection.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
 import ContactSection from './components/ContactSection.vue'
+import Navigation from './components/Navigation.vue'
 import Footer from './components/Footer.vue'
-import Skills from './components/Skills.vue'
 
-onMounted(() => {
-  // Smooth scroll behavior
-  document.documentElement.style.scrollBehavior = 'smooth'
-})
+
 </script>
 
 <template>
   <div id="app">
     <Navigation />
-    <main>
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <Skills />
-      <ProjectsSection />
-      <ContactSection />
-    </main>
+    <HeroSection />
+    <AboutSection />
+    <ServicesSection />
+    <CompetencesSection />
+    <ProjectsSection />
+    <ContactSection />
     <Footer />
   </div>
 </template>

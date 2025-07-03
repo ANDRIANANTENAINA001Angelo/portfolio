@@ -49,7 +49,7 @@ const services = [
     features: [
       'Nettoyage et structuration des données',
       'Tableaux de bord clairs, interactifs & visuellement engageants',
-      'Analyses statistiques et exploration métier (approche BI)',
+      'Analyses statistiques et exploration métier (approche Business)',
       'Rapports visuels & présentations synthétiques'
     ]
   },
@@ -132,7 +132,7 @@ const scrollToSection = (sectionId: string) => {
             </ul>
             <div class="service-footer">
               <!-- <div class="service-price">{{ service.price }}</div> -->
-              <button class="btn-service" @click="scrollToSection('contact')">En savoir plus</button>
+              <button class="btn-service" @click="scrollToSection('contact')" :title="`Contactez-moi pour ${service.title}`" :aria-label="`Contactez-moi pour ${service.title}`" >En savoir plus</button>
             </div>
           </div>
           <div class="service-hover-effect"></div>

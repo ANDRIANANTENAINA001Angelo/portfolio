@@ -51,13 +51,13 @@ const skillCategories = [
 </script>
 
 <template>
-  <section id="skills" ref="skillsRef" class="skills section-padding">
+  <section id="competences" ref="skillsRef" class="skills section-padding">
     <div class="container">
       <div class="section-header" :class="{ 'visible': isVisible }">
         <h2 class="section-title">Mes Compétences</h2>
         <div class="section-divider"></div>
       </div>
-
+      
       <div class="skills-grid">
         <div 
           v-for="(category, index) in skillCategories"

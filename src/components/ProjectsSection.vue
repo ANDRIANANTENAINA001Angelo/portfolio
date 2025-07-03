@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
+import { projects } from '../data/projects' 
 
 const projectsRef = ref<HTMLElement>()
 const isVisible = ref(false)
 const selectedFilter = ref('all')
-const selectedProject = ref(null)
 
 const { stop } = useIntersectionObserver(
   projectsRef,
@@ -22,97 +22,13 @@ const filters = [
   { id: 'all', label: 'Tous' },
   { id: 'software', label: 'Software' },
   { id: 'data', label: 'Data Science' },
-  // { id: 'ia', label: 'IA' },
   { id: 'api', label: 'API' },
-]
-
-const projects = [
-  {
-    id: 4,
-    title: 'Prédiction Salaire API',
-    tags: ['data', 'api',"ia"],
-    description: "API ML de prédiction de salaire basée sur du web scraping.",
-    longDescription: "Scraping, entraînement de modèle ML, déploiement API REST avec Swagger.",
-    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['Python', 'Flask', 'Sklearn', 'Swagger'],
-    link: 'https://github.com/ANDRIANANTENAINA001Angelo/data-to-model-pipeline',
-    github: 'https://github.com/ANDRIANANTENAINA001Angelo/data-to-model-pipeline',
-    featured: true
-  },
-  {
-    id: 5,
-    title: 'ChatterBot',
-    tags: ['data',"api","ai"],
-    description: 'Assistant conversationnel simple via API Flask.',
-    longDescription: 'Bot basé sur ChatterBot, API REST pour intégration facile, organisation propre du code.',
-    image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['Python', 'Flask', 'ChatterBot', 'JSON'],
-    link: 'https://github.com/ANDRIANANTENAINA001Angelo/ChatterBot',
-    github: 'https://github.com/ANDRIANANTENAINA001Angelo/ChatterBot',
-    featured: false
-  },
-  {
-    id: 6,
-    title: 'Face Detector',
-    tags: ['data',"api","ai"],
-    description: 'Détection de visages avec OpenCV.',
-    longDescription: 'Détection basique de visage, démo dans notebook, API Flask.',
-    image: 'https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['Python', 'OpenCV', 'Flask'],
-    link: 'https://github.com/ANDRIANANTENAINA001Angelo/face_detector',
-    github: 'https://github.com/ANDRIANANTENAINA001Angelo/face_detector',
-    featured: false
-  },  
-{
-    id: 1,
-    title: 'Ticket Place',
-    tags: ['software', 'api'],
-    description: "Système de billetterie Laravel avec API REST et gestion des tickets.",
-    longDescription: "Plateforme de réservation de places pour événements, documentation Swagger, auth avec Sanctum.",
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['Laravel', 'API REST', 'Sanctum', 'Swagger'],
-    link: 'https://github.com/ANDRIANANTENAINA001Angelo/ticket-place',
-    github: 'https://github.com/ANDRIANANTENAINA001Angelo/ticket-place',
-    featured: true
-  },
-  {
-    id: 2,
-    title: 'Paiement Pension',
-    tags: ['software'],
-    description: "Application Laravel de gestion de pension et paiements.",
-    longDescription: "Gestion des pensionnaires, suivi des paiements, architecture propre, Laravel Filament.",
-    image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['Laravel', 'Filament', 'MVC', 'Blade'],
-    link: 'https://github.com/ANDRIANANTENAINA001Angelo/payement-pension',
-    github: 'https://github.com/ANDRIANANTENAINA001Angelo/payement-pension',
-    featured: false
-  },
-  {
-    id: 3,
-    title: 'API Dynamique PHP',
-    tags: ['software', 'api'],
-    description: "API REST full générique pour base de données.",
-    longDescription: "Génération dynamique d'API CRUD pour toutes tables d'une base de données.",
-    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-    technologies: ['PHP', 'REST', 'MySQL'],
-    link: 'https://github.com/ANDRIANANTENAINA001Angelo/API-Dynamique',
-    github: 'https://github.com/ANDRIANANTENAINA001Angelo/API-Dynamique',
-    featured: true
-  }
 ]
 
 const filteredProjects = computed(() => {
   if (selectedFilter.value === 'all') return projects
   return projects.filter(project => project.tags.includes(selectedFilter.value))
 })
-
-const openProjectModal = (project) => {
-  selectedProject.value = project
-}
-
-const closeProjectModal = () => {
-  selectedProject.value = null
-}
 </script>
 
 <template>
@@ -122,7 +38,7 @@ const closeProjectModal = () => {
         <h2 class="section-title">Mes Projets</h2>
         <div class="section-divider"></div>
       </div>
-      
+
       <div class="filters" :class="{ 'visible': isVisible }">
         <button
           v-for="filter in filters"
@@ -134,38 +50,37 @@ const closeProjectModal = () => {
           {{ filter.label }}
         </button>
       </div>
-      
+
       <div class="projects-grid">
-        <div 
+        <router-link
           v-for="(project, index) in filteredProjects"
           :key="project.id"
           class="project-card"
           :class="{ 'visible': isVisible, 'featured': project.featured }"
           :style="{ transitionDelay: (index * 0.1) + 's' }"
-          @click="openProjectModal(project)"
         >
           <div class="project-image">
             <img :src="project.image" :alt="project.title" />
             <div class="project-overlay">
               <div class="project-actions">
-                <button class="action-btn view-btn">
+                <a :href="project.link" target="_blank" class="action-btn view-btn" rel="noopener noreferrer">
                   <span>👁</span>
-                </button>
-                <button class="action-btn github-btn">
+                </a>
+                <a :href="project.github" target="_blank" class="action-btn github-btn" rel="noopener noreferrer">
                   <span>⚡</span>
-                </button>
+                </a>
               </div>
             </div>
           </div>
-          
+
           <div class="project-content">
             <div class="project-header">
               <h3 class="project-title">{{ project.title }}</h3>
-              <div class="project-category">{{ project.category }}</div>
+              <div class="project-category">{{ project.tags.join(', ') }}</div>
             </div>
             <p class="project-description">{{ project.description }}</p>
             <div class="project-technologies">
-              <span 
+              <span
                 v-for="tech in project.technologies"
                 :key="tech"
                 class="tech-tag"
@@ -174,42 +89,11 @@ const closeProjectModal = () => {
               </span>
             </div>
           </div>
-          
+
           <div class="project-featured-badge" v-if="project.featured">
             ⭐ Projet phare
           </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Modal Project -->
-    <div v-if="selectedProject" class="project-modal" @click="closeProjectModal">
-      <div class="modal-content" @click.stop>
-        <button class="modal-close" @click="closeProjectModal">×</button>
-        <div class="modal-image">
-          <img :src="selectedProject.image" :alt="selectedProject.title" />
-        </div>
-        <div class="modal-info">
-          <h3 class="modal-title">{{ selectedProject.title }}</h3>
-          <p class="modal-description">{{ selectedProject.longDescription }}</p>
-          <div class="modal-technologies">
-            <span 
-              v-for="tech in selectedProject.technologies"
-              :key="tech"
-              class="tech-tag"
-            >
-              {{ tech }}
-            </span>
-          </div>
-          <div class="modal-actions">
-            <a :href="selectedProject.link" class="btn-primary" target="_blank">
-              Voir le projet
-            </a>
-            <a :href="selectedProject.github" class="btn-secondary" target="_blank">
-              Code source
-            </a>
-          </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </section>
@@ -299,6 +183,14 @@ const closeProjectModal = () => {
   position: relative;
 }
 
+a.project-card {
+  text-decoration: none;
+  color: inherit;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
 .project-card.visible {
   opacity: 1;
   transform: translateY(0);

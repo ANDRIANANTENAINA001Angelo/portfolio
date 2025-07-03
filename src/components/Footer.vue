@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 const currentYear = new Date().getFullYear()
 
@@ -7,26 +8,36 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-const footerLinks = {
-  navigation: [
-    { label: 'Accueil', href: '#home' },
-    { label: 'À propos', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Projets', href: '#projects' },
-    { label: 'Contact', href: '#contact' }
-  ],
-  services: [
-    { label: 'Développement Web Laravel', href: '#services' },
-    { label: 'Backend & API RESTful', href: '#services' },
-    { label: 'Data Science & ML', href: '#services' },
-    { label: 'Automatisation & Scripts IA', href: '#services' }
-  ],
-  social: [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andrianantenaina-angelo/', icon: '../../public/in-logo.svg' },
-    { label: 'Facebook', href: 'https://www.facebook.com/andrianantenaina.angelo.ia', icon: '../../public/fb-logo.svg' }
-  ]
+const goToSection = (sectionId: string) => {
+  const el = document.getElementById(sectionId)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+    history.pushState(null, '', `/#${sectionId}`)
+  } else {
+    router.push({ path: '/', hash: `#${sectionId}` })
+  }
 }
 
+const footerLinks = {
+  navigation: [
+    { label: 'Accueil', id: 'home' },
+    { label: 'À propos', id: 'about' },
+    { label: 'Services', id: 'services' },
+    { label: 'Projets', id: 'projects' },
+    // { label: 'Contact', id: 'contact' }
+  ],
+  services: [
+    { label: 'Développement Web Laravel', id: 'services' },
+    { label: 'Backend & API RESTful', id: 'services' },
+    { label: 'Data Science & ML', id: 'services' },
+    { label: 'Automatisation & Scripts IA', id: 'services' }
+  ],
+  social: [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andrianantenaina-angelo/', icon: '/in-logo.svg' },
+    { label: 'Facebook', href: 'https://www.facebook.com/andrianantenaina.angelo.ia', icon: '/fb-logo.svg' },
+    { label: 'Whatsapp', href: 'https://wa.me/261345992047', icon: '/whatsapp-logo.svg' },
+  ]
+}
 </script>
 
 <template>
@@ -63,7 +74,9 @@ const footerLinks = {
               <h4 class="column-title">Navigation</h4>
               <ul class="link-list">
                 <li v-for="link in footerLinks.navigation" :key="link.label">
-                  <a :href="link.href" class="footer-link">{{ link.label }}</a>
+                  <button class="footer-link" @click="goToSection(link.id)">
+                    {{ link.label }}
+                  </button>
                 </li>
               </ul>
             </div>
@@ -72,7 +85,9 @@ const footerLinks = {
               <h4 class="column-title">Services</h4>
               <ul class="link-list">
                 <li v-for="service in footerLinks.services" :key="service.label">
-                  <a :href="service.href" class="footer-link">{{ service.label }}</a>
+                  <button class="footer-link" @click="goToSection(service.id)">
+                    {{ service.label }}
+                  </button>
                 </li>
               </ul>
             </div>
@@ -82,17 +97,17 @@ const footerLinks = {
               <ul class="link-list">
                 <li>
                   <a href="mailto:a.angelo.mada@gmail.com" class="footer-link">
-                    📧a.angelo.mada@gmail.com
+                    a.angelo.mada@gmail.com
                   </a>
                 </li>
                 <li>
                   <a href="tel:+261345992047" class="footer-link">
-                    📱+261 345 992 047
+                    +261 345 992 047
                   </a>
                 </li>
                 <li>
                   <span class="footer-link">
-                    📍Fianarantsoa, Madagascar
+                    Fianarantsoa, Madagascar
                   </span>
                 </li>
               </ul>
@@ -391,4 +406,22 @@ const footerLinks = {
     transform: translateX(-50%);
   }
 }
+
+.footer-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
 </style>

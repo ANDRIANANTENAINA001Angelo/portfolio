@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useHead } from '@vueuse/head'
 
 const heroRef = ref<HTMLElement>()
 const isVisible = ref(false)
@@ -9,6 +10,23 @@ onMounted(() => {
     isVisible.value = true
   }, 300)
 })
+
+
+useHead({
+  title: 'Développeur Web & IA à Madagascar | Portfolio de ANDRIANANTENAINA Angelo',
+  meta: [
+    {
+      name: 'description',
+      content: 'ANDRIANANTENAINA Angelo, développeur Laravel & Intelligence Artificielle à Madagascar. Conception et création d’applications web, mobile, data et automatisées.'
+    },
+    {
+      name: 'keywords',
+      content: 'Développeur Laravel Madagascar, IA, Data, Web, API, Vue.js, freelance, Django, data anayste, data scientiste, python, node, express'
+    },
+    { name: 'author', content: 'ANDRIANANTENAINA Angelo' }
+  ]
+})
+
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId)
@@ -43,7 +61,11 @@ const downloadCV = () => {
             <span class="name-highlight">ANDRIANANTENAINA Angelo</span>
           </h1>
           <h2 class="hero-subtitle">Développeur Logiciel & Intelligence Artificielle</h2>
-          
+          <p class="hero-description">
+            Basé à Madagascar, je développe des solutions web, data et intelligentes. 
+            Laravel, Python, IA, automatisation... tout ce qu’il faut pour transformer vos idées en applications concrètes.
+          </p>
+
           <div class="hero-buttons">
             <button @click="scrollToSection('projects')" class="btn-primary">
               Voir mes projets
@@ -73,7 +95,7 @@ const downloadCV = () => {
           <div class="image-container">
             <div class="image-glow"></div>
             <img 
-              src="../../public/ANDRINANATENIANA-Angelo-profile-1-updated.png" 
+              src="/ANDRINANATENIANA-Angelo-profile-1-updated.png" 
               alt="ANDRIANANTENAINA Angelo - Développeur Logiciel & IA à Madagascar"
               class="profile-image"
             />
@@ -214,7 +236,12 @@ const downloadCV = () => {
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--text-secondary);
-  margin-bottom: 3rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero-description {
+  margin-bottom: 1rem;
+
 }
 
 .hero-buttons {

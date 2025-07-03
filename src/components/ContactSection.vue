@@ -153,8 +153,8 @@ const contactInfo = [
           <div class="social-links">
             <h4>Suivez-moi</h4>
             <div class="social-icons">
-              <a href="https://www.linkedin.com/in/andrianantenaina-angelo/" class="social-icon" target="_blank"><img src="../../public/fb-logo.svg" alt=""></a>
-              <a href="https://www.facebook.com/andrianantenaina.angelo.ia" class="social-icon" target="_blank"><img src="../../public/in-logo.svg" alt=""></a>
+              <a href="https://www.linkedin.com/in/andrianantenaina-angelo/" class="social-icon" target="_blank"><img src="/fb-logo.svg" alt=""></a>
+              <a href="https://www.facebook.com/andrianantenaina.angelo.ia" class="social-icon" target="_blank"><img src="/in-logo.svg" alt=""></a>
             </div>
           </div>
         </div>

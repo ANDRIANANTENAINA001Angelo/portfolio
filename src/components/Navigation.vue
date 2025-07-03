@@ -5,76 +5,83 @@ const isScrolled = ref(false)
 const isMobileMenuOpen = ref(false)
 const activeSection = ref('home')
 
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '') || "/developper-logiciel-ia"  
+
+const sections = [
+  { id: 'home', path: '/', label: 'Accueil' },
+  { id: 'about', path: '/a-propos', label: 'À propos' },
+  { id: 'services', path: '/services', label: 'Services' },
+  { id: 'competences', path: '/competences', label: 'Compétences' },
+  { id: 'projects', path: '/projets', label: 'Projets' },
+  { id: 'contact', path: '/contact', label: 'Contact' }
+]
+
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
-  
-  // Détection de la section active
-  const sections = ['home', 'about', 'services', "skills", 'projects', 'contact']
-  const scrollPosition = window.scrollY + 100
-  
-  for (const sectionId of sections) {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      const offsetTop = element.offsetTop
-      const offsetHeight = element.offsetHeight
-      
-      if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-        activeSection.value = sectionId
+
+  const scrollPosition = window.scrollY + window.innerHeight / 3
+
+  for (const section of sections) {
+    const el = document.getElementById(section.id)
+    if (el) {
+      const top = el.offsetTop
+      const bottom = top + el.offsetHeight
+
+      if (scrollPosition >= top && scrollPosition < bottom) {
+        if (activeSection.value !== section.id) {
+          activeSection.value = section.id
+          history.replaceState(null, '', `${basePath}${section.path}`)
+        }
         break
       }
     }
   }
 }
 
-const scrollToSection = (sectionId: string) => {
-  const element = document.getElementById(sectionId)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-    activeSection.value = sectionId
+const scrollToSection = (id: string, path: string) => {
+  const el = document.getElementById(id)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+    activeSection.value = id
+    history.pushState(null, '', `${basePath}${path}`)
   }
   isMobileMenuOpen.value = false
 }
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
+  handleScroll() 
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
-
-const menuItems = [
-  { id: 'home', label: 'Accueil' },
-  { id: 'about', label: 'À propos' },
-  { id: 'services', label: 'Services' },
-  { id: 'skills', label: 'Compétences' },
-  { id: 'projects', label: 'Projets' },
-  { id: 'contact', label: 'Contact' }
-]
 </script>
 
 <template>
-  <nav class="navbar" :class="{ 'scrolled': isScrolled }">
+  <nav class="navbar" :class="{ scrolled: isScrolled }">
     <div class="container">
       <div class="nav-content">
-        <div class="logo" @click="scrollToSection('home')">
+        <div class="logo" @click="scrollToSection('home', '/')">
           <span class="logo-text">Portfolio</span>
         </div>
-        
-        <ul class="nav-menu" :class="{ 'active': isMobileMenuOpen }">
-          <li v-for="item in menuItems" :key="item.id" class="nav-item">
-            <a 
-              @click="scrollToSection(item.id)" 
+        <ul class="nav-menu" :class="{ active: isMobileMenuOpen }">
+          <li v-for="item in sections" :key="item.id" class="nav-item">
+            <a
               class="nav-link"
-              :class="{ 'active': activeSection === item.id }"
-              href="#"
+              :class="{ active: activeSection === item.id }"
+              href="javascript:void(0);"
+              @click="scrollToSection(item.id, item.path)"
             >
               {{ item.label }}
             </a>
           </li>
         </ul>
-        
-        <div class="hamburger" :class="{ 'active': isMobileMenuOpen }" @click="isMobileMenuOpen = !isMobileMenuOpen">
+        <div
+          class="hamburger"
+          :class="{ active: isMobileMenuOpen }"
+          @click="isMobileMenuOpen = !isMobileMenuOpen"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -83,6 +90,7 @@ const menuItems = [
     </div>
   </nav>
 </template>
+
 
 <style scoped>
 .navbar {
