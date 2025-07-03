@@ -52,7 +52,7 @@ const filteredProjects = computed(() => {
       </div>
 
       <div class="projects-grid">
-        <router-link
+        <div
           v-for="(project, index) in filteredProjects"
           :key="project.id"
           class="project-card"
@@ -93,7 +93,7 @@ const filteredProjects = computed(() => {
           <div class="project-featured-badge" v-if="project.featured">
             ⭐ Projet phare
           </div>
-        </router-link>
+        </div>
       </div>
     </div>
   </section>

@@ -1,21 +1,20 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import { useIntersectionObserver } from '@vueuse/core'
 import emailjs from 'emailjs-com'
 
 const contactRef = ref<HTMLElement>()
-const isVisible = ref(true) // Force à true pour éviter les problèmes d'animation
 const isSubmitting = ref(false)
 const isSubmitted = ref(false)
 
-const form = reactive({
+const form: Record<string, string> = reactive({
   name: '',
   email: '',
   subject: '',
   message: ''
 })
 
-const errors = reactive({
+
+const errors: Record<string, string> = reactive({
   name: '',
   email: '',
   subject: '',
@@ -136,7 +135,7 @@ const contactInfo = [
           
           <div class="contact-details">
             <div 
-              v-for="(info, index) in contactInfo"
+              v-for="info in contactInfo"
               :key="info.title"
               class="contact-item"
             >

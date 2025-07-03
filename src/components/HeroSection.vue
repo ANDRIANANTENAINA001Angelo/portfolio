@@ -36,12 +36,14 @@ const scrollToSection = (sectionId: string) => {
 }
 
 const downloadCV = () => {
-  // Simulation du téléchargement du CV
   const link = document.createElement('a')
-  link.href = '#' // Remplacer par l'URL réelle du CV
-  link.download = 'CV_Alexandre_Developpeur.pdf'
+  link.href = '/CV-ANDRIANANTENAINA-Angelo.pdf'  
+  link.setAttribute('download', 'CV-ANDRIANANTENAINA-Angelo.pdf')
+  document.body.appendChild(link)
   link.click()
+  document.body.removeChild(link)
 }
+
 </script>
 
 <template>

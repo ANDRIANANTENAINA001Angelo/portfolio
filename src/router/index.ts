@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+// @ts-ignore
 import MainLayout from '../layouts/MainLayout.vue'
 import HeroSection from '../components/HeroSection.vue'
 import AboutSection from '../components/AboutSection.vue'
