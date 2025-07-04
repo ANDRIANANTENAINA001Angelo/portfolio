@@ -168,7 +168,7 @@ watch(() => props.prefill, (newPrefill) => {
           </div>
           
           <div class="social-links">
-            <h4>Suivez-moi</h4>
+            <h4 class="social-links-header">Suivez-moi</h4>
             <div class="social-icons">
               <a href="https://www.linkedin.com/in/andrianantenaina-angelo/" class="social-icon" target="_blank"><img src="/in-logo.svg" alt=""></a>
               <a href="https://www.facebook.com/andrianantenaina.angelo.ia" class="social-icon" target="_blank"><img src="/fb-logo.svg" alt=""></a>
@@ -262,6 +262,7 @@ watch(() => props.prefill, (newPrefill) => {
     </div>
   </section>
 </template>
+
 
 <style scoped>
 .contact {
@@ -566,14 +567,18 @@ watch(() => props.prefill, (newPrefill) => {
   to { transform: rotate(360deg); }
 }
 
-@media (max-width: 768px) {
-  .contact-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+/* Media queries pour tablettes */
+@media (max-width: 1024px) {
+  .contact {
+    padding: 3rem 0;
   }
   
-  .form-row {
-    grid-template-columns: 1fr;
+  .section-header {
+    margin-bottom: 3rem;
+  }
+  
+  .contact-content {
+    gap: 3rem;
   }
   
   .section-title {
@@ -581,15 +586,245 @@ watch(() => props.prefill, (newPrefill) => {
   }
   
   .info-header h3 {
+    font-size: 1.8rem;
+  }
+  
+  .form-container {
+    padding: 1.5rem;
+  }
+}
+
+/* Media queries pour mobile */
+@media (max-width: 768px) {
+  .contact {
+    padding: 2rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  /* Réorganisation de l'ordre sur mobile - formulaire en premier */
+  .contact-form-wrapper {
+    order: 1;
+  }
+  
+  .contact-info {
+    order: 2;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+  
+  .info-header h3 {
     font-size: 1.5rem;
+  }
+  
+  .info-header p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-item {
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
   }
   
   .contact-item:hover {
     transform: none;
   }
   
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  
+  .contact-text h4 {
+    font-size: 1rem;
+  }
+  
+  .contact-link {
+    font-size: 0.9rem;
+  }
+  
   .social-icons {
     justify-content: center;
   }
+  
+  .form-container {
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+  
+  .form-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .form-header p {
+    font-size: 0.9rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .btn-submit {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Media queries pour petits mobiles */
+@media (max-width: 480px) {
+  .contact {
+    padding: 1.5rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-content {
+    gap: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: clamp(1.8rem, 7vw, 2rem);
+  }
+  
+  .info-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .info-header p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-item {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    margin-right: 0.75rem;
+  }
+  
+  .contact-text h4 {
+    font-size: 0.95rem;
+  }
+  
+  .contact-link {
+    font-size: 0.85rem;
+  }
+  
+  .social-links h4 {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+  .social-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .form-container {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+  
+  .form-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .form-header p {
+    font-size: 0.85rem;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+  
+  .btn-submit {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+  
+  .success-message {
+    padding: 1.5rem;
+  }
+  
+  .success-icon {
+    font-size: 3rem;
+  }
+  
+  .success-message h3 {
+    font-size: 1.3rem;
+  }
+  
+  .success-message p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Media queries pour très petits écrans */
+@media (max-width: 360px) {
+  .contact {
+    padding: 1rem 0;
+  }
+  
+  .form-container {
+    padding: 1rem;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 0.75rem;
+  }
+  
+  .contact-icon {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .btn-submit {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
 }
 </style>
+
+
+

@@ -139,7 +139,6 @@ const scrollToSection = (sectionId: string, serviceTitle: string) => {
               </li>
             </ul>
             <div class="service-footer">
-              <!-- <div class="service-price">{{ service.price }}</div> -->
               <button class="btn-service" @click="scrollToSection('contact',service.title)" :title="`Contactez-moi pour ${service.title}`" :aria-label="`Contactez-moi pour ${service.title}`" >En savoir plus</button>
             </div>
           </div>
@@ -152,33 +151,50 @@ const scrollToSection = (sectionId: string, serviceTitle: string) => {
 
 
 <style scoped>
+/* Variables CSS pour cohérence avec les autres sections */
+:root {
+  --primary-color: #ff6b35;
+  --secondary-color: #f7931e;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-muted: #888;
+  --bg-dark: #1a1a2e;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --gradient-primary: linear-gradient(45deg, #ff6b35, #f7931e);
+}
+
 .services {
   background: var(--bg-dark);
-  position: relative;
-  padding-top: 1rem; /* Réduit l'espace avec la section précédente */
+  color: var(--text-primary);
+  contain: layout style paint;
 }
 
-.services::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 30% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 70% 80%, rgba(74, 144, 226, 0.1) 0%, transparent 50%);
-  pointer-events: none;
+.section-padding {
+  padding: 3rem 0;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header optimisé mais cohérent */
 .section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.section-header.visible {
+  opacity: 1;
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 700;
-  color: var(--text-primary);
   margin-bottom: 1rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
@@ -188,198 +204,395 @@ const scrollToSection = (sectionId: string, serviceTitle: string) => {
 
 .section-divider {
   width: 60px;
-  height: 4px;
+  height: 3px;
   background: var(--gradient-primary);
   margin: 0 auto;
   border-radius: 2px;
 }
 
-.section-subtitle {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
+/* Grid cohérent avec les autres sections */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  position: relative;
-  z-index: 1;
-  align-items: stretch; /* Assure que toutes les cartes ont la même hauteur */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
+/* Cards avec style cohérent */
 .service-card {
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   opacity: 0;
-  transform: translateY(50px);
-  cursor: pointer;
-  display: flex; /* Ajouté pour le flexbox */
-  flex-direction: column; /* Ajouté pour organiser le contenu en colonne */
-  height: 100%; /* Assure que la carte prend toute la hauteur disponible */
+  transition: opacity 0.4s ease;
+  contain: layout style paint;
 }
 
 .service-card.visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
-.service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+/* Effet glass cohérent mais simplifié */
+.glass {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
 }
 
-.service-card:hover .service-hover-effect {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.service-hover-effect {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
-  opacity: 0;
-  transform: scale(0.5);
-  transition: all 0.5s ease;
-  pointer-events: none;
-  z-index: -1;
-}
-
+/* Icon avec couleurs cohérentes */
 .service-icon {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   background: var(--gradient-primary);
-  border-radius: 20px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
-  position: relative;
-  overflow: hidden;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
-.service-icon::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s ease;
-}
-
-.service-card:hover .service-icon::before {
-  left: 100%;
-}
-
-.service-icon span {
-  font-size: 2rem;
-  filter: grayscale(100%) brightness(2);
-}
-
+/* Content optimisé */
 .service-content {
-  display: flex; /* Ajouté pour le flexbox */
-  flex-direction: column; /* Ajouté pour organiser le contenu en colonne */
-  flex: 1; /* Ajouté pour que le contenu prenne tout l'espace disponible */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .service-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
+  margin-bottom: 0.75rem;
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  line-height: 1.3;
 }
 
 .service-description {
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-size: 0.9rem;
 }
 
+/* Features avec couleurs cohérentes */
 .service-features {
   list-style: none;
   padding: 0;
-  margin-bottom: 2rem;
-  flex: 1; /* Ajouté pour que les features prennent l'espace disponible */
+  margin: 0 0 auto 0;
+  flex-grow: 1;
 }
 
 .service-features li {
   display: flex;
-  align-items: center;
-  color: var(--text-secondary);
+  align-items: flex-start;
   margin-bottom: 0.5rem;
-  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 
 .feature-check {
   color: var(--primary-color);
   font-weight: bold;
-  margin-right: 0.75rem;
-  font-size: 1.1rem;
+  margin-right: 0.5rem;
+  width: 16px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
 }
 
+/* Footer cohérent */
 .service-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
-  margin-top: auto; /* Ajouté pour pousser le footer vers le bas */
-}
-
-.service-price {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--primary-color);
 }
 
 .btn-service {
-  background: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  padding: 0.5rem 1.5rem;
-  border-radius: 25px;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  width: 100%;
+  transition: transform 0.2s ease;
 }
 
-.btn-service:hover {
-  background: var(--primary-color);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+.btn-service:active {
+  transform: scale(0.98);
 }
 
-@media (max-width: 768px) {
+/* Suppression de l'effet hover sur mobile */
+.service-hover-effect {
+  display: none;
+}
+
+/* Desktop - effets cohérents avec les autres sections */
+@media (min-width: 769px) {
+  .section-padding {
+    padding: 5rem 0;
+  }
+  
+  .container {
+    padding: 0 2rem;
+  }
+  
+  .section-header {
+    margin-bottom: 4rem;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+  
+  .section-header.visible {
+    transform: translateY(0);
+  }
+  
   .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
   }
   
   .service-card {
-    padding: 1.5rem;
+    padding: 2rem;
+    border-radius: 20px;
+    transform: translateY(50px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(20px);
+  }
+  
+  .service-card.visible {
+    transform: translateY(0);
+  }
+  
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 20px;
+  }
+  
+  .service-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .service-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .service-features li {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
   }
   
   .service-footer {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: stretch;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
   }
   
   .btn-service {
-    width: 100%;
-    text-align: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 25px;
+  }
+  
+  .btn-service:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Effet hover cohérent avec les autres sections */
+  .service-hover-effect {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    border-radius: 20px;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .service-card:hover .service-hover-effect {
+    opacity: 0.05;
+  }
+  
+  .service-card {
+    will-change: transform, opacity;
+  }
+  
+  .service-card.visible {
+    will-change: auto;
+  }
+}
+
+/* Tablettes */
+@media (max-width: 768px) and (min-width: 481px) {
+  .section-padding {
+    padding: 2.5rem 0;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  .service-card {
+    padding: 1.25rem;
+  }
+  
+  .service-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.3rem;
+  }
+  
+  .service-title {
+    font-size: 1.15rem;
+  }
+}
+
+/* Mobile optimisé */
+@media (max-width: 480px) {
+  .section-padding {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .service-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+    /* Suppression du backdrop-filter sur mobile */
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .service-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+  }
+  
+  .service-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .service-description {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .service-features li {
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .service-footer {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+  
+  .btn-service {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 15px;
+  }
+}
+
+/* Très petits mobiles */
+@media (max-width: 360px) {
+  .section-padding {
+    padding: 1.5rem 0;
+  }
+  
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .services-grid {
+    gap: 0.75rem;
+  }
+  
+  .service-card {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
+  .service-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+  }
+  
+  .service-title {
+    font-size: 1rem;
+  }
+  
+  .service-description {
+    font-size: 0.8rem;
+  }
+  
+  .service-features li {
+    font-size: 0.75rem;
+  }
+  
+  .btn-service {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Rendu immédiat sur mobile pour performance */
+@media (max-width: 768px) {
+  .service-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .section-header {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Suppression des animations sur connexion lente */
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .section-header,
+  .btn-service {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 </style>
+
+

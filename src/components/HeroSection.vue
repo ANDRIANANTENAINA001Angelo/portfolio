@@ -69,9 +69,8 @@ const downloadCV = () => {
           <h2 class="hero-subtitle">Développeur Logiciel & Intelligence Artificielle</h2>
           <p class="hero-description">
             Basé à Madagascar, je développe des solutions web, data et intelligentes. 
-            Laravel, Python, IA, automatisation... tout ce qu’il faut pour transformer vos idées en applications concrètes.
+            Laravel, Python, IA, automatisation... tout ce qu'il faut pour transformer vos idées en applications concrètes.
           </p>
-
           <div class="hero-buttons">
             <button @click="scrollToSection('projects')" class="btn-primary">
               Voir mes projets
@@ -101,7 +100,7 @@ const downloadCV = () => {
           <div class="image-container">
             <div class="image-glow"></div>
             <img 
-              src="/ANDRINANATENIANA-Angelo-profile-1-updated.png" 
+              src="/ANDRINANATENIANA-Angelo-profile-1-updated.png"
               alt="ANDRIANANTENAINA Angelo - Développeur Logiciel & IA à Madagascar"
               class="profile-image"
             />
@@ -131,7 +130,14 @@ const downloadCV = () => {
   position: relative;
   overflow: hidden;
   padding: 4rem 0;
-  background: var(--gradient-dark);
+  background: var(--gradient-dark, linear-gradient(135deg, #1a1a2e 0%, #16213e 100%));
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
 }
 
 .hero-background {
@@ -152,7 +158,7 @@ const downloadCV = () => {
 .shape {
   position: absolute;
   border-radius: 50%;
-  background: var(--gradient-primary);
+  background: var(--gradient-primary, linear-gradient(45deg, #ff6b35, #f7931e));
   opacity: 0.1;
   animation: float 6s ease-in-out infinite;
 }
@@ -207,19 +213,22 @@ const downloadCV = () => {
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: var(--text-primary);
+  color: var(--text-primary, #ffffff);
+  /* word-wrap: break-word; */
+  /* hyphens: auto; */
 }
 
 .name-highlight {
-  background: var(--gradient-primary);
+  background: var(--gradient-primary, linear-gradient(45deg, #ff6b35, #f7931e));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
+  display: inline-block;
 }
 
 .name-highlight::after {
@@ -229,7 +238,7 @@ const downloadCV = () => {
   left: 0;
   width: 0;
   height: 3px;
-  background: var(--gradient-primary);
+  background: var(--gradient-primary, linear-gradient(45deg, #ff6b35, #f7931e));
   animation: highlight-expand 1s ease-out 1.5s both;
 }
 
@@ -239,15 +248,19 @@ const downloadCV = () => {
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--text-secondary, #b0b0b0);
   margin-bottom: 1.2rem;
+  line-height: 1.4;
 }
 
 .hero-description {
-  margin-bottom: 1rem;
-
+  margin-bottom: 2rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.6;
+  color: var(--text-primary, #ffffff);
+  max-width: 100%;
 }
 
 .hero-buttons {
@@ -258,61 +271,54 @@ const downloadCV = () => {
   justify-content: center;
 }
 
-.btn-primary {
-  background: var(--gradient-primary);
-  color: white;
+.btn-primary, .btn-secondary, .btn-download {
   border: none;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+.btn-primary {
+  background: var(--gradient-primary, linear-gradient(45deg, #ff6b35, #f7931e));
+  color: white;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-light);
+  box-shadow: var(--shadow-light, 0 10px 25px rgba(255, 107, 53, 0.3));
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-  padding: 0.75rem 2rem;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 1rem;
+  color: var(--primary-color, #ff6b35);
+  border: 1px solid var(--primary-color, #ff6b35);
 }
 
 .btn-secondary:hover {
-  background: var(--primary-color);
+  background: var(--primary-color, #ff6b35);
   color: white;
   transform: translateY(-2px);
 }
 
 .btn-download {
   background: rgba(255, 107, 53, 0.1);
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-  padding: 0.75rem 2rem;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--primary-color, #ff6b35);
+  border: 1px solid var(--primary-color, #ff6b35);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1rem;
 }
 
 .btn-download:hover {
-  background: var(--primary-color);
+  background: var(--primary-color, #ff6b35);
   color: white;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-light);
+  box-shadow: var(--shadow-light, 0 10px 25px rgba(255, 107, 53, 0.3));
 }
 
 .download-icon {
@@ -321,25 +327,28 @@ const downloadCV = () => {
 
 .hero-stats {
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 4vw, 2rem);
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .stat {
   text-align: center;
+  min-width: 120px;
 }
 
 .stat-number {
   display: block;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--primary-color, #ff6b35);
   margin-bottom: 0.25rem;
 }
 
 .stat-label {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  color: var(--text-muted, #888);
+  line-height: 1.3;
 }
 
 .hero-image {
@@ -358,13 +367,14 @@ const downloadCV = () => {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
 }
 
 .image-glow {
   position: absolute;
-  width: 400px;
-  height: 400px;
-  background: var(--gradient-primary);
+  width: min(400px, 80vw);
+  height: min(400px, 80vw);
+  background: var(--gradient-primary, linear-gradient(45deg, #ff6b35, #f7931e));
   border-radius: 50%;
   opacity: 0.2;
   filter: blur(50px);
@@ -377,11 +387,11 @@ const downloadCV = () => {
 }
 
 .profile-image {
-  width: 350px;
-  height: 350px;
+  width: min(350px, 70vw);
+  height: min(350px, 70vw);
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--primary-color);
+  border: 3px solid var(--primary-color, #ff6b35);
   position: relative;
   z-index: 2;
   transition: transform 0.3s ease;
@@ -395,19 +405,21 @@ const downloadCV = () => {
   position: absolute;
   width: 100%;
   height: 100%;
+  pointer-events: none;
 }
 
 .floating-element {
   position: absolute;
-  background: var(--bg-card);
+  background: var(--bg-card, rgba(255, 255, 255, 0.1));
   backdrop-filter: blur(20px);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.2));
   border-radius: 15px;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--text-primary, #ffffff);
   animation: float-element 4s ease-in-out infinite;
+  white-space: nowrap;
 }
 
 .floating-element.web {
@@ -461,7 +473,7 @@ const downloadCV = () => {
 .scroll-arrow {
   width: 30px;
   height: 30px;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--primary-color, #ff6b35);
   border-top: none;
   border-right: none;
   transform: rotate(-45deg);
@@ -474,42 +486,226 @@ const downloadCV = () => {
   60% { transform: rotate(-45deg) translateY(-5px); }
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .hero-content {
+    gap: 3rem;
+  }
+  
+  .profile-image {
+    width: min(300px, 60vw);
+    height: min(300px, 60vw);
+  }
+  
+  .image-glow {
+    width: min(350px, 70vw);
+    height: min(350px, 70vw);
+  }
+  
+  .floating-element {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .hero-buttons {
+    gap: 0.8rem;
+  }
+  
+  .btn-primary, .btn-secondary, .btn-download {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablettes en mode portrait */
 @media (max-width: 768px) {
   .hero {
     padding: 2rem 0;
+    min-height: auto;
+  }
+  
+  .container {
+    padding: 0 1rem;
   }
   
   .hero-content {
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
+    min-height: auto;
+  }
+  
+  .hero-text {
+    order: 2;
+  }
+  
+  .hero-image {
+    order: 1;
   }
   
   .hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    margin-bottom: 0.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    margin-bottom: 1rem;
+  }
+  
+  .hero-description {
+    margin-bottom: 1.5rem;
+    font-size: clamp(0.85rem, 3vw, 1rem);
   }
   
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-buttons button{
+    justify-content: center;
+    justify-items: center;
+    
+  }
+  
+  .btn-primary, .btn-secondary, .btn-download {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
   }
   
   .hero-stats {
     justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .stat {
+    min-width: 100px;
   }
   
   .profile-image {
-    width: 250px;
-    height: 250px;
+    width: min(280px, 70vw);
+    height: min(280px, 70vw);
   }
   
   .image-glow {
-    width: 300px;
-    height: 300px;
+    width: min(320px, 80vw);
+    height: min(320px, 80vw);
   }
   
   .floating-element {
     display: none;
+  }
+  
+  .shape-1, .shape-2, .shape-3 {
+    opacity: 0.05;
+  }
+}
+
+/* Petits mobiles */
+@media (max-width: 480px) {
+  .hero {
+    padding: 1.5rem 0;
+  }
+  
+  .container {
+    padding: 0 0.8rem;
+  }
+  
+  .hero-content {
+    gap: 1.5rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    line-height: 1.1;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+  }
+  
+  .hero-description {
+    font-size: clamp(0.8rem, 3.5vw, 0.9rem);
+    margin-bottom: 1.2rem;
+  }
+  
+  .hero-buttons {
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn-primary, .btn-secondary, .btn-download {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    max-width: 250px;
+  }
+  
+  .hero-stats {
+    gap: 1rem;
+    flex-direction: column;
+  }
+  
+  .stat {
+    min-width: auto;
+  }
+  
+  .stat-number {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+  
+  .stat-label {
+    font-size: clamp(0.75rem, 3vw, 0.85rem);
+  }
+  
+  .profile-image {
+    width: min(220px, 60vw);
+    height: min(220px, 60vw);
+  }
+  
+  .image-glow {
+    width: min(260px, 70vw);
+    height: min(260px, 70vw);
+  }
+  
+  .scroll-indicator {
+    bottom: 1rem;
+  }
+  
+  .scroll-arrow {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* Très petits écrans */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.4rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .hero-description {
+    font-size: 0.8rem;
+  }
+  
+  .profile-image {
+    width: min(180px, 55vw);
+    height: min(180px, 55vw);
+  }
+  
+  .image-glow {
+    width: min(220px, 65vw);
+    height: min(220px, 65vw);
   }
 }
 </style>
