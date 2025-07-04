@@ -13,22 +13,21 @@ import { onMounted, ref } from 'vue'
 
 onMounted(() => {
   const fullPath = window.location.pathname
-  const base = import.meta.env.BASE_URL || '/developper-logiciel-ia'
+  const base = '/developper-logiciel-ia/'
   let section = fullPath.startsWith(base)
     ? fullPath.slice(base.length)
     : fullPath.slice(1)
+    
 
   if (section) {
-    const tryScroll = () => {
       const el = document.getElementById(section)
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' })
-        clearInterval(check) 
-      }
-    }
+      setTimeout(() => {
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' })
+        }
+        
+      }, 200);
 
-    const check = setInterval(tryScroll, 100)
-    setTimeout(() => clearInterval(check), 3000)
   }
 })
 

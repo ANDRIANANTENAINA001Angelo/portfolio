@@ -6,7 +6,7 @@ import ServicesSection from '../components/ServicesSection.vue'
 import CompetencesSection from '../components/CompetencesSection.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
 
-const basePath = import.meta.env.VITE_BASE_PATH ||'/developper-logiciel-ia/' 
+const basePath = '/developper-logiciel-ia' 
 
 
 const router = createRouter({
