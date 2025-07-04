@@ -9,10 +9,10 @@ const basePath = import.meta.env.BASE_URL.replace(/\/$/, '') || "/developper-log
 
 const sections = [
   { id: 'home', path: '/', label: 'Accueil' },
-  { id: 'about', path: '/a-propos', label: 'À propos' },
+  { id: 'a-propos', path: '/a-propos', label: 'À propos' },
   { id: 'services', path: '/services', label: 'Services' },
   { id: 'competences', path: '/competences', label: 'Compétences' },
-  { id: 'projects', path: '/projets', label: 'Projets' },
+  { id: 'projets', path: '/projets', label: 'Projets' },
   { id: 'contact', path: '/contact', label: 'Contact' }
 ]
 

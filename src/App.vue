@@ -1,26 +1,13 @@
 <script setup lang="ts">
-import HeroSection from './components/HeroSection.vue'
-import AboutSection from './components/AboutSection.vue'
-import ServicesSection from './components/ServicesSection.vue'
-import CompetencesSection from './components/CompetencesSection.vue'
-import ProjectsSection from './components/ProjectsSection.vue'
-import ContactSection from './components/ContactSection.vue'
-import Navigation from './components/Navigation.vue'
-import Footer from './components/Footer.vue'
+
+import HomePage from './components/HomePage.vue'
 
 
 </script>
 
 <template>
   <div id="app">
-    <Navigation />
-    <HeroSection />
-    <AboutSection />
-    <ServicesSection />
-    <CompetencesSection />
-    <ProjectsSection />
-    <ContactSection />
-    <Footer />
+    <HomePage />
   </div>
 </template>
 

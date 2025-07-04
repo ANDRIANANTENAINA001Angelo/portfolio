@@ -1,31 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// @ts-ignore
-import MainLayout from '../layouts/MainLayout.vue'
+import HomePage from '../components/HomePage.vue'
 import HeroSection from '../components/HeroSection.vue'
 import AboutSection from '../components/AboutSection.vue'
 import ServicesSection from '../components/ServicesSection.vue'
 import CompetencesSection from '../components/CompetencesSection.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
-import ProjectsDetaisSection from '../components/ProjectsDetaisSection.vue'
+
+const basePath = import.meta.env.VITE_BASE_PATH ||'/developper-logiciel-ia/' 
+
 
 const router = createRouter({
-  history: createWebHistory('/developper-logiciel-ia'),
+  history: createWebHistory(basePath),
   routes: [
     {
       path: '/',
-      component: MainLayout,
+      component: HomePage,
       children: [
         { path: '', name: 'acceuil', component: HeroSection },
         { path: 'a-propos', name: 'apropos', component: AboutSection },
         { path: 'services', name: 'services', component: ServicesSection },
         { path: 'competences', name: 'competences', component: CompetencesSection },
-        { path: 'projets', name: 'projects', component: ProjectsSection },
-        {
-          path: 'projets/:slug',
-          name: 'project-detail',
-          component: ProjectsDetaisSection,
-          props: true
-        },
+        { path: 'projets', name: 'projets', component: ProjectsSection },
       ]
     },
     { path: '/:catchAll(.*)', redirect: '/' }
@@ -34,5 +29,9 @@ const router = createRouter({
     return { top: 0 }
   }
 })
+
+
+
+
 
 export default router

@@ -1,6 +1,13 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, watch } from 'vue'
 import emailjs from 'emailjs-com'
+
+const props = defineProps<{
+  prefill: {
+    subject: string
+    message: string
+  }
+}>()
 
 const contactRef = ref<HTMLElement>()
 const isSubmitting = ref(false)
@@ -108,10 +115,21 @@ const contactInfo = [
   {
     icon: '💼',
     title: 'LinkedIn',
-    value: 'Mon profil LinkedIn',
+    value: 'ANDRIANANTENAINA Angelo',
     link: 'https://www.linkedin.com/in/andrianantenaina-angelo/'
   }
 ]
+
+const lastInjectedTitle = ref('')
+
+watch(() => props.prefill, (newPrefill) => {
+  if (newPrefill.subject && newPrefill.subject !== lastInjectedTitle.value) {
+    form.subject = newPrefill.subject
+    form.message = newPrefill.message
+    lastInjectedTitle.value = newPrefill.subject
+  }
+}, { immediate: true, deep: true })
+
 </script>
 
 <template>

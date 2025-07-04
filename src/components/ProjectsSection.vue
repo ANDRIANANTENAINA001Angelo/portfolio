@@ -32,7 +32,7 @@ const filteredProjects = computed(() => {
 </script>
 
 <template>
-  <section id="projects" ref="projectsRef" class="projects section-padding">
+  <section id="projets" ref="projectsRef" class="projects section-padding">
     <div class="container">
       <div class="section-header" :class="{ 'visible': isVisible }">
         <h2 class="section-title">Mes Projets</h2>

@@ -23,7 +23,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="about" ref="aboutRef" class="about-section">
+  <section id="a-propos" ref="aboutRef" class="about-section">
     <div class="container">
       <div class="about-content" :class="{ 'visible': isVisible }">
         <div class="section-header">

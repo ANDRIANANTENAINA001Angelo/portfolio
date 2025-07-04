@@ -5,6 +5,9 @@ import { useIntersectionObserver } from '@vueuse/core'
 const servicesRef = ref<HTMLElement>()
 const isVisible = ref(false)
 
+const emit = defineEmits(['contact-request'])
+
+
 const { stop } = useIntersectionObserver(
   servicesRef,
   ([{ isIntersecting }]) => {
@@ -92,7 +95,12 @@ const services = [
 ]
 
 
-const scrollToSection = (sectionId: string) => {
+const scrollToSection = (sectionId: string, serviceTitle: string) => {
+  
+  if (sectionId === "contact") {
+    emit('contact-request', serviceTitle)
+  }
+  
   const element = document.getElementById(sectionId)
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' })
@@ -132,7 +140,7 @@ const scrollToSection = (sectionId: string) => {
             </ul>
             <div class="service-footer">
               <!-- <div class="service-price">{{ service.price }}</div> -->
-              <button class="btn-service" @click="scrollToSection('contact')" :title="`Contactez-moi pour ${service.title}`" :aria-label="`Contactez-moi pour ${service.title}`" >En savoir plus</button>
+              <button class="btn-service" @click="scrollToSection('contact',service.title)" :title="`Contactez-moi pour ${service.title}`" :aria-label="`Contactez-moi pour ${service.title}`" >En savoir plus</button>
             </div>
           </div>
           <div class="service-hover-effect"></div>

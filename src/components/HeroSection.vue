@@ -5,10 +5,14 @@ import { useHead } from '@vueuse/head'
 const heroRef = ref<HTMLElement>()
 const isVisible = ref(false)
 
+
+
 onMounted(() => {
+
   setTimeout(() => {
     isVisible.value = true
   }, 300)
+  
 })
 
 
@@ -87,8 +91,8 @@ const downloadCV = () => {
               <span class="stat-label">Satisfaction client & encadrants</span>
             </div>
             <div class="stat">
-              <span class="stat-number">3+</span>
-              <span class="stat-label">Années d'expérience projet</span>
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Années d'expérience en projet</span>
             </div>
           </div>
         </div>
@@ -113,7 +117,7 @@ const downloadCV = () => {
       </div>
     </div>
     
-    <div class="scroll-indicator" @click="scrollToSection('about')">
+    <div class="scroll-indicator" @click="scrollToSection('services')">
       <div class="scroll-arrow"></div>
     </div>
   </section>
