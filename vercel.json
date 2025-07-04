@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+      {
+        "source": "/developper-logiciel-ia/(.*)",
+        "destination": "/developper-logiciel-ia/index.html"
+      }
+    ]
+  }
+  
