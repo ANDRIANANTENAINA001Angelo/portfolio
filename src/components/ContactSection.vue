@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref, reactive, watch } from 'vue'
 import emailjs from 'emailjs-com'
+import linkedinlogo from "@/assets/in-logo.svg"
+import fblogo from "@/assets/fb-logo.svg"
+
 
 const props = defineProps<{
   prefill: {
@@ -170,8 +173,8 @@ watch(() => props.prefill, (newPrefill) => {
           <div class="social-links">
             <h4 class="social-links-header">Suivez-moi</h4>
             <div class="social-icons">
-              <a href="https://www.linkedin.com/in/andrianantenaina-angelo/" class="social-icon" target="_blank"><img src="/in-logo.svg" alt=""></a>
-              <a href="https://www.facebook.com/andrianantenaina.angelo.ia" class="social-icon" target="_blank"><img src="/fb-logo.svg" alt=""></a>
+              <a href="https://www.linkedin.com/in/andrianantenaina-angelo/" class="social-icon" target="_blank"><img :src="linkedinlogo" alt="linkedin-logo"></a>
+              <a href="https://www.facebook.com/andrianantenaina.angelo.ia" class="social-icon" target="_blank"><img :src="fblogo" alt="facebook-logo"></a>
             </div>
           </div>
         </div>

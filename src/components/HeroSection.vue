@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
+import imgProfile from '@/assets/ANDRINANATENIANA-Angelo-profile.png'
 
 const heroRef = ref<HTMLElement>()
 const isVisible = ref(false)
@@ -100,7 +101,7 @@ const downloadCV = () => {
           <div class="image-container">
             <div class="image-glow"></div>
             <img 
-              src="/ANDRINANATENIANA-Angelo-profile-1-updated.png"
+              :src="imgProfile"
               alt="ANDRIANANTENAINA Angelo - Développeur Logiciel & IA à Madagascar"
               class="profile-image"
             />

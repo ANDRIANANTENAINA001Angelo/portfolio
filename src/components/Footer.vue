@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import linkedinlogo from "@/assets/in-logo.svg"
+import fblogo from "@/assets/fb-logo.svg"
+import whatsapplogo from "@/assets/whatsapp-logo.svg"
+
 const router = useRouter()
 
 const currentYear = new Date().getFullYear()
@@ -33,9 +37,9 @@ const footerLinks = {
     { label: 'Automatisation & Scripts IA', id: 'services' }
   ],
   social: [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andrianantenaina-angelo/', icon: '/in-logo.svg' },
-    { label: 'Facebook', href: 'https://www.facebook.com/andrianantenaina.angelo.ia', icon: '/fb-logo.svg' },
-    { label: 'Whatsapp', href: 'https://wa.me/261345992047', icon: '/whatsapp-logo.svg' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/andrianantenaina-angelo/', icon: linkedinlogo },
+    { label: 'Facebook', href: 'https://www.facebook.com/andrianantenaina.angelo.ia', icon: fblogo },
+    { label: 'Whatsapp', href: 'https://wa.me/261345992047', icon: whatsapplogo },
   ]
 }
 </script>
