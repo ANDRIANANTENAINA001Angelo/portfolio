@@ -20,6 +20,9 @@ onMounted(() => {
     observer.observe(aboutRef.value)
   }
 })
+
+
+
 </script>
 
 <template>
@@ -38,7 +41,7 @@ onMounted(() => {
             </p>
             
             <p class="about-description">
-              Fort de plus de 3 ans d'expérience en développement fullstack et d'une spécialisation en intelligence artificielle et data science depuis plus d'un an, je m'appuie sur une expertise hybride pour créer des outils à la fois performants, fiables et pertinents.
+              Fort de plus de 5 ans d'expérience en développement fullstack et d'une spécialisation en intelligence artificielle et data science depuis plus d'un an, je m'appuie sur une expertise hybride pour créer des outils à la fois performants, fiables et pertinents.
             </p>
             
             <p class="about-description">

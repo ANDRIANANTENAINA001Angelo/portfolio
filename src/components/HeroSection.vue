@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useHead } from '@vueuse/head'
-import imgProfile from '@/assets/ANDRINANATENIANA-Angelo-profile.png'
+import imgProfile from '@/assets/ANDRINANATENIANA-Angelo-profile.jpg'
+import { useSeo } from '../composables/seo'
 
 const heroRef = ref<HTMLElement>()
 const isVisible = ref(false)
@@ -16,21 +16,12 @@ onMounted(() => {
   
 })
 
-
-useHead({
-  title: 'Développeur Web & IA à Madagascar | Portfolio de ANDRIANANTENAINA Angelo',
-  meta: [
-    {
-      name: 'description',
-      content: 'ANDRIANANTENAINA Angelo, développeur Laravel & Intelligence Artificielle à Madagascar. Conception et création d’applications web, mobile, data et automatisées.'
-    },
-    {
-      name: 'keywords',
-      content: 'Développeur Laravel Madagascar, IA, Data, Web, API, Vue.js, freelance, Django, data anayste, data scientiste, python, node, express'
-    },
-    { name: 'author', content: 'ANDRIANANTENAINA Angelo' }
-  ]
+useSeo({
+  title: `Développeur Web & IA à Madagascar | Portfolio de ANDRIANANTENAINA Angelo`,
+  description: "ANDRIANANTENAINA Angelo, développeur Web, Mobile & Intelligence Artificielle à Madagascar. Conception et création d’applications, analyse data et automatisation.",
 })
+
+
 
 
 const scrollToSection = (sectionId: string) => {

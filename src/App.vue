@@ -1,6 +1,36 @@
 <script setup lang="ts">
 
 import HomePage from './components/HomePage.vue'
+import { useHead } from '@vueuse/head'
+
+
+useHead({
+  title: 'Développeur Web & IA à Madagascar | Portfolio de ANDRIANANTENAINA Angelo',
+  meta: [
+    {
+      name: 'description',
+      content: 'ANDRIANANTENAINA Angelo, développeur Laravel & Intelligence Artificielle à Madagascar. Conception et création d’applications web, mobile, data et automatisées.'
+    },
+    {
+      name: 'keywords',
+      content: 'ANDRIANANTENAINA Angelo, Développeur Laravel Madagascar, IA, Data, Web, API, Vue.js, freelance, Django, data anayste, data scientiste, python, node, express'
+    },
+    { name: 'author', content: 'ANDRIANANTENAINA Angelo' },
+
+    // ✅ Open Graph (pour Facebook, LinkedIn, WhatsApp)
+    { property: 'og:title', content: 'Développeur Web & IA à Madagascar | Portfolio de ANDRIANANTENAINA Angelo' },
+    { property: 'og:description', content: 'Développeur fullstack Laravel & Data Scientist. Découvrez mes projets web, IA et automatisation.' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://www.andrianantenaina-angelo.site' },
+    { property: 'og:image', content: 'https://www.andrianantenaina-angelo.site/preview-opengraph.jpg' },
+
+    // ✅ Twitter Card 
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Portfolio de ANDRIANANTENAINA Angelo' },
+    { name: 'twitter:description', content: 'Développeur Laravel & IA à Madagascar. Découvrez mes projets.' },
+    { name: 'twitter:image', content: 'https://www.andrianantenaina-angelo.site/preview-opengraph.jpg' },
+  ]
+})
 
 </script>
 
