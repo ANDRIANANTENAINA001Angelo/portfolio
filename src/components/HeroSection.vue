@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import imgProfile from '@/assets/ANDRINANATENIANA-Angelo-profile.jpg'
 import { useSeo } from '../composables/seo'
+import cvPath from "@/assets/CV-ANDRIANANTENAINA-Angelo.pdf"
 
 const heroRef = ref<HTMLElement>()
 const isVisible = ref(false)
@@ -33,7 +34,7 @@ const scrollToSection = (sectionId: string) => {
 
 const downloadCV = () => {
   const link = document.createElement('a')
-  link.href = '/CV-ANDRIANANTENAINA-Angelo.pdf'  
+  link.href = cvPath  
   link.setAttribute('download', 'CV-ANDRIANANTENAINA-Angelo.pdf')
   document.body.appendChild(link)
   link.click()
@@ -60,7 +61,7 @@ const downloadCV = () => {
           </h1>
           <h2 class="hero-subtitle">Développeur Logiciel & Intelligence Artificielle</h2>
           <p class="hero-description">
-            Basé à Madagascar, je développe des solutions web, data et intelligentes. 
+            Basé à Madagascar, je développe des solutions web, mobile et intelligentes. 
             Laravel, Python, IA, automatisation... tout ce qu'il faut pour transformer vos idées en applications concrètes.
           </p>
           <div class="hero-buttons">

@@ -25,7 +25,7 @@ const skillCategories = [
   {
     title: 'Développement Frontend',
     icon: '🎨',
-    skills: ['Vue.js', 'TailwindCSS', 'React', 'Nuxt.js', 'HTML/CSS', 'Vite', 'Alpine.js']
+    skills: ['Vue.js', 'TailwindCSS', 'React', 'Nuxt.js', 'HTML/CSS', 'Bootstrap']
   },
   {
     title: 'Data Science & IA',
@@ -35,12 +35,12 @@ const skillCategories = [
   {
     title: 'Base de données',
     icon: '🗃️',
-    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite']
+    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite', "Redis"]
   },
   {
     title: 'DevOps & Outils',
     icon: '⚙️',
-    skills: ['Git', 'CI/CD', 'Railway', 'Render', 'Nginx', 'Jenkins', 'VSCode']
+    skills: ['Git', 'CI/CD', 'Render', 'Nginx', 'Jenkins', 'VSCode']
   },
   {
     title: 'Soft Skills',

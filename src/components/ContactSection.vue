@@ -106,7 +106,7 @@ const contactInfo = [
   {
     icon: '📱',
     title: 'Téléphone',
-    value: '+261 345 992 047',
+    value: '+261 34 59 920 47',
     link: 'tel:+261345992047'
   },
   {

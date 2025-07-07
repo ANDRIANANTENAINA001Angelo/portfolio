@@ -106,7 +106,7 @@ const footerLinks = {
                 </li>
                 <li>
                   <a href="tel:+261345992047" class="footer-link">
-                    +261 345 992 047
+                    +261 34 59 920 47
                   </a>
                 </li>
                 <li>

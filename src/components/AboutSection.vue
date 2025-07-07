@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+// import { useSeo } from '../composables/seo'
 
 const aboutRef = ref<HTMLElement>()
 const isVisible = ref(false)
@@ -21,7 +22,12 @@ onMounted(() => {
   }
 })
 
-
+// useSeo({
+//   title: `${project.title} | Projets - ANDRIANANTENAINA Angelo`,
+//   description: project.description,
+//   image: project.image,
+//   url: `https://www.andrianantenaina-angelo.site/projects/${project.slug}`
+// })
 
 </script>
 
@@ -37,7 +43,7 @@ onMounted(() => {
         <div class="about-card glass">
           <div class="about-text">
             <p class="about-description">
-              Développeur logiciel & IA basé à Madagascar, je conçois des applications web, data et intelligentes sur mesure pour automatiser, prédire et transformer vos idées en solutions concrètes à forte valeur ajoutée.
+              Développeur logiciel & IA basé à Madagascar, je conçois des applications web et mobile intelligentes sur mesure pour automatiser, prédire et transformer vos idées en solutions concrètes à forte valeur ajoutée.
             </p>
             
             <p class="about-description">
