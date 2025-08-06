@@ -65,7 +65,7 @@ const downloadCV = () => {
             Laravel, Python, IA, automatisation... tout ce qu'il faut pour transformer vos idées en applications concrètes.
           </p>
           <div class="hero-buttons">
-            <button @click="scrollToSection('projects')" class="btn-primary">
+            <button @click="scrollToSection('projets')" class="btn-primary">
               Voir mes projets
             </button>
             <button @click="downloadCV" class="btn-download">
