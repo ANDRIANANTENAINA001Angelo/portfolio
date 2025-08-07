@@ -7,7 +7,7 @@ import CompetencesSection from '../components/CompetencesSection.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
 
 // const basePath = '/' 
-const basePath = '/developper-logiciel-ia' 
+const basePath = '/developpeur-logiciel-ia' 
 
 
 const router = createRouter({

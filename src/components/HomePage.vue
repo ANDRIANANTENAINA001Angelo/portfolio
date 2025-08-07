@@ -13,7 +13,7 @@ import { onMounted, ref } from 'vue'
 
 onMounted(() => {
   const fullPath = window.location.pathname
-  const base = '/developper-logiciel-ia/'
+  const base = '/developpeur-logiciel-ia/'
   let section = fullPath.startsWith(base)
     ? fullPath.slice(base.length)
     : fullPath.slice(1)

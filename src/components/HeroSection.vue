@@ -18,8 +18,8 @@ onMounted(() => {
 })
 
 useSeo({
-  title: `Développeur Web & IA à Madagascar | Portfolio de ANDRIANANTENAINA Angelo`,
-  description: "ANDRIANANTENAINA Angelo, développeur Web, Mobile & Intelligence Artificielle à Madagascar. Conception et création d’applications, analyse data et automatisation.",
+  title: `ANDRIANANTENAINA Angelo | Développeur Web & IA à Madagascar`,
+  description: "ANDRIANANTENAINA Angelo, développeur logiciel & Intelligence Artificielle à Madagascar. Conception et création d’applications, analyse data et automatisation.",
 })
 
 

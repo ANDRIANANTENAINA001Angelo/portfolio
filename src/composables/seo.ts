@@ -12,7 +12,7 @@ export function useSeo({
   title,
   description,
   image = 'https://www.andrianantenaina-angelo.site/preview-opengraph.jpg',
-  url = 'https://www.andrianantenaina-angelo.site',
+  url = 'https://www.andrianantenaina-angelo.site/developpeur-logiciel-ia/',
   author = 'ANDRIANANTENAINA Angelo'
 }: SeoOptions) {
   useHead({
@@ -20,7 +20,7 @@ export function useSeo({
     meta: [
       // SEO de base
       { name: 'description', content: description },
-      { name: 'keywords', content: 'ANDRIANANTENAINA Angelo, Développeur, Laravel, IA, Vue.js, Madagascar, Portfolio, Backend, Python, Freelance' },
+      { name: 'keywords', content: 'ANDRIANANTENAINA Angelo, ANDRIANANTENAINA Angelo Développeur Madagascar, ANDRIANANTENAINA Angelo Développeur Web Ia Madagascar, ANDRIANANTENAINA Angelo Développeur web ia freelanceur' },
       { name: 'author', content: author },
 
       // Open Graph (Facebook, LinkedIn, WhatsApp…)

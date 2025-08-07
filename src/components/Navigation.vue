@@ -5,7 +5,7 @@ const isScrolled = ref(false)
 const isMobileMenuOpen = ref(false)
 const activeSection = ref('home')
 
-const basePath = import.meta.env.BASE_URL.replace(/\/$/, '') || "/developper-logiciel-ia"  
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '') || "/developpeur-logiciel-ia"  
 
 const sections = [
   { id: 'home', path: '/', label: 'Accueil' },
