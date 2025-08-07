@@ -20,7 +20,7 @@ export function useSeo({
     meta: [
       // SEO de base
       { name: 'description', content: description },
-      { name: 'keywords', content: 'ANDRIANANTENAINA Angelo, ANDRIANANTENAINA Angelo Développeur Madagascar, ANDRIANANTENAINA Angelo Développeur Web Ia Madagascar, ANDRIANANTENAINA Angelo Développeur web ia freelanceur' },
+      { name: 'keywords', content: 'ANDRIANANTENAINA Angelo, Angelo Développeur Madagascar, Angelo Développeur Web Ia Madagascar, angelo développeur freelance madagascar' },
       { name: 'author', content: author },
 
       // Open Graph (Facebook, LinkedIn, WhatsApp…)

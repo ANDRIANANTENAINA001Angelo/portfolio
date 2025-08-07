@@ -56,8 +56,8 @@ const downloadCV = () => {
     <div class="container">
       <div class="hero-content">
         <div class="hero-text" :class="{ 'visible': isVisible }">
-          <h1 class="hero-title">
-            <span class="name-highlight">ANDRIANANTENAINA Angelo</span>
+          <h1 class="hero-title name-highlight">ANDRIANANTENAINA Angelo
+            <!-- <span class="name-highlight"></span> -->
           </h1>
           <h2 class="hero-subtitle">Développeur Logiciel & Intelligence Artificielle</h2>
           <p class="hero-description">
