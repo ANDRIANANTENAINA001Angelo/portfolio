@@ -5,7 +5,7 @@ interface SeoOptions {
   description: string
   image?: string
   url?: string
-  author?: string
+  author?: string, 
 }
 
 export function useSeo({
@@ -13,7 +13,7 @@ export function useSeo({
   description,
   image = 'https://www.andrianantenaina-angelo.site/preview-opengraph.jpg',
   url = 'https://www.andrianantenaina-angelo.site/developpeur-logiciel-ia/',
-  author = 'ANDRIANANTENAINA Angelo'
+  author = 'ANDRIANANTENAINA Angelo',
 }: SeoOptions) {
   useHead({
     title,
