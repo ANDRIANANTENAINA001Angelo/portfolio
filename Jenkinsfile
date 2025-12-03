@@ -68,6 +68,8 @@ pipeline {
         stage('Preview (Local demo)') {
             steps {
                 sh '''
+                    #!/bin/bash
+                    
                     cd $DEPLOY_DIR
                     
                     echo "🛑 Arrêt d'un ancien preview s'il existe"
