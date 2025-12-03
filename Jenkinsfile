@@ -6,10 +6,6 @@ pipeline {
         skipDefaultCheckout(false)
     }
 
-    triggers {
-        pollSCM('H/5 * * * *')  // Vérifie toutes les 5 minutes
-    }
-
     stages {
 
         stage('Checkout') {
