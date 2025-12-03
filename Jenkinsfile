@@ -41,7 +41,6 @@ pipeline {
                 sh '''
                     echo "=== NODE VERSION ==="
                     node -v
-
                     echo "=== NPM VERSION ==="
                     npm -v
                 '''
@@ -70,15 +69,14 @@ pipeline {
             steps {
                 sh '''
                     cd $DEPLOY_DIR
-
                     echo "🛑 Kill old preview"
                     pkill -f "vite preview" || true
-
                     echo "🚀 Starting new preview"
                     nohup npm run preview > preview.log 2>&1 &
                 '''
             }
         }
+
     }
 
     post {
