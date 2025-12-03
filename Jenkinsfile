@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DEPLOY_DIR = "/var/lib/jenkins/workspaces/portfolio-deploy"
+        NVM_DIR = "/home/angelo/.nvm"
     }
 
     options {
@@ -39,6 +40,11 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh '''
+                    export NVM_DIR="$NVM_DIR"
+                    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+                    nvm use 18
+
                     cd $DEPLOY_DIR
                     npm install
                 '''
@@ -48,6 +54,11 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+                    export NVM_DIR="$NVM_DIR"
+                    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+                    nvm use 18
+
                     cd $DEPLOY_DIR
                     npm run build
                 '''
@@ -57,6 +68,11 @@ pipeline {
         stage('Preview (Local demo)') {
             steps {
                 sh '''
+                    export NVM_DIR="$NVM_DIR"
+                    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+                    nvm use 18
+
                     cd $DEPLOY_DIR
 
                     echo "🛑 Kill old preview"
