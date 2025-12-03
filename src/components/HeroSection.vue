@@ -59,7 +59,7 @@ const downloadCV = () => {
           <h1 class="hero-title name-highlight">ANDRIANANTENAINA Angelo
             <!-- <span class="name-highlight"></span> -->
           </h1>
-          <h2 class="hero-subtitle">Développeur Logiciel & IA</h2>
+          <h2 class="hero-subtitle">Développeur Logiciel & Intéligence Artificielle</h2>
           <p class="hero-description">
             Basé à Madagascar, je développe des solutions web, mobile et intelligentes. 
             Laravel, Python, IA, automatisation... tout ce qu'il faut pour transformer vos idées en applications concrètes.
