@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DEPLOY_DIR = "/home/angelo/projets/portfolio-deploy"
+        DEPLOY_DIR = "/var/lib/jenkins/workspaces/portfolio-deploy"
     }
 
     options {
