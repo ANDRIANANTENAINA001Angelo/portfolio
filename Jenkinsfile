@@ -3,8 +3,6 @@ pipeline {
 
     environment {
         DEPLOY_DIR = "/var/lib/jenkins/workspaces/portfolio-deploy"
-        NVM_DIR = "/home/angelo/.nvm"
-        NODE_VERSION = "24"
     }
 
     options {
@@ -41,14 +39,7 @@ pipeline {
         stage('Test Node') {
             steps {
                 sh '''
-                    export NVM_DIR="$NVM_DIR"
-                    . "$NVM_DIR/nvm.sh"
-
-                    echo "=== NVM VERSION ==="
-                    command -v nvm || echo "nvm introuvable"
-
                     echo "=== NODE VERSION ==="
-                    nvm use $NODE_VERSION
                     node -v
 
                     echo "=== NPM VERSION ==="
@@ -60,11 +51,6 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh '''
-                    export NVM_DIR="$NVM_DIR"
-                    . "$NVM_DIR/nvm.sh"
-
-                    nvm use $NODE_VERSION
-
                     cd $DEPLOY_DIR
                     npm install
                 '''
@@ -74,11 +60,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    export NVM_DIR="$NVM_DIR"
-                    . "$NVM_DIR/nvm.sh"
-
-                    nvm use $NODE_VERSION
-
                     cd $DEPLOY_DIR
                     npm run build
                 '''
@@ -88,11 +69,6 @@ pipeline {
         stage('Preview (Local demo)') {
             steps {
                 sh '''
-                    export NVM_DIR="$NVM_DIR"
-                    . "$NVM_DIR/nvm.sh"
-
-                    nvm use $NODE_VERSION
-
                     cd $DEPLOY_DIR
 
                     echo "🛑 Kill old preview"
@@ -102,6 +78,15 @@ pipeline {
                     nohup npm run preview > preview.log 2>&1 &
                 '''
             }
+        }
+    }
+
+    post {
+        success {
+            echo "🚀 Déploiement & preview lancés depuis le dossier local"
+        }
+        failure {
+            echo "❌ Pipeline échoué"
         }
     }
 }
