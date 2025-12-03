@@ -65,38 +65,37 @@ pipeline {
             }
         }
 
-    stage('Preview (Local demo)') {
-        steps {
-            sh '''
-                cd $DEPLOY_DIR
-                
-                echo "Arrêt d'un ancien preview s'il existe"
-                pkill -f "vite preview" || true
-                sleep 2
-                
-                echo "Lancement du preview Vite sur http://localhost:4173"
-                
-                # Cette ligne est la clé : on désactive le contrôle de tâche de Jenkins
-                nohup npm run preview -- --host 0.0.0.0 --port 4173 > preview.log 2>&1 &
-                
-                # On attend que Vite soit vraiment prêt
-                echo "Attente du démarrage de Vite..."
-                for i in {1..30}; do
-                    if grep -q "Local:   http://localhost:4173" preview.log 2>/dev/null; then
-                        echo "Vite preview est prêt !"
-                        echo "Ouvre ton navigateur → http://localhost:4173"
-                        cat preview.log | grep -E "(Local|Network)"
-                        exit 0
-                    fi
-                    sleep 1
-                done
-                
-                echo "Timeout : Vite n'a pas démarré assez vite, voici les logs :"
-                cat preview.log || true
-            '''
+        stage('Preview (Local demo)') {
+            steps {
+                sh '''
+                    cd $DEPLOY_DIR
+                    
+                    echo "🛑 Arrêt d'un ancien preview s'il existe"
+                    pkill -f "vite preview" || true
+                    sleep 2
+                    
+                    echo "🚀 Lancement du preview Vite sur http://localhost:4173"
+                    
+                    # Clé : nohup + disown pour détacher complètement de Jenkins
+                    nohup npm run preview -- --host 0.0.0.0 --port 4173 > preview.log 2>&1 & disown
+                    
+                    # Attente que Vite démarre (augmente à 60s si lent)
+                    echo "Attente du démarrage de Vite..."
+                    for i in {1..60}; do
+                        if grep -q "Local:   http://localhost:4173" preview.log 2>/dev/null; then
+                            echo "Vite preview est prêt !"
+                            echo "Ouvre ton navigateur → http://localhost:4173"
+                            cat preview.log | grep -E "(Local|Network)"
+                            exit 0
+                        fi
+                        sleep 1
+                    done
+                    
+                    echo "Timeout : Vite n'a pas démarré, voici les logs :"
+                    cat preview.log || true
+                '''
+            }
         }
-    }
-
     }
 
     post {
