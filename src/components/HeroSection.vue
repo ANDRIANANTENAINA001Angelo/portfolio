@@ -19,7 +19,7 @@ onMounted(() => {
 
 useSeo({
   title: `ANDRIANANTENAINA Angelo | Développeur Web & IA à Madagascar`,
-  description: "ANDRIANANTENAINA Angelo, développeur logiciel & Intelligence Artificielle à Madagascar. Conception et création d’applications, analyse data et automatisation.",
+  description: "ANDRIANANTENAINA Angelo, développeur logiciel & IA à Madagascar. Conception et création d’applications, analyse data et automatisation.",
 })
 
 
