@@ -22,7 +22,7 @@ pipeline {
                     mkdir -p $STAG_DIR
                 '''
             }
-        }
+        } 
 
         /* ========================== PROD : branche deploy ========================== */
         stage('Pull PROD') {
