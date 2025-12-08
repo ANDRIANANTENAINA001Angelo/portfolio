@@ -2,7 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DEPLOY_DIR = "/var/lib/jenkins/workspaces/portfolio-deploy"
+        PROD_DIR = "/var/lib/jenkins/workspaces/portfolio-deploy"
+        STAG_DIR = "/var/lib/jenkins/workspaces/portfolio-stagging"
+        REPO_URL = "https://github.com/ANDRIANANTENAINA001Angelo/portfolio.git"
     }
 
     options {
@@ -15,20 +17,23 @@ pipeline {
         stage('Prepare') {
             steps {
                 sh '''
-                    echo "📁 Création du dossier si inexistant"
-                    mkdir -p $DEPLOY_DIR
+                    echo "📁 Création des dossiers si inexistants"
+                    mkdir -p $PROD_DIR
+                    mkdir -p $STAG_DIR
                 '''
             }
         }
 
-        stage('Pull Code') {
+        /* ========================== PROD : branche deploy ========================== */
+        stage('Pull PROD') {
+            when { branch 'deploy' }
             steps {
                 sh '''
-                    echo "⬇️ Pull du code dans le dossier local"
-                    if [ ! -d "$DEPLOY_DIR/.git" ]; then
-                        git clone -b deploy https://github.com/ANDRIANANTENAINA001Angelo/portfolio.git $DEPLOY_DIR
+                    echo "⬇️ Pull PROD"
+                    if [ ! -d "$PROD_DIR/.git" ]; then
+                        git clone -b deploy $REPO_URL $PROD_DIR
                     else
-                        cd $DEPLOY_DIR
+                        cd $PROD_DIR
                         git fetch --all
                         git reset --hard origin/deploy
                     fi
@@ -36,40 +41,58 @@ pipeline {
             }
         }
 
-        stage('Test Node') {
+        stage('Install PROD deps') {
+            when { branch 'deploy' }
             steps {
                 sh '''
-                    echo "=== NODE VERSION ==="
-                    node -v
-                    echo "=== NPM VERSION ==="
-                    npm -v
-                '''
-            }
-        }
-
-        stage('Install dependencies') {
-            steps {
-                sh '''
-                    cd $DEPLOY_DIR
+                    cd $PROD_DIR
                     npm install
                 '''
             }
         }
 
-        stage('Build') {
+        stage('Build PROD') {
+            when { branch 'deploy' }
             steps {
                 sh '''
-                    cd $DEPLOY_DIR
+                    cd $PROD_DIR
                     npm run build
                 '''
             }
         }
 
+
+        /* ========================== STAGING : branche stag ========================== */
+        stage('Pull STAGING') {
+            when { branch 'stag' }
+            steps {
+                sh '''
+                    echo "⬇️ Pull STAGING"
+                    if [ ! -d "$STAG_DIR/.git" ]; then
+                        git clone -b stag $REPO_URL $STAG_DIR
+                    else
+                        cd $STAG_DIR
+                        git fetch --all
+                        git reset --hard origin/stag
+                    fi
+                '''
+            }
+        }
+
+        stage('Install STAG deps (optionnel mais sûr)') {
+            when { branch 'stag' }
+            steps {
+                sh '''
+                    cd $STAG_DIR
+                    npm install
+                '''
+            }
+        }
     }
 
     post {
         success {
-            echo "🚀 Déploiement & preview lancés depuis le dossier local"
+            echo "✅ Déploiement terminé (PROD ou STAGING selon la branche)"
         }
         failure {
             echo "❌ Pipeline échoué"
