@@ -19,7 +19,7 @@ pipeline {
                 sh '''
                     echo "📁 Création des dossiers si inexistants"
                     mkdir -p $PROD_DIR
-                    mkdir -p $STAG_DIR
+                    mkdir -p $STAG_DIR 
                 '''
             }
         } 
