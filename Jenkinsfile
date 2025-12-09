@@ -61,7 +61,6 @@ pipeline {
             }
         }
 
-
         /* ========================== STAGING : branche stag ========================== */
         stage('Pull STAGING') { 
             when { branch 'stag' }
