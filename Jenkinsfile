@@ -79,7 +79,7 @@ pipeline {
             }
         }
 
-        stage('Install STAG deps (optionnel mais sûr)') {
+        stage('Install STAG deps') {
             when { branch 'stag' }
             steps {
                 sh '''
