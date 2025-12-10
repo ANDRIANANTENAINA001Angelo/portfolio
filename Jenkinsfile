@@ -5,7 +5,7 @@ pipeline {
         PROD_DIR = "/var/lib/jenkins/workspaces/portfolio-deploy"
         STAG_DIR = "/var/lib/jenkins/workspaces/portfolio-stagging"
         REPO_URL = "https://github.com/ANDRIANANTENAINA001Angelo/portfolio.git"
-    }
+    } 
 
     options {
         timestamps()
