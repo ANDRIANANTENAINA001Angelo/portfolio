@@ -1,38 +1,33 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../components/HomePage.vue'
-import HeroSection from '../components/HeroSection.vue'
-import AboutSection from '../components/AboutSection.vue'
-import ServicesSection from '../components/ServicesSection.vue'
-import CompetencesSection from '../components/CompetencesSection.vue'
-import ProjectsSection from '../components/ProjectsSection.vue'
-
-// const basePath = '/' 
-const basePath = '/developpeur-logiciel-ia' 
-
+import HomeView from '@/views/HomeView.vue'
+import ProjectDetailView from '@/views/ProjectDetailView.vue'
 
 const router = createRouter({
-  history: createWebHistory(basePath),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      component: HomePage,
-      children: [
-        { path: '', name: 'acceuil', component: HeroSection },
-        { path: 'a-propos', name: 'apropos', component: AboutSection },
-        { path: 'services', name: 'services', component: ServicesSection },
-        { path: 'competences', name: 'competences', component: CompetencesSection },
-        { path: 'projets', name: 'projets', component: ProjectsSection },
-      ]
+      name: 'home',
+      component: HomeView
     },
-    { path: '/:catchAll(.*)', redirect: '/' }
+    {
+      path: '/projets/:slug/:techSlug?',
+      name: 'project-detail',
+      component: ProjectDetailView,
+      props: true
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
+    }
   ],
-  scrollBehavior() {
-    return { top: 0 }
+  scrollBehavior(to, _from, saved) {
+    if (saved) return saved
+    if (to.hash) {
+      return { el: to.hash, behavior: 'smooth', top: 80 }
+    }
+    return { top: 0, behavior: 'smooth' }
   }
 })
-
-
-
-
 
 export default router

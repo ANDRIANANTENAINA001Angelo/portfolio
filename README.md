@@ -1,5 +1,52 @@
-# Vue 3 + TypeScript + Vite
+# Portfolio — ANDRIANANTENAINA Angelo
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Modern personal portfolio (Vue 3 + Vite + TypeScript).
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Features
+
+- Light theme first + dark mode toggle
+- FR / EN via `?lang=fr` or `?lang=en` (FR default)
+- Content centralized in `src/data/` (easy to edit)
+- Project detail pages with SEO-friendly URLs (`/projets/{slug}/{tech-slug}`)
+- Open Graph + Twitter cards for WhatsApp / Facebook / LinkedIn shares
+- JSON-LD Person schema + `llms.txt` for AEO
+- Responsive, accessible, modern design
+
+## Quick start
+
+```bash
+npm install
+npm run dev
+```
+
+Build:
+
+```bash
+npm run build
+npm run preview
+```
+
+## Edit content
+
+| What              | File                          |
+|-------------------|-------------------------------|
+| Texts FR/EN       | `src/data/content.ts`         |
+| Projects          | `src/data/projects.ts`        |
+| Open Graph image  | `public/preview-opengraph.jpg`|
+| Favicon           | `public/favicon.ico`          |
+
+## Domain
+
+Update URLs in:
+- `index.html` (canonical, og:url, og:image, JSON-LD)
+- `public/sitemap.xml`
+- `public/robots.txt`
+- `public/llms.txt`
+
+Recommended domain: `andrianantenaina.dev`
+
+## Deploy
+
+Works on Render, Vercel, Netlify, Cloudflare Pages, etc.
+Set build command: `npm run build`
+Set publish directory: `dist`

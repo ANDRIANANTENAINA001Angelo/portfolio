@@ -1,0 +1,30 @@
+# ANDRIANANTENAINA Angelo
+
+> AI & Backend Engineer · Co-founder of GoalPay (FinTech)
+
+## Summary
+Software engineer specialized in backend development and AI solution integration.
+Builds production systems with Laravel, FastAPI, MLOps, LLM, RAG, OCR and Speech-to-Text.
+Co-founder of GoalPay — processed 2,500+ transactions and 40M+ Ariary in 4.5 months.
+
+## Key facts
+- Role: AI Software Engineer | Backend Engineer (Laravel & Python)
+- Company: GoalPay (Co-founder & Backend Engineer)
+- Location: Madagascar (GMT+3), remote-friendly
+- Email: a.angelo.mada@gmail.com
+- Phone: +261 34 59 92 047
+- Languages: Malagasy (native), French (fluent), English (professional)
+
+## Notable projects
+- GoalPay: FinTech payments SaaS (Laravel, PostgreSQL, WebSockets)
+- PredictorBot: MLOps pipeline for currency prediction (FastAPI, XGBoost, MLflow) — 68.5% directional accuracy
+- Hebrew Whisper: Ancient Hebrew STT + OCR (WER reduced from ~140% to 55%)
+- AI Photo Album: Intelligent photo organization (OpenCV + GPT-4.1 Nano, cost-optimized)
+
+## Stack
+Laravel, FastAPI, Python, PHP, PostgreSQL, Docker, CI/CD, RAG, LLM, OCR, STT, MLOps
+
+## Links
+- Portfolio: https://andrianantenaina.dev/
+- GitHub: https://github.com/ANDRIANANTENAINA001Angelo
+- LinkedIn: https://www.linkedin.com/in/andrianantenaina-angelo
