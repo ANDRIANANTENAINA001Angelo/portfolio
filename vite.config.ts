@@ -10,5 +10,5 @@ export default defineConfig({
     }
   },
   // Le site est servi sous ce chemin sur Render
-  base: '/developpeur-logiciel-ia/'
+  base: '/'
 })
