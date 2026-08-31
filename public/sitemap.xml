@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://andrianantenaina.dev/</loc>
+    <loc>https://portfolio-n60r.onrender.com/developpeur-logiciel-ia/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://andrianantenaina.dev/projets/goalpay/laravel-postgresql-websockets</loc>
+    <loc>https://portfolio-n60r.onrender.com/developpeur-logiciel-ia/projets/goalpay/laravel-postgresql-websockets</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://andrianantenaina.dev/projets/predictorbot/fastapi-mlflow-xgboost-mlops</loc>
+    <loc>https://portfolio-n60r.onrender.com/developpeur-logiciel-ia/projets/predictor-bot/fastapi-xgboost-mlflow</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://andrianantenaina.dev/projets/hebrew-whisper/laravel-fastapi-google-stt-ocr</loc>
+    <loc>https://portfolio-n60r.onrender.com/developpeur-logiciel-ia/projets/ai-photo-album/laravel-fastapi-opencv-llm</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://andrianantenaina.dev/projets/ai-photo-album/laravel-fastapi-opencv-llm</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrianantenaina.dev/projets/code-scale-ai-platform/fastapi-pgvector-rag-ocr</loc>
+    <loc>https://portfolio-n60r.onrender.com/developpeur-logiciel-ia/projets/code-scale-ai-platform/fastapi-pgvector-rag-ocr</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -9,7 +9,6 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  // Change this when you attach a custom domain
-  // base: '/developpeur-logiciel-ia/'
-  base: '/'
+  // Le site est servi sous ce chemin sur Render
+  base: '/developpeur-logiciel-ia/'
 })

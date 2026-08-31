@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://andrianantenaina.dev/sitemap.xml
+Sitemap: https://portfolio-n60r.onrender.com/developpeur-logiciel-ia/sitemap.xml

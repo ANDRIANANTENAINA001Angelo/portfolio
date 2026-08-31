@@ -3,9 +3,9 @@ export type Lang = 'fr' | 'en'
 export const content = {
   fr: {
     meta: {
-      title: 'ANDRIANANTENAINA Angelo — Ingénieur IA & Backend | Co-fondateur GoalPay',
-      description: 'Ingénieur IA & Backend Engineer. Je conçois des systèmes robustes qui intègrent l’intelligence artificielle dans des produits réels. Co-fondateur de GoalPay. Laravel, FastAPI, MLOps, LLM, RAG.',
-      keywords: 'ANDRIANANTENAINA Angelo, Ingénieur IA, Backend Engineer, Laravel, FastAPI, GoalPay, MLOps, RAG, Madagascar, remote'
+      title: 'ANDRIANANTENAINA Angelo — Software Engineer | Fullstack & AI | Co-fondateur GoalPay',
+      description: 'Software Engineer (Fullstack & AI). Je conçois et développe des applications web robustes et des solutions d’intelligence artificielle en production. Co-fondateur de GoalPay (4 500+ transactions, 100M+ Ar). Laravel, Vue.js, FastAPI, MLOps, RAG.',
+      keywords: 'ANDRIANANTENAINA Angelo, Software Engineer, Fullstack, AI Engineer, Laravel, Vue.js, FastAPI, GoalPay, MLOps, RAG, FinTech, Madagascar, remote'
     },
     nav: {
       home: 'Accueil',
@@ -16,58 +16,58 @@ export const content = {
       contact: 'Contact'
     },
     hero: {
-      badge: 'Disponible pour missions remote & collaborations',
-      title: 'J’aide les équipes à transformer des idées en systèmes backend + IA fiables et productifs.',
-      subtitle: 'Ingénieur IA & Backend · Co-fondateur de GoalPay · Madagascar → International',
+      badge: 'Disponible pour postes et missions remote',
+      title: 'J’aide les équipes à construire des applications web et des solutions IA fiables, mesurables et prêtes pour la production.',
+      subtitle: 'Software Engineer · Fullstack & AI · Co-fondateur de GoalPay · Madagascar → Remote',
       ctaPrimary: 'Voir mes projets',
       ctaSecondary: 'Me contacter',
       stats: [
-        { value: '40M+', label: 'Ariary traités via GoalPay' },
-        { value: '2 500+', label: 'Transactions sécurisées' },
-        { value: '68,5 %', label: 'Précision directionnelle (ML)' }
+        { value: '100M+', label: 'Ariary traités via GoalPay' },
+        { value: '4 500+', label: 'Transactions sécurisées' },
+        { value: '30+', label: 'Projets réalisés' }
       ]
     },
     about: {
       title: 'À propos',
-      subtitle: 'Un ingénieur qui construit, mesure et livre.',
+      subtitle: 'Un ingénieur logiciel qui livre en production.',
       body: [
-        'Je suis ANDRIANANTENAINA Angelo, ingénieur logiciel spécialisé en backend et intégration d’intelligence artificielle. Je travaille sur l’ensemble du cycle : conception d’API, architecture, industrialisation de modèles IA et mise en production.',
-        'En tant que co-fondateur de GoalPay, j’ai conçu et développé une plateforme FinTech qui a traité plus de 40 millions d’Ariary en quelques mois. Cette expérience m’a appris à coder pour la production : sécurité, performance, observabilité et maintenabilité.',
-        'Mon Master en Intelligence Artificielle (Gouvernance & Ingénierie des Données) m’a donné la double compétence : comprendre les modèles et les rendre utilisables dans des produits réels (RAG, STT, OCR, MLOps, LLM).',
-        'Ce que j’apprécie le plus : concevoir des systèmes robustes, évolutifs et orientés produit pour des environnements internationaux.'
+        'Je suis ANDRIANANTENAINA Angelo, ingénieur en génie logiciel. Je conçois et développe des applications web (frontend + backend) et j’intègre des solutions d’intelligence artificielle dans des produits réels.',
+        'En tant que co-fondateur de GoalPay, j’ai conçu et développé une plateforme FinTech qui a déjà traité plus de 100 millions d’Ariary et 4 500+ transactions. Cette expérience m’a appris à coder pour le réel : sécurité, performance, observabilité et continuité de service.',
+        'Mon Master en Intelligence Artificielle (Gouvernance et Ingénierie des Données) me donne une double compétence : comprendre les modèles et les rendre utilisables dans des produits (RAG, OCR, STT, MLOps, LLM).',
+        'Je me forme activement au frontend moderne (Vue.js, Tailwind) pour élargir mon périmètre Fullstack. Ce que je cherche actuellement : un poste stable (local ou remote) où je peux apporter rigueur technique, réactivité et impact mesurable.'
       ],
       values: [
         { title: 'Impact mesurable', text: 'Chaque fonctionnalité doit prouver sa valeur (métriques, temps, argent).' },
-        { title: 'Clarté & documentation', text: 'Code et architecture lisibles, tests, OpenAPI, README utiles.' },
-        { title: 'Autonomie & responsabilité', text: 'Je prends en charge un problème de bout en bout et je livre.' }
+        { title: 'Clarté et documentation', text: 'Code et architecture compréhensibles, maintenables et documentés.' },
+        { title: 'Production first', text: 'Sécurité, performance, observabilité et continuité de service dès le premier jour.' }
       ]
     },
     experience: {
       title: 'Expérience',
-      subtitle: 'Des produits en production, pas seulement des démos.',
+      subtitle: 'Des projets réels, livrés et mesurés.',
       items: [
         {
-          role: 'Co-fondateur & Backend Engineer',
+          role: 'Co-fondateur & Software Engineer',
           company: 'GoalPay (FinTech SaaS)',
           period: '2025 – Présent',
           location: 'Madagascar',
-          description: 'Conception et développement de l’architecture backend d’une plateforme de paiements numériques. Modules paiement, e-wallet, transactions, facturation, notifications, SMS, webhooks, WebSockets temps réel. Intégration mobile money malgache. 2 500+ transactions · 40M+ Ar.',
-          tech: ['Laravel', 'PostgreSQL', 'WebSockets', 'OpenAPI', 'PHPUnit', 'Queues']
+          description: 'Conception, développement et maintenance de l’architecture d’une plateforme de paiements numériques. 4 500+ transactions, 100M+ Ariary traités. Modules paiement, wallet, webhooks, WebSockets, automatisation Mobile Money, files d’attente et sécurité.',
+          tech: ['Laravel', 'Vue.js', 'PostgreSQL', 'WebSockets', 'Redis', 'OpenAPI', 'Queues']
         },
         {
-          role: 'Backend Developer Intern',
+          role: 'Développeur Backend & IA stagiaire',
           company: 'Code & Scale',
           period: 'Sept. 2025 – Déc. 2025',
           location: 'Remote / Madagascar',
-          description: 'Évolution d’une plateforme IA interne (Python, FastAPI, PostgreSQL). Intégration RAG, OCR, embeddings, pgvector. Optimisation des traitements de fichiers (parallèle + batch). Tests et revues techniques.',
-          tech: ['FastAPI', 'pgvector', 'Docker', 'Poetry', 'RAG', 'OCR']
+          description: 'Évolution d’une plateforme IA interne (FastAPI + PostgreSQL). Travail sur RAG, OCR, embeddings, pgvector. Optimisation batch/parallèle et amélioration de la fiabilité.',
+          tech: ['FastAPI', 'pgvector', 'Docker', 'RAG', 'OCR', 'PostgreSQL']
         },
         {
-          role: 'AI Engineer — Mémoire de Master',
-          company: 'PredictorBot',
+          role: 'Ingénieur IA',
+          company: 'PredictorBot (Mémoire Master)',
           period: '2025 – 2026',
           location: 'ENI Fianarantsoa',
-          description: 'Pipeline MLOps complète pour la prédiction des cours de devise. Collecte, prétraitement, entraînement, versioning, déploiement, API d’inférence. Modèle XGBoost à 68,5 % de précision directionnelle. MLflow + Docker + CI/CD.',
+          description: 'Pipeline MLOps complet pour la prédiction des cours de devise. Collecte, prétraitement, entraînement, versioning, déploiement et API d’inférence. Modèle XGBoost à 68,5 % de précision directionnelle.',
           tech: ['Python', 'FastAPI', 'XGBoost', 'MLflow', 'Docker', 'Jenkins']
         }
       ]
@@ -76,7 +76,7 @@ export const content = {
       title: 'Projets sélectionnés',
       subtitle: 'Des systèmes qui tournent, avec des résultats concrets.',
       viewAll: 'Voir tous les projets',
-      viewDetails: 'Voir le détail',
+      viewDetails: 'Voir les détails',
       challenge: 'Défi',
       solution: 'Solution',
       results: 'Résultats',
@@ -90,18 +90,18 @@ export const content = {
     },
     skills: {
       title: 'Compétences',
-      subtitle: 'Une stack orientée production et intelligence artificielle.',
+      subtitle: 'Une stack orientée développement logiciel, production et intelligence artificielle.',
       categories: [
         {
-          name: 'Backend',
-          items: ['PHP / Laravel', 'Python / FastAPI', 'Node.js (Express)', 'REST APIs', 'WebSockets', 'OpenAPI / Swagger']
+          name: 'Développement',
+          items: ['HTML / CSS / Tailwind', 'JavaScript / Vue.js', 'PHP / Laravel', 'Python / FastAPI', 'Node.js (Express)', 'WebSockets', 'OpenAPI / Swagger']
         },
         {
           name: 'Intelligence Artificielle',
-          items: ['LLM & RAG', 'MLOps', 'Scikit-learn / XGBoost', 'OCR', 'Speech-to-Text', 'Embeddings / pgvector']
+          items: ['LLM & RAG', 'ML / DL & MLOps', 'Agent & Multi-Agent', 'Scikit-learn & TensorFlow', 'OCR & Speech-to-Text', 'Embeddings / pgvector']
         },
         {
-          name: 'Données & Infra',
+          name: 'Data & Infra',
           items: ['PostgreSQL', 'MySQL', 'Redis', 'MongoDB', 'Docker', 'CI/CD (GitHub Actions, Jenkins)']
         },
         {
@@ -112,12 +112,12 @@ export const content = {
     },
     contact: {
       title: 'Construisons quelque chose d’utile ensemble',
-      subtitle: 'Que vous soyez recruteur, fondateur ou collègue technique, je serai ravi d’échanger.',
+      subtitle: 'Recruteur, fondateur ou pair technique — je suis ouvert à l’échange.',
       email: 'a.angelo.mada@gmail.com',
       phone: '+261 34 59 92 047',
       location: 'Madagascar (GMT+3) · Remote-friendly',
       cta: 'Envoyer un message',
-      available: 'Ouvert aux opportunités remote et aux collaborations produits.',
+      available: 'Ouvert aux opportunités Software Engineer / Fullstack / AI (CDI local ou remote).',
       links: {
         linkedin: 'LinkedIn',
         github: 'GitHub',
@@ -126,7 +126,7 @@ export const content = {
     },
     footer: {
       rights: '© 2026 ANDRIANANTENAINA Angelo. Tous droits réservés.',
-      built: 'Conçu avec intention · Vue 3 + Vite'
+      built: 'Construit avec intention · Vue 3 + Vite'
     },
     common: {
       light: 'Clair',
@@ -134,11 +134,12 @@ export const content = {
       lang: 'Langue'
     }
   },
+
   en: {
     meta: {
-      title: 'ANDRIANANTENAINA Angelo — AI & Backend Engineer | Co-founder GoalPay',
-      description: 'AI & Backend Engineer. I design robust systems that bring artificial intelligence into real products. Co-founder of GoalPay. Laravel, FastAPI, MLOps, LLM, RAG.',
-      keywords: 'ANDRIANANTENAINA Angelo, AI Engineer, Backend Engineer, Laravel, FastAPI, GoalPay, MLOps, RAG, Madagascar, remote'
+      title: 'ANDRIANANTENAINA Angelo — Software Engineer | Fullstack & AI | Co-founder of GoalPay',
+      description: 'Software Engineer (Fullstack & AI). I design and build robust web applications and production AI solutions. Co-founder of GoalPay (4,500+ transactions, 100M+ Ar). Laravel, Vue.js, FastAPI, MLOps, RAG.',
+      keywords: 'ANDRIANANTENAINA Angelo, Software Engineer, Fullstack, AI Engineer, Laravel, Vue.js, FastAPI, GoalPay, MLOps, RAG, FinTech, Madagascar, remote'
     },
     nav: {
       home: 'Home',
@@ -149,58 +150,58 @@ export const content = {
       contact: 'Contact'
     },
     hero: {
-      badge: 'Open to remote missions & collaborations',
-      title: 'I help teams turn ideas into reliable, productive backend + AI systems.',
-      subtitle: 'AI & Backend Engineer · Co-founder of GoalPay · Madagascar → International',
+      badge: 'Open to roles and remote missions',
+      title: 'I help teams build reliable, measurable web applications and AI solutions ready for production.',
+      subtitle: 'Software Engineer · Fullstack & AI · Co-founder of GoalPay · Madagascar → Remote',
       ctaPrimary: 'View my projects',
-      ctaSecondary: 'Get in touch',
+      ctaSecondary: 'Contact me',
       stats: [
-        { value: '40M+', label: 'Ariary processed via GoalPay' },
-        { value: '2,500+', label: 'Secured transactions' },
-        { value: '68.5%', label: 'Directional accuracy (ML)' }
+        { value: '100M+', label: 'Ariary processed via GoalPay' },
+        { value: '4,500+', label: 'Secure transactions' },
+        { value: '30+', label: 'Projects delivered' }
       ]
     },
     about: {
       title: 'About',
-      subtitle: 'An engineer who builds, measures and ships.',
+      subtitle: 'A software engineer who ships to production.',
       body: [
-        'I am ANDRIANANTENAINA Angelo, a software engineer specialized in backend development and AI integration. I work across the full lifecycle: API design, architecture, industrializing AI models and shipping to production.',
-        'As co-founder of GoalPay, I designed and built a FinTech platform that processed over 40 million Ariary in a few months. This experience taught me to code for production: security, performance, observability and maintainability.',
-        'My Master’s in Artificial Intelligence (Data Governance & Engineering) gave me the dual skillset: understanding models and making them usable in real products (RAG, STT, OCR, MLOps, LLM).',
-        'What I enjoy most: designing robust, scalable, product-oriented systems for international environments.'
+        'I am ANDRIANANTENAINA Angelo, a software engineer. I design and develop web applications (frontend + backend) and integrate artificial intelligence solutions into real products.',
+        'As co-founder of GoalPay, I designed and built a FinTech platform that has already processed more than 100 million Ariary and 4,500+ transactions. This experience taught me to code for the real world: security, performance, observability and service continuity.',
+        'My Master’s degree in Artificial Intelligence (Data Governance & Engineering) gives me dual competence: understanding models and making them usable in real products (RAG, OCR, STT, MLOps, LLM).',
+        'I am actively improving my frontend skills (Vue.js, Tailwind) to expand my Fullstack scope. What I am currently looking for: a stable role (local or remote) where I can bring technical rigor, reactivity and measurable impact.'
       ],
       values: [
         { title: 'Measurable impact', text: 'Every feature must prove its value (metrics, time, money).' },
-        { title: 'Clarity & documentation', text: 'Readable code and architecture, tests, OpenAPI, useful READMEs.' },
-        { title: 'Ownership', text: 'I take a problem end-to-end and deliver.' }
+        { title: 'Clarity & documentation', text: 'Code and architecture that are understandable, maintainable and documented.' },
+        { title: 'Production first', text: 'Security, performance, observability and service continuity from day one.' }
       ]
     },
     experience: {
       title: 'Experience',
-      subtitle: 'Products in production, not just demos.',
+      subtitle: 'Real projects, delivered and measured.',
       items: [
         {
-          role: 'Co-founder & Backend Engineer',
+          role: 'Co-founder & Software Engineer',
           company: 'GoalPay (FinTech SaaS)',
           period: '2025 – Present',
           location: 'Madagascar',
-          description: 'Designed and developed the backend architecture of a digital payments platform. Payment modules, e-wallet, transactions, billing, notifications, SMS, webhooks, real-time WebSockets. Malagasy mobile money integration. 2,500+ transactions · 40M+ Ar.',
-          tech: ['Laravel', 'PostgreSQL', 'WebSockets', 'OpenAPI', 'PHPUnit', 'Queues']
+          description: 'Designed, developed and maintained the architecture of a digital payments platform. 4,500+ transactions, 100M+ Ariary processed. Payment modules, wallet, webhooks, WebSockets, Mobile Money automation, queues and security.',
+          tech: ['Laravel', 'Vue.js', 'PostgreSQL', 'WebSockets', 'Redis', 'OpenAPI', 'Queues']
         },
         {
-          role: 'Backend Developer Intern',
+          role: 'Backend & AI Developer Intern',
           company: 'Code & Scale',
           period: 'Sept. 2025 – Dec. 2025',
           location: 'Remote / Madagascar',
-          description: 'Evolved an internal AI platform (Python, FastAPI, PostgreSQL). Integrated RAG, OCR, embeddings, pgvector. Optimized file processing (parallel + batch). Tests and technical reviews.',
-          tech: ['FastAPI', 'pgvector', 'Docker', 'Poetry', 'RAG', 'OCR']
+          description: 'Evolved an internal AI platform (FastAPI + PostgreSQL). Worked on RAG, OCR, embeddings, pgvector. Optimized batch/parallel processing and improved reliability.',
+          tech: ['FastAPI', 'pgvector', 'Docker', 'RAG', 'OCR', 'PostgreSQL']
         },
         {
-          role: 'AI Engineer — Master’s Thesis',
-          company: 'PredictorBot',
+          role: 'AI Engineer',
+          company: 'PredictorBot (Master Thesis)',
           period: '2025 – 2026',
           location: 'ENI Fianarantsoa',
-          description: 'Full MLOps pipeline for currency exchange rate prediction. Collection, preprocessing, training, versioning, deployment, inference API. XGBoost model at 68.5% directional accuracy. MLflow + Docker + CI/CD.',
+          description: 'Full MLOps pipeline for real-time currency exchange rate prediction. Collection, preprocessing, training, versioning, deployment and inference API. XGBoost model at 68.5% directional accuracy.',
           tech: ['Python', 'FastAPI', 'XGBoost', 'MLflow', 'Docker', 'Jenkins']
         }
       ]
@@ -223,15 +224,15 @@ export const content = {
     },
     skills: {
       title: 'Skills',
-      subtitle: 'A stack oriented toward production and artificial intelligence.',
+      subtitle: 'A stack oriented toward software development, production and artificial intelligence.',
       categories: [
         {
-          name: 'Backend',
-          items: ['PHP / Laravel', 'Python / FastAPI', 'Node.js (Express)', 'REST APIs', 'WebSockets', 'OpenAPI / Swagger']
+          name: 'Development',
+          items: ['HTML / CSS / Tailwind', 'JavaScript / Vue.js', 'PHP / Laravel', 'Python / FastAPI', 'Node.js (Express)', 'WebSockets', 'OpenAPI / Swagger']
         },
         {
           name: 'Artificial Intelligence',
-          items: ['LLM & RAG', 'MLOps', 'Scikit-learn / XGBoost', 'OCR', 'Speech-to-Text', 'Embeddings / pgvector']
+          items: ['LLM & RAG', 'ML / DL & MLOps', 'Agent & Multi-Agent', 'Scikit-learn & TensorFlow', 'OCR & Speech-to-Text', 'Embeddings / pgvector']
         },
         {
           name: 'Data & Infra',
@@ -250,7 +251,7 @@ export const content = {
       phone: '+261 34 59 92 047',
       location: 'Madagascar (GMT+3) · Remote-friendly',
       cta: 'Send a message',
-      available: 'Open to remote opportunities and product collaborations.',
+      available: 'Open to Software Engineer / Fullstack / AI opportunities (local permanent or remote).',
       links: {
         linkedin: 'LinkedIn',
         github: 'GitHub',
