@@ -1,6 +1,6 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { content, type Lang, type Content } from '@/data/content'
+import { content, type Lang } from '@/data/content'
 
 const currentLang = ref<Lang>('fr')
 
@@ -8,7 +8,6 @@ export function useLang() {
   const route = useRoute()
   const router = useRouter()
 
-  // Sync from query on first load / navigation
   const syncFromQuery = () => {
     const q = route.query.lang
     if (q === 'en' || q === 'fr') {
@@ -18,7 +17,6 @@ export function useLang() {
     }
   }
 
-  // Call once
   syncFromQuery()
 
   watch(
@@ -30,17 +28,16 @@ export function useLang() {
     currentLang.value = lang
     const query = { ...route.query, lang }
     if (lang === 'fr') {
-      // keep URL clean for default
       const { lang: _, ...rest } = query
       router.replace({ query: rest })
     } else {
       router.replace({ query })
     }
-    // Update html lang attribute
     document.documentElement.lang = lang
   }
 
-  const t = computed<Content>(() => content[currentLang.value])
+  // On enlève le type strict Content pour éviter le conflit fr/en
+  const t = computed(() => content[currentLang.value])
 
   const lang = computed(() => currentLang.value)
 

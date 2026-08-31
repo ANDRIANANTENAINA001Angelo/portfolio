@@ -270,4 +270,4 @@ export const content = {
   }
 } as const
 
-export type Content = typeof content.fr
+export type Content = (typeof content)[Lang]

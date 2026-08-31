@@ -1,10 +1,9 @@
 import { useHead } from '@vueuse/head'
 import { computed, type Ref } from 'vue'
-import type { Content } from '@/data/content'
 import type { Project } from '@/data/projects'
 import { SITE_URL, SITE_NAME, OG_IMAGE } from '@/config'
 
-export function usePageSeo(t: Ref<Content>, extra?: { title?: string; description?: string }) {
+export function usePageSeo(t: Ref<any>, extra?: { title?: string; description?: string }) {
   const title = computed(() => extra?.title || t.value.meta.title)
   const description = computed(() => extra?.description || t.value.meta.description)
 
