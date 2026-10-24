@@ -1,10 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import ProjectDetailView from '@/views/ProjectDetailView.vue'
-const basePath = '/developpeur-logiciel-ia'
 
 const router = createRouter({
-  history: createWebHistory(basePath),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',

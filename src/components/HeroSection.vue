@@ -19,8 +19,8 @@ const { t } = useLang()
         </p>
 
         <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">{{ t.hero.ctaPrimary }}</a>
-          <a href="#contact" class="btn btn-secondary">{{ t.hero.ctaSecondary }}</a>
+          <a href="#contact" class="btn btn-primary">{{ t.hero.ctaPrimary }}</a>
+          <a href="#projects" class="btn btn-secondary">{{ t.hero.ctaSecondary }}</a>
         </div>
 
         <div class="hero-stats">
@@ -33,14 +33,17 @@ const { t } = useLang()
 
       <div class="hero-visual animate-fade-up">
         <div class="photo-wrap">
-          <img
-            src="/images/profile.jpg"
-            alt="ANDRIANANTENAINA Angelo"
-            class="photo"
-            width="320"
-            height="320"
-            loading="eager"
-          />
+          <picture>
+            <source srcset="/images/profile.webp" type="image/webp" />
+            <img
+              src="/images/profile.jpg"
+              alt="ANDRIANANTENAINA Angelo"
+              class="photo"
+              width="320"
+              height="320"
+              loading="eager"
+            />
+          </picture>
         </div>
       </div>
     </div>

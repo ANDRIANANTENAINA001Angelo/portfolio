@@ -9,7 +9,7 @@ const scrolled = ref(false)
 const mobileOpen = ref(false)
 const activeSection = ref('')
 
-const sectionIds = ['about', 'experience', 'projects', 'skills', 'contact']
+const sectionIds = ['services', 'projects', 'about', 'experience', 'skills', 'contact']
 
 const onScroll = () => {
   scrolled.value = window.scrollY > 20
@@ -34,9 +34,10 @@ onMounted(() => {
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 const navItems = [
+  { href: '/#services', id: 'services', key: 'services' as const },
+  { href: '/#projects', id: 'projects', key: 'projects' as const },
   { href: '/#about', id: 'about', key: 'about' as const },
   { href: '/#experience', id: 'experience', key: 'experience' as const },
-  { href: '/#projects', id: 'projects', key: 'projects' as const },
   { href: '/#skills', id: 'skills', key: 'skills' as const },
   { href: '/#contact', id: 'contact', key: 'contact' as const }
 ]

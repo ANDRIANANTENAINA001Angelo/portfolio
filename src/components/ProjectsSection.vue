@@ -48,6 +48,11 @@ const others = computed(() => projects.filter(p => !p.featured))
           />
         </div>
       </div>
+
+      <div class="coming-soon card">
+        <h3 class="coming-soon-title">{{ t.projects.comingSoon.title }}</h3>
+        <p class="coming-soon-text">{{ t.projects.comingSoon.text }}</p>
+      </div>
     </div>
   </section>
 </template>
@@ -90,5 +95,25 @@ const others = computed(() => projects.filter(p => !p.featured))
   .projects-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.coming-soon {
+  margin-top: 2rem;
+  padding: 1.5rem 1.75rem;
+  border-style: dashed;
+  background: var(--bg-muted);
+}
+
+.coming-soon-title {
+  font-size: 1rem;
+  font-weight: 650;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.coming-soon-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
 }
 </style>

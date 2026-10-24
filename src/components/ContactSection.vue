@@ -8,7 +8,8 @@ const links = {
   email: `mailto:${SOCIAL.email}`,
   linkedin: SOCIAL.linkedin,
   github: SOCIAL.github,
-  whatsapp: SOCIAL.whatsapp
+  whatsapp: SOCIAL.whatsapp,
+  booking: SOCIAL.booking
 }
 </script>
 
@@ -37,7 +38,10 @@ const links = {
           </div>
 
           <div class="contact-actions">
-            <a :href="links.email" class="btn btn-primary">{{ t.contact.cta }}</a>
+            <a :href="links.booking" class="btn btn-primary" target="_blank" rel="noopener">
+              {{ t.contact.booking }}
+            </a>
+            <a :href="links.email" class="btn btn-secondary">{{ t.contact.cta }}</a>
             <a :href="links.linkedin" class="btn btn-secondary" target="_blank" rel="noopener">
               {{ t.contact.links.linkedin }}
             </a>

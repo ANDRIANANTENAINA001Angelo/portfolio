@@ -34,7 +34,7 @@ portfolio/
 ```ts
 export const SITE_URL =
   (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, '') ||
-  'https://andrianantenaina.dev'
+  'https://andrianantenaina-angelo.site'
 ```
 
 ### Comment changer le domaine
@@ -43,7 +43,7 @@ export const SITE_URL =
 |---------------|---------|
 | Local | Rien à faire (ou créer `.env` avec `VITE_SITE_URL=http://localhost:5173`) |
 | Preview Render | `VITE_SITE_URL=https://ton-app.onrender.com` dans les env vars |
-| Production | `VITE_SITE_URL=https://andrianantenaina.dev` |
+| Production | `VITE_SITE_URL=https://andrianantenaina-angelo.site` |
 
 Tout le SEO dynamique (useSeo) lit `SITE_URL`.  
 Les fichiers **statiques** (`index.html`, `sitemap.xml`, `robots.txt`, `llms.txt`) contiennent encore le domaine en dur pour les crawlers qui ne exécutent pas le JS — mets-les à jour une fois le domaine final choisi (ou génère-les au build plus tard).

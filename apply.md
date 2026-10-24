@@ -37,7 +37,7 @@ Lis **`ARCHITECTURE.md`** dans le dossier portfolio pour :
 Fichier unique : `src/config.ts`
 
 ```ts
-export const SITE_URL = ... || 'https://andrianantenaina.dev'
+export const SITE_URL = ... || 'https://andrianantenaina-angelo.site'
 ```
 
 Ou via env :

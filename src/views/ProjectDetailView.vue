@@ -60,6 +60,12 @@ const statusLabel = computed(() =>
   project.value ? t.value.projects.status[project.value.status] : ''
 )
 
+const architectureSteps = computed(() => {
+  const raw = project.value?.architecture?.[lang.value]
+  if (!raw) return []
+  return raw.split('→').map(step => step.trim()).filter(Boolean)
+})
+
 const onImgError = (e: Event) => {
   const el = e.target as HTMLImageElement
   el.style.display = 'none'
@@ -150,6 +156,11 @@ const onImgError = (e: Event) => {
 
       <div class="detail-body">
         <section class="detail-block">
+          <h2>{{ t.projects.context }}</h2>
+          <p>{{ project.longDescription[lang] }}</p>
+        </section>
+
+        <section class="detail-block">
           <h2>{{ t.projects.challenge }}</h2>
           <p>{{ project.challenge[lang] }}</p>
         </section>
@@ -157,6 +168,16 @@ const onImgError = (e: Event) => {
         <section class="detail-block">
           <h2>{{ t.projects.solution }}</h2>
           <p>{{ project.solution[lang] }}</p>
+        </section>
+
+        <section v-if="architectureSteps.length" class="detail-block">
+          <h2>{{ t.projects.architecture }}</h2>
+          <div class="flow-diagram">
+            <template v-for="(step, i) in architectureSteps" :key="i">
+              <div class="flow-step">{{ step }}</div>
+              <span v-if="i < architectureSteps.length - 1" class="flow-arrow" aria-hidden="true">→</span>
+            </template>
+          </div>
         </section>
 
         <section class="detail-block">
@@ -173,26 +194,32 @@ const onImgError = (e: Event) => {
           </div>
         </section>
 
-        <div v-if="project.github || project.demo" class="detail-links">
-          <a
-            v-if="project.demo"
-            :href="project.demo"
-            class="btn btn-primary"
-            target="_blank"
-            rel="noopener"
-          >
-            Live demo
-          </a>
-          <a
-            v-if="project.github"
-            :href="project.github"
-            class="btn btn-secondary"
-            target="_blank"
-            rel="noopener"
-          >
-            GitHub
-          </a>
-        </div>
+        <section v-if="project.github || project.demo || project.demoNote" class="detail-block">
+          <h2>{{ t.projects.links }}</h2>
+          <p v-if="!project.demo && project.demoNote" class="demo-note">
+            {{ project.demoNote[lang] }}
+          </p>
+          <div class="detail-links">
+            <a
+              v-if="project.demo"
+              :href="project.demo"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Live demo
+            </a>
+            <a
+              v-if="project.github"
+              :href="project.github"
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener"
+            >
+              GitHub
+            </a>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -432,6 +459,50 @@ const onImgError = (e: Event) => {
   font-size: 1.0625rem;
   color: var(--text-secondary);
   line-height: 1.7;
+}
+
+.flow-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.flow-step {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--bg-muted);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem;
+  line-height: 1.4;
+}
+
+.flow-arrow {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .flow-diagram {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .flow-arrow {
+    align-self: center;
+    transform: rotate(90deg);
+  }
+}
+
+.demo-note {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
 }
 
 .tech-list {

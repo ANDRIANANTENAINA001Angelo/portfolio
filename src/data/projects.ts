@@ -15,10 +15,14 @@ export interface Project {
   longDescription: { fr: string; en: string }
   challenge: { fr: string; en: string }
   solution: { fr: string; en: string }
+  /** Simple text pipeline, e.g. "Source → step → step → output" */
+  architecture?: { fr: string; en: string }
   results: { fr: string; en: string }
   technologies: string[]
   tags: string[]
   images: ProjectImage[]
+  /** Fallback note shown when a live demo link has expired, instead of a dead link */
+  demoNote?: { fr: string; en: string }
   github?: string
   demo?: string
   featured: boolean
@@ -52,6 +56,10 @@ export const projects: Project[] = [
       fr: 'Architecture robuste, PostgreSQL, WebSockets, files d’attente, tâches planifiées, authentification & rôles, documentation OpenAPI, et mécanismes cryptographiques.',
       en: 'Robust architecture, PostgreSQL, WebSockets, queues, scheduled tasks, auth & roles, OpenAPI documentation, and cryptographic mechanisms.'
     },
+    architecture: {
+      fr: 'Opérateurs Mobile Money → API Laravel (auth, wallet, règles métier) → PostgreSQL → files d’attente (jobs asynchrones) → webhooks sortants → notifications temps réel (WebSockets).',
+      en: 'Mobile Money operators → Laravel API (auth, wallet, business rules) → PostgreSQL → queues (async jobs) → outgoing webhooks → real-time notifications (WebSockets).'
+    },
     results: {
       fr: '4 500+ transactions traitées pour un volume de 100M+ Ariary. Système en production avec suivi temps réel et automatisation des flux entrants/sortants Mobile Money.',
       en: '4,500+ transactions processed for a volume of 100M+ Ariary. Production system with real-time tracking and automated Mobile Money incoming/outgoing flows.'
@@ -59,9 +67,9 @@ export const projects: Project[] = [
     technologies: ['Laravel', 'PostgreSQL', 'WebSockets', 'REST APIs', 'Swagger/OpenAPI', 'PHPUnit', 'Redis', 'Queues'],
     tags: ['fintech', 'fullstack', 'saas'],
     images: [
-      { src: img('goalpay/acceuil.png'), alt: 'GoalPay Accueil' },
-      { src: img('goalpay/portal-payment.png'), alt: 'GoalPay Portal de Paiement' },
-      { src: img('goalpay/donation.png'), alt: 'GoalPay Donation' }
+      { src: img('goalpay/acceuil.webp'), alt: 'GoalPay Accueil' },
+      { src: img('goalpay/portal-payment.webp'), alt: 'GoalPay Portal de Paiement' },
+      { src: img('goalpay/donation.webp'), alt: 'GoalPay Donation' }
     ],
     demo: 'https://goalpay.pro',
     featured: true,
@@ -85,35 +93,40 @@ export const projects: Project[] = [
       en: 'Full MLOps pipeline for real-time currency exchange rate prediction (Master thesis).'
     },
     longDescription: {
-      fr: 'Conception et réalisation d’une plateforme MLOps de prédiction des taux de change intégrant l’ensemble du cycle de vie d’un modèle de Machine Learning : collecte, prétraitement, entraînement, versioning, déploiement et API d’inférence.',
-      en: 'Design and implementation of an MLOps platform for exchange rate prediction covering the full machine learning lifecycle: collection, preprocessing, training, versioning, deployment and inference API.'
+      fr: 'Conception et réalisation d’une plateforme MLOps de prédiction des taux de change (mémoire de Master, en partenariat avec Code & Scale) intégrant l’ensemble du cycle de vie d’un modèle de Machine Learning : collecte, feature engineering, entraînement, versioning, déploiement et API d’inférence.',
+      en: 'Design and implementation of an MLOps platform for exchange rate prediction (Master thesis, in partnership with Code & Scale) covering the full machine learning lifecycle: collection, feature engineering, training, versioning, deployment and inference API.'
     },
     challenge: {
       fr: 'Industrialiser un modèle de prédiction de devise de bout en bout avec monitoring, reproductibilité et déploiement automatisé.',
       en: 'Industrialize an end-to-end currency prediction model with monitoring, reproducibility and automated deployment.'
     },
     solution: {
-      fr: 'Pipeline automatisé avec FastAPI, MLflow, XGBoost, Docker et CI/CD. Suivi des métriques (RMSE, MAE, R², MAPE, précision directionnelle).',
-      en: 'Automated pipeline with FastAPI, MLflow, XGBoost, Docker and CI/CD. Metrics tracking (RMSE, MAE, R², MAPE, directional accuracy).'
+      fr: 'Collecte quasi temps réel via l’API Twelve Data (toutes les 2 minutes), feature engineering (46 features : lags, rendements, volatilité, sessions de marché), modèle XGBoost réentraîné automatiquement chaque heure, tracking et registre de modèles MLflow (27 runs suivis) avec promotion automatique du meilleur modèle en production, API d’inférence FastAPI et dashboard web de suivi temps réel.',
+      en: 'Near real-time collection via the Twelve Data API (every 2 minutes), feature engineering (46 features: lags, returns, volatility, market sessions), XGBoost model automatically retrained every hour, MLflow experiment tracking and model registry (27 runs tracked) with automatic promotion of the best model to production, FastAPI inference API and a real-time monitoring web dashboard.'
+    },
+    architecture: {
+      fr: 'Twelve Data (collecte toutes les 2 min) → feature engineering (46 features) → PostgreSQL → entraînement XGBoost (réentraînement horaire) → MLflow (27 runs suivis, registry, promotion auto) → API FastAPI (/predict) → dashboard web temps réel.',
+      en: 'Twelve Data (collection every 2 min) → feature engineering (46 features) → PostgreSQL → XGBoost training (hourly retraining) → MLflow (27 runs tracked, registry, auto-promotion) → FastAPI API (/predict) → real-time web dashboard.'
     },
     results: {
-      fr: 'Modèle XGBoost atteignant 68,5 % de précision directionnelle (hausse/baisse) sur les données de test, avec suivi automatisé via MLflow.',
-      en: 'XGBoost model reaching 68.5% directional accuracy (up/down) on test data, with automated tracking via MLflow.'
+      fr: 'Un pipeline qui tourne seul, sans intervention manuelle : collecte, feature engineering, réentraînement, évaluation et promotion du meilleur modèle s’enchaînent automatiquement toutes les heures, avec 27 runs tracés et reproductibles dans MLflow. L’enjeu du projet était l’industrialisation du cycle de vie ML (reproductibilité, monitoring, déploiement continu), pas la performance brute du modèle de prédiction de marché.',
+      en: 'A pipeline that runs unattended: collection, feature engineering, retraining, evaluation and promotion of the best model chain automatically every hour, with 27 runs tracked and reproducible in MLflow. The focus of this project was industrializing the ML lifecycle (reproducibility, monitoring, continuous deployment), not raw market-prediction model performance.'
     },
-    technologies: ['Python', 'FastAPI', 'XGBoost', 'MLflow', 'PostgreSQL', 'Docker', 'CI/CD', 'Jenkins'],
+    technologies: ['Python', 'FastAPI', 'XGBoost', 'MLflow', 'PostgreSQL', 'APScheduler', 'Docker', 'CI/CD'],
     tags: ['mlops', 'ai', 'backend'],
     images: [
-      { src: img('predictor-bot/ui.png'), alt: 'PredictorBot UI' },
-      { src: img('predictor-bot/mlflow-trained-model.png'), alt: 'PredictorBot MLFlow Trained Model' },
-      { src: img('predictor-bot/stage-model.png'), alt: 'PredictorBot MLFlow Stage Model' },
-      { src: img('predictor-bot/metabase-visualization.png'), alt: 'PredictorBot Visualisation avec Metabase' }
+      { src: img('predictor-bot/ui.webp'), alt: 'PredictorBot — dashboard temps réel (valeur réelle vs prédiction)' },
+      { src: img('predictor-bot/mlflow-trained-model.webp'), alt: 'PredictorBot — suivi des runs MLflow' },
+      { src: img('predictor-bot/stage-model.webp'), alt: 'PredictorBot — registre de modèles MLflow (staging/prod)' },
+      { src: img('predictor-bot/dashboard.webp'), alt: 'PredictorBot — visualisation du dashboard' }
     ],
+    demoNote: {
+      fr: 'La démo en ligne a expiré — captures du dashboard et du suivi MLflow ci-dessous.',
+      en: 'The live demo has expired — dashboard and MLflow tracking screenshots below.'
+    },
     featured: true,
     year: '2025 – 2026',
-    status: 'completed',
-    metrics: [
-      { label: { fr: 'Précision directionnelle', en: 'Directional accuracy' }, value: '68,5 %' }
-    ]
+    status: 'completed'
   },
   {
     id: 'code-scale-ai-platform',
@@ -138,6 +151,10 @@ export const projects: Project[] = [
     solution: {
       fr: 'Intégration de RAG, OCR, embeddings et pgvector. Optimisation via traitement parallèle et batch. Tests et revues techniques.',
       en: 'Integration of RAG, OCR, embeddings and pgvector. Optimization via parallel and batch processing. Tests and technical reviews.'
+    },
+    architecture: {
+      fr: 'Documents entrants → OCR → embeddings → pgvector (PostgreSQL) → recherche sémantique → API FastAPI.',
+      en: 'Incoming documents → OCR → embeddings → pgvector (PostgreSQL) → semantic search → FastAPI API.'
     },
     results: {
       fr: 'Nouvelles fonctionnalités livrées, bugs corrigés, performances de traitement de fichiers améliorées et fiabilité accrue.',
@@ -176,6 +193,10 @@ export const projects: Project[] = [
       fr: 'Reconnaissance faciale via OpenCV/dlib (sans appel LLM) + GPT-4.1 Nano pour le groupement contextuel et suggestions de mise en page. Prompts ultra-compacts (~15 tokens/photo) sur une taxonomie de 15 catégories de scènes.',
       en: 'Facial recognition via OpenCV/dlib (no LLM calls) + GPT-4.1 Nano for contextual grouping and layout suggestions. Ultra-compact prompts (~15 tokens/photo) across a taxonomy of 15 scene categories.'
     },
+    architecture: {
+      fr: 'Photos → détection de visages (OpenCV/dlib, local) → clustering → taxonomie de scènes (15 catégories) → appel LLM compact (GPT-4.1 Nano) pour le groupement contextuel → API Laravel/FastAPI.',
+      en: 'Photos → face detection (OpenCV/dlib, local) → clustering → scene taxonomy (15 categories) → compact LLM call (GPT-4.1 Nano) for contextual grouping → Laravel/FastAPI API.'
+    },
     results: {
       fr: 'Architecture hybride qui réduit drastiquement le coût par photo tout en conservant une qualité de regroupement et de suggestion élevée.',
       en: 'Hybrid architecture that drastically reduces cost per photo while maintaining high grouping and suggestion quality.'
@@ -183,9 +204,9 @@ export const projects: Project[] = [
     technologies: ['Laravel', 'FastAPI', 'Python', 'OpenCV', 'dlib', 'OpenAI', 'PostgreSQL', 'REST APIs'],
     tags: ['ai', 'computer-vision', 'llm'],
     images: [
-      { src: img('ai-photo-album/dashboard.png'), alt: 'Dashboard' },
-      { src: img('ai-photo-album/groupement.png'), alt: 'Groupement' },
-      { src: img('ai-photo-album/editeur.png'), alt: 'Editeur' }
+      { src: img('ai-photo-album/dashboard.webp'), alt: 'Dashboard' },
+      { src: img('ai-photo-album/groupement.webp'), alt: 'Groupement' },
+      { src: img('ai-photo-album/editeur.webp'), alt: 'Editeur' }
     ],
     featured: true,
     year: '2025 – Présent',
@@ -215,6 +236,10 @@ export const projects: Project[] = [
       fr: 'Pipeline hybride : Google Cloud Speech-to-Text + OCR, puis rescoring linguistique custom (KenLM + lexique hébraïque) pour corriger les erreurs.',
       en: 'Hybrid pipeline: Google Cloud Speech-to-Text + OCR, followed by custom linguistic rescoring (KenLM + Hebrew lexicon) to correct errors.'
     },
+    architecture: {
+      fr: 'Audio / scans → Google Cloud Speech-to-Text + OCR → rescoring linguistique (KenLM + lexique hébraïque) → API Laravel/FastAPI → interface de correction.',
+      en: 'Audio / scans → Google Cloud Speech-to-Text + OCR → linguistic rescoring (KenLM + Hebrew lexicon) → Laravel/FastAPI API → correction UI.'
+    },
     results: {
       fr: 'Réduction du WER de ~140 % à 10 % sur un corpus d’hébreu ancien grâce au pipeline de correction linguistique.',
       en: 'WER reduced from ~140% to 10% on an ancient Hebrew corpus thanks to the linguistic correction pipeline.'
@@ -222,12 +247,11 @@ export const projects: Project[] = [
     technologies: ['Laravel', 'FastAPI', 'Google Cloud Speech-to-Text', 'OCR', 'PostgreSQL', 'KenLM'],
     tags: ['ai', 'speech', 'ocr', 'nlp'],
     images: [
-      { src: img('hebreu-whisper/acceuil.png'), alt: 'Hebrew Whisper Acceuil' },
-      { src: img('hebreu-whisper/connexion.png'), alt: 'Hebrew Whisper Connexion' },
-      { src: img('hebreu-whisper/page-correction-ia.png'), alt: 'Hebrew Whisper Transcription et correction IA' },
-      { src: img('hebreu-whisper/page-transcription-reference.png'), alt: 'Hebrew Whisper Transcription et référence bibliotheque' },
-      { src: img('hebreu-whisper/page-transcription-reference-mobile.png'), alt: 'Hebrew Whisper Transcription et référence bibliotheque mobile' },
-
+      { src: img('hebreu-whisper/acceuil.webp'), alt: 'Hebrew Whisper Acceuil' },
+      { src: img('hebreu-whisper/connexion.webp'), alt: 'Hebrew Whisper Connexion' },
+      { src: img('hebreu-whisper/page-correction-ia.webp'), alt: 'Hebrew Whisper Transcription et correction IA' },
+      { src: img('hebreu-whisper/page-transcription-reference.webp'), alt: 'Hebrew Whisper Transcription et référence bibliotheque' },
+      { src: img('hebreu-whisper/page-transcription-reference-mobile.webp'), alt: 'Hebrew Whisper Transcription et référence bibliotheque mobile' }
     ],
     featured: true,          // ou true si tu veux le mettre en avant
     year: '2025 – Présent',

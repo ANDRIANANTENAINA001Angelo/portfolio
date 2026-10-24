@@ -43,7 +43,7 @@ Update URLs in:
 - `public/robots.txt`
 - `public/llms.txt`
 
-Recommended domain: `andrianantenaina.dev`
+Domain: `andrianantenaina-angelo.site`
 
 ## Deploy
 

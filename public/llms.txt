@@ -1,30 +1,29 @@
 # ANDRIANANTENAINA Angelo
 
-> AI & Backend Engineer · Co-founder of GoalPay (FinTech)
+> AI Engineer · LLM, RAG & MLOps · Co-founder of GoalPay (FinTech)
 
 ## Summary
-Software engineer specialized in backend development and AI solution integration.
-Builds production systems with Laravel, FastAPI, MLOps, LLM, RAG, OCR and Speech-to-Text.
-Co-founder of GoalPay — processed 2,500+ transactions and 40M+ Ariary in 4.5 months.
+AI Engineer who turns data and AI into production-ready products: document assistants (RAG),
+deployed predictive models (MLOps), automated data pipelines. Co-founder of GoalPay — processed
+100M+ Ariary across 4,500+ transactions.
 
 ## Key facts
-- Role: AI Software Engineer | Backend Engineer (Laravel & Python)
-- Company: GoalPay (Co-founder & Backend Engineer)
-- Location: Madagascar (GMT+3), remote-friendly
-- Email: a.angelo.mada@gmail.com
-- Phone: +261 34 59 92 047
+- Role: AI Engineer (LLM, RAG, MLOps) | Backend Engineer (Python, PHP)
+- Company: GoalPay (Co-founder & Software Engineer)
+- Location: Fianarantsoa, Madagascar (UTC+3), remote-friendly
+- Email: contact@andrianantenaina-angelo.site
 - Languages: Malagasy (native), French (fluent), English (professional)
 
 ## Notable projects
-- GoalPay: FinTech payments SaaS (Laravel, PostgreSQL, WebSockets)
-- PredictorBot: MLOps pipeline for currency prediction (FastAPI, XGBoost, MLflow) — 68.5% directional accuracy
-- Hebrew Whisper: Ancient Hebrew STT + OCR (WER reduced from ~140% to 55%)
-- AI Photo Album: Intelligent photo organization (OpenCV + GPT-4.1 Nano, cost-optimized)
+- GoalPay: FinTech payments SaaS (Laravel, PostgreSQL, WebSockets) — 100M+ Ar processed
+- PredictorBot: near real-time MLOps pipeline for currency exchange rate prediction (FastAPI, XGBoost, MLflow) — automated hourly retraining, 27 runs tracked, auto-promotion of the best model
+- AI Photo Album: LLM-powered photo organization (OpenCV + GPT-4.1 Nano, cost-optimized hybrid architecture)
+- Hebrew Whisper: Ancient Hebrew Speech-to-Text + OCR (WER reduced from ~140% to 10%)
 
 ## Stack
-Laravel, FastAPI, Python, PHP, PostgreSQL, Docker, CI/CD, RAG, LLM, OCR, STT, MLOps
+Python, FastAPI, Laravel, PostgreSQL, MLflow, XGBoost, scikit-learn, Docker, RAG, LLM, MLOps
 
 ## Links
-- Portfolio: https://andrianantenaina.dev/
+- Portfolio: https://andrianantenaina-angelo.site/
 - GitHub: https://github.com/ANDRIANANTENAINA001Angelo
 - LinkedIn: https://www.linkedin.com/in/andrianantenaina-angelo

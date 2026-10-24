@@ -24,7 +24,7 @@ export function usePageSeo(t: Ref<any>, extra?: { title?: string; description?: 
       { property: 'og:image:type', content: 'image/jpeg' },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
-      { property: 'og:image:alt', content: `${SITE_NAME} — AI & Backend Engineer` },
+      { property: 'og:image:alt', content: `${SITE_NAME} — AI Engineer` },
       { property: 'og:site_name', content: SITE_NAME },
       { property: 'og:locale', content: () => (document.documentElement.lang === 'en' ? 'en_US' : 'fr_FR') },
 
@@ -33,10 +33,13 @@ export function usePageSeo(t: Ref<any>, extra?: { title?: string; description?: 
       { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: description },
       { name: 'twitter:image', content: OG_IMAGE },
-      { name: 'twitter:image:alt', content: `${SITE_NAME} — AI & Backend Engineer` }
+      { name: 'twitter:image:alt', content: `${SITE_NAME} — AI Engineer` }
     ],
     link: [
-      { rel: 'canonical', href: SITE_URL + '/' }
+      { rel: 'canonical', href: SITE_URL + '/' },
+      { rel: 'alternate', hreflang: 'fr', href: SITE_URL + '/' },
+      { rel: 'alternate', hreflang: 'en', href: SITE_URL + '/?lang=en' },
+      { rel: 'alternate', hreflang: 'x-default', href: SITE_URL + '/' }
     ]
   })
 }
