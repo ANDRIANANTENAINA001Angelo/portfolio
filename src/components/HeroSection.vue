@@ -42,6 +42,7 @@ const { t } = useLang()
               width="320"
               height="320"
               loading="eager"
+              fetchpriority="high"
             />
           </picture>
         </div>

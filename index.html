@@ -7,6 +7,10 @@
     <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
 
+    <!-- Preload the hero (LCP) image: the SPA only renders the <img> after JS mounts,
+         so without this hint the browser discovers it too late. -->
+    <link rel="preload" as="image" href="/images/profile.webp" fetchpriority="high" type="image/webp" />
+
     <!-- Primary SEO -->
     <title>ANDRIANANTENAINA Angelo — AI Engineer · LLM, RAG & MLOps</title>
     <meta name="description" content="Je transforme vos données et l'IA en produits qui tournent en production : assistants IA sur vos documents, modèles prédictifs déployés, pipelines de données automatisés. Co-fondateur de GoalPay." />
