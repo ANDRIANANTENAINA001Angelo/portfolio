@@ -1,29 +1,19 @@
 # ANDRIANANTENAINA Angelo
 
-> AI Engineer · LLM, RAG & MLOps · Co-founder of GoalPay (FinTech)
+> AI Engineer specialized in LLM, RAG and MLOps. Turns data and AI into production-ready products — document assistants, deployed predictive models, automated data pipelines. Co-founder of GoalPay, based in Fianarantsoa, Madagascar (UTC+3), working remote.
 
-## Summary
-AI Engineer who turns data and AI into production-ready products: document assistants (RAG),
-deployed predictive models (MLOps), automated data pipelines. Co-founder of GoalPay — processed
-100M+ Ariary across 4,500+ transactions.
+Stack: Python, FastAPI, Laravel, PostgreSQL, MLflow, XGBoost, scikit-learn, Docker. Contact: contact@andrianantenaina-angelo.site.
 
-## Key facts
-- Role: AI Engineer (LLM, RAG, MLOps) | Backend Engineer (Python, PHP)
-- Company: GoalPay (Co-founder & Software Engineer)
-- Location: Fianarantsoa, Madagascar (UTC+3), remote-friendly
-- Email: contact@andrianantenaina-angelo.site
-- Languages: Malagasy (native), French (fluent), English (professional)
+## Pages
 
-## Notable projects
-- GoalPay: FinTech payments SaaS (Laravel, PostgreSQL, WebSockets) — 100M+ Ar processed
-- PredictorBot: near real-time MLOps pipeline for currency exchange rate prediction (FastAPI, XGBoost, MLflow) — automated hourly retraining, 27 runs tracked, auto-promotion of the best model
-- AI Photo Album: LLM-powered photo organization (OpenCV + GPT-4.1 Nano, cost-optimized hybrid architecture)
-- Hebrew Whisper: Ancient Hebrew Speech-to-Text + OCR (WER reduced from ~140% to 10%)
+- [Home](https://andrianantenaina-angelo.site/): Services, case studies, experience, FAQ and contact.
+- [GoalPay](https://andrianantenaina-angelo.site/projets/goalpay/laravel-postgresql-websockets): FinTech payments platform, co-founded and built from the ground up — 100M+ Ariary processed across 4,500+ transactions.
+- [PredictorBot](https://andrianantenaina-angelo.site/projets/predictor-bot/fastapi-xgboost-mlflow): Near real-time MLOps pipeline for currency exchange rate prediction — automated hourly retraining, MLflow tracking and model registry.
+- [AI Photo Album](https://andrianantenaina-angelo.site/projets/ai-photo-album/laravel-fastapi-opencv-llm): LLM-powered photo organization, hybrid cost-optimized architecture (OpenCV + GPT-4.1 Nano).
+- [Hebrew Whisper](https://andrianantenaina-angelo.site/projets/hebreu-whisper/laravel-fastapi-speech-ocr): Ancient Hebrew Speech-to-Text + OCR pipeline, WER reduced from ~140% to 10%.
+- [Code & Scale internal AI platform](https://andrianantenaina-angelo.site/projets/code-scale-ai-platform/fastapi-pgvector-rag-ocr): RAG, OCR and embeddings work during a backend & AI internship.
 
-## Stack
-Python, FastAPI, Laravel, PostgreSQL, MLflow, XGBoost, scikit-learn, Docker, RAG, LLM, MLOps
+## Optional
 
-## Links
-- Portfolio: https://andrianantenaina-angelo.site/
-- GitHub: https://github.com/ANDRIANANTENAINA001Angelo
-- LinkedIn: https://www.linkedin.com/in/andrianantenaina-angelo
+- [GitHub](https://github.com/ANDRIANANTENAINA001Angelo): Code repositories.
+- [LinkedIn](https://www.linkedin.com/in/andrianantenaina-angelo): Professional profile.

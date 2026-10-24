@@ -15,6 +15,7 @@ const title = computed(() => props.project.title[lang.value])
 const description = computed(() => props.project.shortDescription[lang.value])
 const statusLabel = computed(() => t.value.projects.status[props.project.status])
 
+const thumb = (src: string) => src.replace(/\.webp$/, '-thumb.webp')
 const images = computed(() => props.project.images || [])
 const hasImages = computed(() => images.value.length > 0)
 const currentImg = ref(0)
@@ -49,7 +50,7 @@ const onImgError = (e: Event) => {
           <img
             v-for="(img, i) in images"
             :key="i"
-            :src="img.src"
+            :src="thumb(img.src)"
             :alt="img.alt"
             class="media-img"
             :class="{ active: currentImg === i }"
