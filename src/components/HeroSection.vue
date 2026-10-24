@@ -7,7 +7,7 @@ const { t } = useLang()
 <template>
   <section class="hero">
     <div class="container hero-inner">
-      <div class="hero-content animate-fade-up">
+      <div class="hero-content">
         <span class="badge">{{ t.hero.badge }}</span>
 
         <h1 class="hero-title">
@@ -31,7 +31,7 @@ const { t } = useLang()
         </div>
       </div>
 
-      <div class="hero-visual animate-fade-up">
+      <div class="hero-visual">
         <div class="photo-wrap">
           <picture>
             <source srcset="/images/profile.webp" type="image/webp" />
