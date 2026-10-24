@@ -43,23 +43,10 @@
     <meta name="twitter:image" content="https://andrianantenaina-angelo.site/preview-opengraph.jpg" />
     <meta name="twitter:image:alt" content="ANDRIANANTENAINA Angelo — AI Engineer portfolio" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" />
-    </noscript>
+    <!-- Fonts: self-hosted (public/fonts/), declared in src/styles/main.css.
+         Preloaded here since they're the LCP-critical text typeface. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-ext.woff2" crossorigin />
 
     <!-- JSON-LD Person (AEO / rich results) -->
     <script type="application/ld+json">
@@ -85,6 +72,22 @@
         "https://www.codeur.com/-angeloa25og"
       ],
       "knowsAbout": ["LLM", "RAG", "MLOps", "Laravel", "FastAPI", "Python", "Machine Learning", "Artificial Intelligence"],
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "name": "Book a 30-minute call",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://calendly.com/a-angelo-mada/30min",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        },
+        "result": {
+          "@type": "Reservation",
+          "name": "30-minute discovery call"
+        }
+      },
       "makesOffer": [
         {
           "@type": "Offer",
