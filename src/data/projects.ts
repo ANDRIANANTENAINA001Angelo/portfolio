@@ -269,7 +269,8 @@ export function getProjectBySlug(slug: string): Project | undefined {
 }
 
 export function getProjectUrl(project: Project, lang: 'fr' | 'en' = 'fr'): string {
+  // Trailing slash: see trailingSlash() in src/i18n.ts
   return lang === 'fr'
-    ? `/projets/${project.slug}/${project.techSlug}`
-    : `/en/projects/${project.slug}/${project.techSlug}`
+    ? `/projets/${project.slug}/${project.techSlug}/`
+    : `/en/projects/${project.slug}/${project.techSlug}/`
 }

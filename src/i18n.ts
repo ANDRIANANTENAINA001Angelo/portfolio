@@ -11,12 +11,17 @@ export const LANGS: Lang[] = ['fr', 'en']
 
 export type PageKind = 'home' | 'services' | 'service' | 'project'
 
+/**
+ * Public URLs end with "/": pages are pre-rendered as x/index.html, and the host
+ * (Render) serves that file for "/x/" but rewrites "/x" to the SPA shell.
+ */
+export const trailingSlash = (path: string) => (path.endsWith('/') ? path : `${path}/`)
+
 /** Prefix an FR path (optionally with #hash) for the given language. */
 export function withLang(path: string, lang: Lang): string {
   const [rawPath, hash] = path.split('#')
   const p = rawPath || '/'
-  let out = p
-  if (lang === 'en') out = p === '/' ? '/en' : `/en${p}`
+  const out = trailingSlash(lang === 'en' ? (p === '/' ? '/en' : `/en${p}`) : p)
   return hash ? `${out}#${hash}` : out
 }
 
