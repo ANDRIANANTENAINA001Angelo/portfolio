@@ -13,7 +13,7 @@ const { t } = useLang()
       </div>
 
       <div class="faq-list">
-        <details v-for="(item, i) in t.faq.items" :key="i" class="faq-item card">
+        <details v-for="(item, i) in t.faq.items" :key="i" class="faq-item">
           <summary class="faq-question">{{ item.q }}</summary>
           <p class="faq-answer">{{ item.a }}</p>
         </details>
@@ -26,19 +26,20 @@ const { t } = useLang()
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  max-width: 760px;
-  margin: 0 auto;
+  max-width: 860px;
+  border-top: 2px solid var(--text);
 }
 
 .faq-item {
-  padding: 1.1rem 1.35rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .faq-question {
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 680;
+  font-stretch: 108%;
   color: var(--text);
   list-style: none;
   display: flex;
@@ -65,10 +66,9 @@ const { t } = useLang()
 }
 
 .faq-answer {
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.9375rem;
+  margin-top: 0.65rem;
+  max-width: 72ch;
+  font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }

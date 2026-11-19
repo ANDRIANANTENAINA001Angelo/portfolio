@@ -2,7 +2,7 @@
 import { useLang } from '@/composables/useLang'
 import { SOCIAL } from '@/config'
 
-const { t } = useLang()
+const { t, lang } = useLang()
 
 const links = {
   email: `mailto:${SOCIAL.email}`,
@@ -28,11 +28,11 @@ const links = {
               <span class="info-value">{{ t.contact.email }}</span>
             </a>
             <a :href="links.whatsapp" class="info-item" target="_blank" rel="noopener">
-              <span class="info-label">WhatsApp / Phone</span>
+              <span class="info-label">{{ lang === 'fr' ? 'Téléphone / WhatsApp' : 'Phone / WhatsApp' }}</span>
               <span class="info-value">{{ t.contact.phone }}</span>
             </a>
             <div class="info-item">
-              <span class="info-label">Location</span>
+              <span class="info-label">{{ lang === 'fr' ? 'Localisation' : 'Location' }}</span>
               <span class="info-value">{{ t.contact.location }}</span>
             </div>
           </div>
@@ -58,7 +58,7 @@ const links = {
 <style scoped>
 .contact-box {
   padding: 3rem 2.5rem;
-  background: linear-gradient(145deg, var(--bg-card), var(--bg-muted));
+  background: var(--bg-card);
   border: 1px solid var(--border);
 }
 
@@ -95,10 +95,9 @@ const links = {
 }
 
 .info-label {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-stretch: var(--narrow);
   color: var(--text-muted);
 }
 

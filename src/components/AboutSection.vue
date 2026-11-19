@@ -19,12 +19,12 @@ const { t, lang } = useLang()
             {{ p }}
           </p>
           <router-link :to="aboutPath(lang)" class="about-more">
-            {{ lang === 'fr' ? 'Parcours complet et profils en ligne' : 'Full background and online profiles' }} →
+            {{ lang === 'fr' ? 'Parcours complet et profils en ligne' : 'Full background and online profiles' }}
           </router-link>
         </div>
 
         <div class="about-values">
-          <div v-for="(v, i) in t.about.values" :key="i" class="value-card card">
+          <div v-for="(v, i) in t.about.values" :key="i" class="value-card">
             <h3 class="value-title">{{ v.title }}</h3>
             <p class="value-text">{{ v.text }}</p>
           </div>
@@ -56,16 +56,17 @@ const { t, lang } = useLang()
 .about-values {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  border-top: 2px solid var(--text);
 }
 
 .value-card {
-  padding: 1.25rem 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .value-title {
-  font-size: 1rem;
-  font-weight: 650;
+  font-size: 1.15rem;
+  font-weight: 740;
   margin-bottom: 0.4rem;
   color: var(--text);
 }

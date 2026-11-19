@@ -21,7 +21,7 @@ const fromPrice = (s: (typeof services)[number]) => {
       </div>
 
       <div class="services-grid">
-        <article v-for="service in services" :key="service.id" class="service-card card">
+        <article v-for="service in services" :key="service.id" class="service-card">
           <h3 class="service-title">
             <router-link :to="servicePath(service, lang)">{{ service.title[lang] }}</router-link>
           </h3>
@@ -33,16 +33,16 @@ const fromPrice = (s: (typeof services)[number]) => {
           <div class="service-footer">
             <span class="service-price">{{ t.services.from }} {{ fromPrice(service) }}</span>
             <router-link :to="servicePath(service, lang)" class="service-cta">
-              {{ t.services.viewService }} →
+              {{ t.services.viewService }}
             </router-link>
           </div>
         </article>
       </div>
 
       <div class="services-links">
-        <router-link :to="servicesPath(lang)" class="services-all">{{ t.services.allServices }} →</router-link>
+        <router-link :to="servicesPath(lang)" class="services-all">{{ t.services.allServices }}</router-link>
         <a :href="lp('/#faq')" class="services-faq-link">
-          {{ lang === 'fr' ? 'Des questions ? Voir la FAQ' : 'Questions? See the FAQ' }} →
+          {{ lang === 'fr' ? 'Des questions ? Voir la FAQ' : 'Questions? See the FAQ' }}
         </a>
       </div>
     </div>
@@ -52,20 +52,55 @@ const fromPrice = (s: (typeof services)[number]) => {
 <style scoped>
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 2px solid var(--text);
 }
 
+/* Columns separated by rules: a catalogue, not a stack of floating cards */
 .service-card {
   display: flex;
   flex-direction: column;
-  padding: 1.75rem;
+  padding: 1.5rem 1.5rem 1.75rem;
   gap: 0.75rem;
+  border-left: 1px solid var(--border);
+}
+
+.service-card:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+@media (max-width: 1000px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .service-card:nth-child(odd) {
+    border-left: none;
+    padding-left: 0;
+  }
+  .service-card:nth-child(n + 3) {
+    border-top: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-card {
+    border-left: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .service-card + .service-card {
+    border-top: 1px solid var(--border);
+  }
 }
 
 .service-title {
-  font-size: 1.125rem;
-  font-weight: 650;
+  font-size: 1.3rem;
+  font-weight: 760;
+  line-height: 1.15;
   letter-spacing: -0.01em;
 }
 
@@ -107,7 +142,7 @@ const fromPrice = (s: (typeof services)[number]) => {
   top: 0.55em;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 1px;
   background: var(--primary);
 }
 
@@ -141,7 +176,7 @@ const fromPrice = (s: (typeof services)[number]) => {
 .services-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.75rem 2rem;
   margin-top: 2.5rem;
 }

@@ -68,7 +68,7 @@ useSeo({
             <router-link :to="item.path">{{ item.body.title }}</router-link>
           </h2>
           <p class="rh-item-desc">{{ item.body.answer }}</p>
-          <router-link :to="item.path" class="rh-link">{{ t.resources.readMore }} →</router-link>
+          <router-link :to="item.path" class="rh-link">{{ t.resources.readMore }}</router-link>
         </article>
       </div>
     </div>

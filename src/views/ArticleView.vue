@@ -86,7 +86,7 @@ if (found) {
       <section class="ar-section">
         <h2>{{ t.resources.faqTitle }}</h2>
         <div class="ar-faq">
-          <details v-for="item in body.faq" :key="item.q" class="card">
+          <details v-for="item in body.faq" :key="item.q">
             <summary>{{ item.q }}</summary>
             <p>{{ item.a }}</p>
           </details>
@@ -96,7 +96,7 @@ if (found) {
       <aside v-if="relatedServices.length" class="ar-related card">
         <p class="ar-related-label">{{ t.resources.relatedService }}</p>
         <div v-for="s in relatedServices" :key="s.id">
-          <router-link :to="servicePath(s, lang)" class="ar-related-link">{{ s.title[lang] }} →</router-link>
+          <router-link :to="servicePath(s, lang)" class="ar-related-link">{{ s.title[lang] }}</router-link>
           <p>{{ s.tagline[lang] }}</p>
         </div>
       </aside>
@@ -141,10 +141,9 @@ if (found) {
 }
 
 .ar-answer-label {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-stretch: var(--narrow);
   color: var(--primary);
   margin-bottom: 0.4rem;
 }
@@ -180,11 +179,12 @@ if (found) {
 .ar-faq {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  border-top: 2px solid var(--text);
 }
 
 .ar-faq details {
-  padding: 1rem 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .ar-faq summary {
@@ -203,10 +203,9 @@ if (found) {
 }
 
 .ar-related-label {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-stretch: var(--narrow);
   color: var(--text-muted);
   margin-bottom: 0.5rem;
 }

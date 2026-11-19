@@ -7,7 +7,7 @@ const { t } = useLang()
 <template>
   <section id="skills" class="section skills">
     <div class="container">
-      <div class="section-header center">
+      <div class="section-header">
         <h2 class="section-title">{{ t.skills.title }}</h2>
         <p class="section-subtitle">{{ t.skills.subtitle }}</p>
       </div>
@@ -16,7 +16,7 @@ const { t } = useLang()
         <div
           v-for="(cat, i) in t.skills.categories"
           :key="i"
-          class="skill-card card"
+          class="skill-card"
         >
           <h3 class="skill-cat">{{ cat.name }}</h3>
           <ul class="skill-list">
@@ -34,42 +34,73 @@ const { t } = useLang()
 <style scoped>
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 2px solid var(--text);
 }
 
 .skill-card {
-  padding: 1.5rem;
+  padding: 1.25rem 1.5rem 0.5rem;
+  border-left: 1px solid var(--border);
+}
+
+.skill-card:first-child {
+  border-left: none;
+  padding-left: 0;
 }
 
 .skill-cat {
-  font-size: 0.9375rem;
-  font-weight: 650;
-  color: var(--primary);
-  margin-bottom: 1rem;
-  letter-spacing: -0.01em;
+  font-size: 1.1rem;
+  font-weight: 740;
+  color: var(--text);
+  margin-bottom: 0.9rem;
 }
 
 .skill-list {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.5rem;
 }
 
 .skill-item {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 0.6rem;
-  font-size: 0.9375rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
 }
 
 .dot {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 1px;
   background: var(--primary);
   flex-shrink: 0;
-  opacity: 0.7;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1000px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .skill-card:nth-child(odd) {
+    border-left: none;
+    padding-left: 0;
+  }
+  .skill-card:nth-child(n + 3) {
+    border-top: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .skill-card {
+    border-left: none;
+    padding: 1.25rem 0 0.75rem;
+  }
+  .skill-card + .skill-card {
+    border-top: 1px solid var(--border);
+  }
 }
 </style>

@@ -42,7 +42,6 @@ export interface OnlineProfile {
  * Every official profile. Single source for the About page (rel="me" links),
  * JSON-LD `sameAs` and llms.txt: add a profile here and it appears everywhere.
  * Only list profiles confirmed to be mine (several homonyms exist).
- * TODO: Malt, ComeUp and the personal Facebook profile (URLs to confirm).
  */
 export const PROFILES: OnlineProfile[] = [
   {
@@ -70,6 +69,20 @@ export const PROFILES: OnlineProfile[] = [
     group: 'freelance'
   },
   {
+    label: 'Malt',
+    url: 'https://www.malt.fr/profile/angeloandrianantenaina',
+    role: { fr: 'Profil freelance (missions en France et en Europe)', en: 'Freelance profile (France and Europe)' },
+    group: 'freelance'
+  },
+  // ComeUp: profile exists but its content is not aligned with the brand yet.
+  // Uncomment once the profile is rewritten (see brand-perso/03-textes-prets-a-coller.md).
+  // {
+  //   label: 'ComeUp',
+  //   url: 'https://comeup.com/fr/@angelo-av',
+  //   role: { fr: 'Services freelance à prix fixe', en: 'Fixed-price freelance services' },
+  //   group: 'freelance'
+  // },
+  {
     label: 'Remote OK',
     url: 'https://remoteok.com/@andrianantenaina_angelo',
     role: { fr: 'Profil pour les missions remote internationales', en: 'Profile for international remote work' },
@@ -79,6 +92,12 @@ export const PROFILES: OnlineProfile[] = [
     label: 'Facebook (Page pro)',
     url: SOCIAL.facebook,
     role: { fr: 'Actualités et contact', en: 'News and contact' },
+    group: 'community'
+  },
+  {
+    label: 'Facebook',
+    url: 'https://web.facebook.com/angelo.andrianantenaina.927/',
+    role: { fr: 'Profil personnel', en: 'Personal profile' },
     group: 'community'
   }
 ]

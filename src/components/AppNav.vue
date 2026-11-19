@@ -87,8 +87,13 @@ const altHref = computed(() => alternatePath(route, lang.value === 'fr' ? 'en' :
           :aria-label="isDark ? t.common.light : t.common.dark"
           @click="toggleTheme()"
         >
-          <span v-if="isDark" class="icon">☀️</span>
-          <span v-else class="icon">🌙</span>
+          <svg v-if="isDark" class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <svg v-else class="icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+          </svg>
         </button>
 
         <button
@@ -112,15 +117,8 @@ const altHref = computed(() => alternatePath(route, lang.value === 'fr' ? 'en' :
   top: 0;
   z-index: 100;
   height: var(--nav-height);
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.nav.scrolled {
-  border-bottom-color: var(--border);
-  box-shadow: var(--shadow-sm);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
 
 .nav-inner {
@@ -132,10 +130,11 @@ const altHref = computed(() => alternatePath(route, lang.value === 'fr' ? 'en' :
 }
 
 .logo {
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: -0.03em;
-  color: var(--primary);
+  font-weight: 800;
+  font-stretch: 118%;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
   transition: color 0.15s;
 }
 
@@ -150,23 +149,21 @@ const altHref = computed(() => alternatePath(route, lang.value === 'fr' ? 'en' :
 }
 
 .nav-link {
-  padding: 0.5rem 0.9rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 550;
+  font-stretch: var(--narrow);
   color: var(--text-secondary);
-  border-radius: 8px;
-  transition: color 0.15s, background 0.15s;
+  transition: color 0.15s;
   position: relative;
 }
 
 .nav-link:hover {
   color: var(--text);
-  background: var(--bg-muted);
 }
 
 .nav-link.active {
-  color: var(--primary);
-  font-weight: 600;
+  color: var(--text);
 }
 
 .nav-link.active::after {
@@ -176,8 +173,7 @@ const altHref = computed(() => alternatePath(route, lang.value === 'fr' ? 'en' :
   right: 0.9rem;
   bottom: 4px;
   height: 2px;
-  background: var(--primary);
-  border-radius: 2px;
+  background: var(--accent);
 }
 
 .nav-actions {
@@ -193,9 +189,9 @@ const altHref = computed(() => alternatePath(route, lang.value === 'fr' ? 'en' :
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 650;
   color: var(--text-secondary);
   transition: background 0.15s, color 0.15s;
 }
@@ -207,7 +203,7 @@ const altHref = computed(() => alternatePath(route, lang.value === 'fr' ? 'en' :
 }
 
 .theme-toggle .icon {
-  font-size: 1.1rem;
+  display: block;
 }
 
 .burger {
@@ -260,7 +256,7 @@ const altHref = computed(() => alternatePath(route, lang.value === 'fr' ? 'en' :
   }
 
   .nav-link.active {
-    background: var(--primary-soft);
+    box-shadow: inset 3px 0 0 var(--accent);
   }
 
   .burger {

@@ -107,7 +107,7 @@ const onImgError = (e: Event) => {
         </div>
 
         <span class="card-cta">
-          {{ t.projects.viewDetails }} →
+          {{ t.projects.viewDetails }}
         </span>
       </div>
     </router-link>
@@ -118,12 +118,16 @@ const onImgError = (e: Event) => {
 .project-card {
   overflow: hidden;
   height: 100%;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
+  border-color: var(--text);
+}
+
+.project-card:hover .card-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
 }
 
 .card-link {
@@ -136,7 +140,8 @@ const onImgError = (e: Event) => {
 .card-media {
   position: relative;
   aspect-ratio: 16 / 10;
-  background: linear-gradient(135deg, var(--primary-soft), var(--accent-soft));
+  background: var(--bg-muted);
+  border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
 
@@ -170,7 +175,7 @@ const onImgError = (e: Event) => {
   font-weight: 800;
   color: var(--primary);
   opacity: 0.85;
-  font-family: var(--font-mono);
+  font-stretch: var(--condensed);
 }
 
 .media-label {
@@ -209,7 +214,7 @@ const onImgError = (e: Event) => {
   font-size: 0.6875rem;
   font-weight: 600;
   padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: var(--bg-elevated);
   color: var(--text-secondary);
   border: 1px solid var(--border);
@@ -217,15 +222,11 @@ const onImgError = (e: Event) => {
 }
 
 .status-badge.live {
-  background: var(--primary-soft);
   color: var(--primary);
-  border-color: transparent;
 }
 
 .status-badge.in-progress {
-  background: var(--accent-soft);
   color: var(--accent);
-  border-color: transparent;
 }
 
 .card-body {
@@ -243,8 +244,9 @@ const onImgError = (e: Event) => {
 }
 
 .card-title {
-  font-size: 1.0625rem;
-  font-weight: 650;
+  font-size: 1.15rem;
+  font-weight: 720;
+  font-stretch: var(--wide);
   letter-spacing: -0.01em;
   line-height: 1.35;
   color: var(--text);
@@ -276,9 +278,12 @@ const onImgError = (e: Event) => {
 }
 
 .metric-value {
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--primary);
+  font-size: 1.35rem;
+  font-weight: 800;
+  font-stretch: var(--condensed);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  color: var(--text);
 }
 
 .metric-label {

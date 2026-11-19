@@ -68,10 +68,9 @@ const { t, lang } = useLang()
 }
 
 .footer-heading {
-  font-size: 0.8125rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-stretch: var(--narrow);
   color: var(--text-secondary);
   margin-bottom: 0.75rem;
 }

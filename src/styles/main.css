@@ -1,96 +1,92 @@
 /* ============================================
-   Self-hosted fonts (Inter, JetBrains Mono)
-   Self-hosted instead of fonts.googleapis.com to avoid the extra
-   cross-origin DNS/TLS round trips on the critical rendering path.
+   Self-hosted font: Archivo (variable: width 62–125, weight 100–900)
+   One family; the width axis carries the personality (see brand-perso/06-design-system.md).
    ============================================ */
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Archivo';
   font-style: normal;
-  font-weight: 400 800;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
   font-display: swap;
-  src: url('/fonts/inter-latin.woff2') format('woff2');
+  src: url('/fonts/archivo-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Archivo';
   font-style: normal;
-  font-weight: 400 800;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
   font-display: swap;
-  src: url('/fonts/inter-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400 500;
-  font-display: swap;
-  src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400 500;
-  font-display: swap;
-  src: url('/fonts/jetbrains-mono-latin-ext.woff2') format('woff2');
+  src: url('/fonts/archivo-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 /* ============================================
-   Design tokens — Light first
+   Design tokens — "Hautes Terres"
+   Papier froid, encre vert forêt, rizière (marque), latérite (accent rare).
    ============================================ */
 :root,
 [data-theme="light"] {
-  --bg: #f8fafc;
-  --bg-elevated: #ffffff;
-  --bg-muted: #f1f5f9;
-  --bg-card: #ffffff;
-  --text: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  --border: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --primary: #0f766e;
-  --primary-hover: #0d9488;
-  --primary-soft: #ccfbf1;
-  --accent: #0369a1;
-  --accent-soft: #e0f2fe;
-  --success: #059669;
-  --warning: #d97706;
-  --danger: #dc2626;
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.08);
-  --radius: 12px;
-  --radius-lg: 20px;
-  --radius-full: 9999px;
-  --font: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-  --nav-height: 72px;
+  --bg: #f2f4ef;            /* papier */
+  --bg-elevated: #fafbf8;   /* surface */
+  --bg-muted: #e8ece5;
+  --bg-card: #fafbf8;
+  --text: #1a2621;          /* encre */
+  --text-secondary: #46544d;
+  --text-muted: #5f6e66;
+  --border: #d3d9d1;        /* trait */
+  --border-strong: #aeb8ae;
+  --primary: #24654a;       /* rizière */
+  --primary-hover: #1c5039;
+  --primary-soft: #dceadf;
+  --on-primary: #ffffff;
+  --accent: #a8441d;        /* latérite */
+  --accent-soft: #f3e1d8;
+  --success: #24654a;
+  --warning: #a86a1d;
+  --danger: #b3261e;
+  --shadow-sm: none;
+  --shadow: none;
+  --shadow-lg: 0 10px 30px rgba(26, 38, 33, 0.14);
+
+  /* Radius hierarchy: tags < buttons < blocks */
+  --radius-sm: 3px;
+  --radius: 6px;
+  --radius-lg: 8px;
+
+  --font: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Small data labels: condensed Archivo instead of a monospace face */
+  --font-mono: var(--font);
+
+  /* Width axis presets */
+  --wide: 116%;
+  --condensed: 78%;
+  --narrow: 92%;
+
+  --nav-height: 68px;
   --max-width: 1120px;
 }
 
 [data-theme="dark"] {
-  --bg: #0b1120;
-  --bg-elevated: #111827;
-  --bg-muted: #1e293b;
-  --bg-card: #111827;
-  --text: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --border: #1e293b;
-  --border-strong: #334155;
-  --primary: #2dd4bf;
-  --primary-hover: #5eead4;
-  --primary-soft: #134e4a;
-  --accent: #38bdf8;
-  --accent-soft: #0c4a6e;
-  --success: #34d399;
-  --warning: #fbbf24;
-  --danger: #f87171;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --bg: #121916;
+  --bg-elevated: #18211d;
+  --bg-muted: #1f2a25;
+  --bg-card: #18211d;
+  --text: #e6ebe5;
+  --text-secondary: #a9b5ad;
+  --text-muted: #8c9991;
+  --border: #26322c;
+  --border-strong: #3a4840;
+  --primary: #7cc39c;
+  --primary-hover: #9ad5b4;
+  --primary-soft: #1d3328;
+  --on-primary: #121916;
+  --accent: #e38a60;
+  --accent-soft: #3a2419;
+  --success: #7cc39c;
+  --warning: #e0b15a;
+  --danger: #f2877d;
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 /* ============================================
@@ -110,13 +106,37 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
 body {
   font-family: var(--font);
+  font-stretch: 100%;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
   font-size: 16px;
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-stretch: var(--wide);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 img {
@@ -154,9 +174,14 @@ button {
   padding: 5rem 0;
 }
 
+/* Consecutive home sections are separated by a rule, not by background washes */
+.section + .section {
+  border-top: 1px solid var(--border);
+}
+
 .section-header {
-  margin-bottom: 3rem;
-  max-width: 640px;
+  margin-bottom: 2.75rem;
+  max-width: 680px;
 }
 
 .section-header.center {
@@ -166,11 +191,13 @@ button {
 }
 
 .section-title {
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
-  font-weight: 700;
+  font-size: clamp(2rem, 4.2vw, 2.85rem);
+  font-weight: 760;
+  font-stretch: var(--wide);
   letter-spacing: -0.02em;
+  line-height: 1.05;
   color: var(--text);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
 .section-subtitle {
@@ -187,40 +214,41 @@ button {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  border-radius: var(--radius-full);
-  transition: all 0.2s ease;
+  padding: 0.8rem 1.35rem;
+  font-size: 0.95rem;
+  font-weight: 650;
+  font-stretch: var(--narrow);
+  border-radius: var(--radius);
+  border: 1.5px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   white-space: nowrap;
 }
 
 .btn-primary {
   background: var(--primary);
-  color: white;
+  color: var(--on-primary);
 }
 
 .btn-primary:hover {
   background: var(--primary-hover);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--text);
-  border: 1.5px solid var(--border-strong);
+  border-color: var(--text);
 }
 
 .btn-secondary:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  background: var(--primary-soft);
+  background: var(--text);
+  color: var(--bg);
 }
 
 .btn-ghost {
   color: var(--text-secondary);
   padding: 0.5rem 0.75rem;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
 }
 
 .btn-ghost:hover {
@@ -228,18 +256,16 @@ button {
 }
 
 /* ============================================
-   Cards
+   Blocks (formerly floating cards): flat surface, a rule, no shadow
    ============================================ */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.15s ease;
 }
 
 .card:hover {
-  box-shadow: var(--shadow);
   border-color: var(--border-strong);
 }
 
@@ -249,43 +275,58 @@ button {
 .tag {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  border-radius: var(--radius-full);
-  background: var(--bg-muted);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 550;
+  font-stretch: var(--narrow);
+  border-radius: var(--radius-sm);
+  background: transparent;
   color: var(--text-secondary);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
 }
 
 .tag-primary {
-  background: var(--primary-soft);
   color: var(--primary);
-  border-color: transparent;
+  border-color: color-mix(in srgb, var(--primary) 45%, transparent);
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0.85rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  border-radius: var(--radius-full);
-  background: var(--primary-soft);
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 550;
+  font-stretch: var(--narrow);
+  color: var(--text-secondary);
+}
+
+/* Small square marker in rizière: "available" */
+.badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 1px;
+}
+
+/* ============================================
+   Text links inside content
+   ============================================ */
+.link {
   color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+.link:hover {
+  text-decoration-thickness: 2px;
 }
 
 /* ============================================
    Utilities
    ============================================ */
-.text-gradient {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -297,10 +338,15 @@ button {
   border: 0;
 }
 
-/* Focus visible */
+/* Focus visible: latérite, the one place the accent is guaranteed */
 :focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+::selection {
+  background: var(--primary-soft);
+  color: var(--text);
 }
 
 /* Scrollbar */
@@ -309,14 +355,11 @@ button {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-muted);
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--border-strong);
   border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
 }
 
 /* Responsive */
@@ -327,4 +370,39 @@ button {
   .container {
     padding: 0 1.25rem;
   }
+}
+
+/* Text links: underlined instead of an appended arrow */
+.service-cta,
+.services-all,
+.services-faq-link,
+.about-more,
+.card-cta,
+.rh-link,
+.hub-item-link,
+.ar-related-link,
+.back-link,
+.sp-links a,
+.ap-services a,
+.ap-profiles a,
+.ap-facts a,
+.service-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+.service-cta:hover,
+.services-all:hover,
+.services-faq-link:hover,
+.about-more:hover,
+.rh-link:hover,
+.hub-item-link:hover,
+.ar-related-link:hover,
+.back-link:hover,
+.sp-links a:hover,
+.ap-services a:hover,
+.ap-profiles a:hover,
+.service-link:hover {
+  text-decoration-thickness: 2px;
 }

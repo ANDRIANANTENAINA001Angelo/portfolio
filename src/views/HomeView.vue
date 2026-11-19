@@ -7,6 +7,7 @@ import ProjectsSection from '@/components/ProjectsSection.vue'
 import SkillsSection from '@/components/SkillsSection.vue'
 import ContactSection from '@/components/ContactSection.vue'
 import FAQSection from '@/components/FAQSection.vue'
+import ResourcesTeaser from '@/components/ResourcesTeaser.vue'
 import { useLang } from '@/composables/useLang'
 import { useSeo } from '@/composables/useSeo'
 import { homePath } from '@/i18n'
@@ -39,6 +40,7 @@ useSeo({
     <AboutSection />
     <ExperienceSection />
     <SkillsSection />
+    <ResourcesTeaser />
     <ContactSection />
     <FAQSection />
   </div>

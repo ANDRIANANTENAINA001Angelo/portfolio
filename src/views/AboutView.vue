@@ -172,10 +172,9 @@ useHead({
 }
 
 .ap-answer-label {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-stretch: var(--narrow);
   color: var(--primary);
   margin-bottom: 0.4rem;
 }
@@ -287,7 +286,8 @@ useHead({
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: var(--primary);
+  background: var(--bg);
+  border: 2.5px solid var(--accent);
 }
 
 .ap-tl-period {

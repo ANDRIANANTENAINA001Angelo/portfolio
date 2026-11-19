@@ -16,7 +16,7 @@ const { t } = useLang()
         <article
           v-for="(item, i) in t.experience.items"
           :key="i"
-          class="exp-card card"
+          class="exp-card"
         >
           <div class="exp-header">
             <div>
@@ -39,35 +39,63 @@ const { t } = useLang()
 </template>
 
 <style scoped>
+/* A real sequence: items hang on a rail with latérite nodes, like steps of a workflow */
 .timeline {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 2.5rem;
+  padding-left: 2rem;
+  max-width: 900px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: var(--border-strong);
 }
 
 .exp-card {
-  padding: 1.5rem 1.75rem;
+  position: relative;
+}
+
+.exp-card::before {
+  content: '';
+  position: absolute;
+  left: calc(-2rem + 0px);
+  top: 0.45rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2.5px solid var(--accent);
 }
 
 .exp-header {
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.75rem;
   flex-wrap: wrap;
 }
 
 .exp-role {
-  font-size: 1.125rem;
-  font-weight: 650;
+  font-size: 1.3rem;
+  font-weight: 740;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
   color: var(--text);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
 .exp-company {
-  font-size: 0.9375rem;
+  font-size: 1rem;
   color: var(--primary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .exp-meta {
@@ -75,16 +103,19 @@ const { t } = useLang()
   flex-direction: column;
   align-items: flex-end;
   gap: 0.15rem;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
+  font-stretch: var(--narrow);
+  font-variant-numeric: tabular-nums;
   color: var(--text-muted);
   white-space: nowrap;
 }
 
 .exp-desc {
   color: var(--text-secondary);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   line-height: 1.65;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
+  max-width: 72ch;
 }
 
 .exp-tech {
@@ -94,9 +125,15 @@ const { t } = useLang()
 }
 
 @media (max-width: 640px) {
+  .timeline {
+    padding-left: 1.5rem;
+  }
+  .exp-card::before {
+    left: -1.5rem;
+  }
   .exp-header {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
   .exp-meta {
     align-items: flex-start;

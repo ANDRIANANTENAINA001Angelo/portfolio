@@ -228,7 +228,7 @@ const onImgError = (e: Event) => {
             </template>
           </p>
           <p class="back-wrap">
-            <a :href="lp('/#projects')" class="back-link">← {{ t.projects.back }}</a>
+            <a :href="lp('/#projects')" class="back-link">{{ t.projects.back }}</a>
           </p>
         </section>
 
@@ -307,7 +307,7 @@ const onImgError = (e: Event) => {
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.3rem 0.75rem;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: var(--bg-muted);
   color: var(--text-secondary);
 }
@@ -463,7 +463,7 @@ const onImgError = (e: Event) => {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  background: linear-gradient(135deg, var(--primary-soft), var(--accent-soft));
+  background: var(--bg-muted);
   padding: 2rem;
   text-align: center;
 }
@@ -496,8 +496,9 @@ const onImgError = (e: Event) => {
 }
 
 .detail-block h2 {
-  font-size: 1.125rem;
-  font-weight: 650;
+  font-size: 1.4rem;
+  font-weight: 740;
+  letter-spacing: -0.015em;
   margin-bottom: 0.6rem;
   color: var(--text);
 }
@@ -515,16 +516,30 @@ const onImgError = (e: Event) => {
   gap: 0.6rem;
 }
 
+/* Architecture steps drawn like workflow nodes: a latérite input dot, an ink outline */
 .flow-step {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  font-weight: 500;
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 550;
+  font-stretch: var(--narrow);
   color: var(--text);
-  background: var(--bg-muted);
-  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  border: 1.5px solid var(--text);
   border-radius: var(--radius);
-  padding: 0.6rem 0.9rem;
+  padding: 0.6rem 0.9rem 0.6rem 1.25rem;
   line-height: 1.4;
+}
+
+.flow-step::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .flow-arrow {

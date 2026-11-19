@@ -117,7 +117,7 @@ if (found) {
       <section class="sp-block">
         <h2>{{ t.services.faqTitle }}</h2>
         <div class="sp-faq">
-          <details v-for="item in service.faq" :key="item.q.fr" class="card">
+          <details v-for="item in service.faq" :key="item.q.fr">
             <summary>{{ item.q[lang] }}</summary>
             <p>{{ item.a[lang] }}</p>
           </details>
@@ -178,10 +178,9 @@ if (found) {
 }
 
 .sp-summary-label {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-stretch: var(--narrow);
   color: var(--primary);
   margin-bottom: 0.4rem;
 }
@@ -294,12 +293,13 @@ if (found) {
 .sp-faq {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  border-top: 2px solid var(--text);
   max-width: 820px;
 }
 
 .sp-faq details {
-  padding: 1rem 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .sp-faq summary {

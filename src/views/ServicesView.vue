@@ -71,7 +71,7 @@ useSeo({
             </tbody>
           </table>
           <router-link :to="servicePath(service, lang)" class="hub-item-link">
-            {{ t.services.viewService }} : {{ service.title[lang] }} →
+            {{ t.services.viewService }} : {{ service.title[lang] }}
           </router-link>
         </article>
       </div>
