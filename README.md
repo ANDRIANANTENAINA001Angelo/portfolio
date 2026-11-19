@@ -35,15 +35,20 @@ npm run preview
 | Open Graph image  | `public/preview-opengraph.jpg`|
 | Favicon           | `public/favicon.ico`          |
 
-## Domain
+## SEO / AEO
 
-Update URLs in:
-- `index.html` (canonical, og:url, og:image, JSON-LD)
-- `public/sitemap.xml`
-- `public/robots.txt`
-- `public/llms.txt`
+- Every route is pre-rendered to static HTML at build time (`vite-ssg`), so search engines
+  and AI crawlers read the full content without running JavaScript.
+- French at `/`, English under `/en` (hreflang on every page).
+- Per-page title, description, canonical, Open Graph and JSON-LD: `src/composables/useSeo.ts`
+  and `src/seo/schema.ts`.
+- `sitemap.xml`, `robots.txt` and `llms.txt` are generated at build from the data
+  (`src/seo/static-files.ts`): never edit them by hand.
 
-Domain: `andrianantenaina-angelo.site`
+| What                     | File                         |
+|--------------------------|------------------------------|
+| Services, offers, prices | `src/data/services.ts`       |
+| Canonical domain         | `src/config.ts` (`PROD_URL`) |
 
 ## Deploy
 

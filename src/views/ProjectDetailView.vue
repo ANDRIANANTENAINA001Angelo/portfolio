@@ -2,8 +2,13 @@
 import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useLang } from '@/composables/useLang'
-import { useProjectSeo } from '@/composables/useSeo'
+import { useSeo } from '@/composables/useSeo'
 import { getProjectBySlug, type Project } from '@/data/projects'
+import { services } from '@/data/services'
+import { homePath, projectPath, servicePath } from '@/i18n'
+import { breadcrumbSchema, projectSchema } from '@/seo/schema'
+import { SITE_NAME } from '@/config'
+import BreadcrumbNav from '@/components/BreadcrumbNav.vue'
 
 const props = defineProps<{
   slug: string
@@ -11,16 +16,38 @@ const props = defineProps<{
 }>()
 
 const router = useRouter()
-const { t, lang } = useLang()
+const { t, lang, lp } = useLang()
+const l = lang.value
 
 const project = computed(() => getProjectBySlug(props.slug))
 
 if (!project.value) {
-  router.replace('/')
+  router.replace(homePath(l))
 }
 
+// Services that cite this project as an example (internal linking both ways)
+const linkedServices = services.filter(s => s.relatedProjects.includes(props.slug))
+
+const crumbs = project.value
+  ? [
+      { name: t.value.services.breadcrumbHome, path: homePath(l) },
+      { name: t.value.projects.title, path: `${homePath(l)}#projects` },
+      { name: project.value.title[l], path: projectPath(project.value, l) }
+    ]
+  : []
+
 if (project.value) {
-  useProjectSeo(project.value as Project, lang)
+  const p = project.value as Project
+  useSeo({
+    lang: l,
+    title: `${p.title[l]} — ${SITE_NAME}`,
+    description: p.shortDescription[l],
+    keywords: p.technologies.join(', '),
+    path: projectPath(p, l),
+    alternates: { fr: projectPath(p, 'fr'), en: projectPath(p, 'en') },
+    type: 'article',
+    jsonLd: [projectSchema(p, l, projectPath(p, l)), breadcrumbSchema(crumbs)]
+  })
 }
 
 const images = computed(() => project.value?.images ?? [])
@@ -75,9 +102,7 @@ const onImgError = (e: Event) => {
 <template>
   <div v-if="project" class="project-detail">
     <div class="container">
-      <router-link to="/#projects" class="back-link">
-        ← {{ t.projects.back }}
-      </router-link>
+      <BreadcrumbNav :items="crumbs" />
 
       <header class="detail-header">
         <div class="header-meta">
@@ -194,6 +219,19 @@ const onImgError = (e: Event) => {
           </div>
         </section>
 
+        <section v-if="linkedServices.length" class="detail-block">
+          <h2>{{ lang === 'fr' ? 'Service associé' : 'Related service' }}</h2>
+          <p>
+            <template v-for="(s, i) in linkedServices" :key="s.id">
+              <router-link :to="servicePath(s, lang)" class="service-link">{{ s.title[lang] }}</router-link>
+              <span v-if="i < linkedServices.length - 1"> · </span>
+            </template>
+          </p>
+          <p class="back-wrap">
+            <a :href="lp('/#projects')" class="back-link">← {{ t.projects.back }}</a>
+          </p>
+        </section>
+
         <section v-if="project.github || project.demo || project.demoNote" class="detail-block">
           <h2>{{ t.projects.links }}</h2>
           <p v-if="!project.demo && project.demoNote" class="demo-note">
@@ -228,6 +266,15 @@ const onImgError = (e: Event) => {
 <style scoped>
 .project-detail {
   padding: 2.5rem 0 5rem;
+}
+
+.service-link {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.back-wrap {
+  margin-top: 0.75rem;
 }
 
 .back-link {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useLang } from '@/composables/useLang'
 
-const { t } = useLang()
+const { t, lp } = useLang()
 </script>
 
 <template>
@@ -11,6 +11,7 @@ const { t } = useLang()
         <span class="badge">{{ t.hero.badge }}</span>
 
         <h1 class="hero-title">
+          <span class="hero-kicker">{{ t.hero.kicker }}</span>
           {{ t.hero.title }}
         </h1>
 
@@ -19,8 +20,8 @@ const { t } = useLang()
         </p>
 
         <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">{{ t.hero.ctaPrimary }}</a>
-          <a href="#projects" class="btn btn-secondary">{{ t.hero.ctaSecondary }}</a>
+          <a :href="lp('/#contact')" class="btn btn-primary">{{ t.hero.ctaPrimary }}</a>
+          <a :href="lp('/#projects')" class="btn btn-secondary">{{ t.hero.ctaSecondary }}</a>
         </div>
 
         <div class="hero-stats">
@@ -93,6 +94,15 @@ const { t } = useLang()
   line-height: 1.2;
   color: var(--text);
   margin-bottom: 1.15rem;
+}
+
+.hero-kicker {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  color: var(--primary);
 }
 
 .hero-subtitle {

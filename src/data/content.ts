@@ -3,9 +3,9 @@ export type Lang = 'fr' | 'en'
 export const content = {
   fr: {
     meta: {
-      title: 'ANDRIANANTENAINA Angelo — AI Engineer · LLM, RAG & MLOps',
-      description: 'Je transforme vos données et l’IA en produits qui tournent en production : assistants IA sur vos documents, modèles prédictifs déployés, pipelines de données automatisés. Co-fondateur de GoalPay.',
-      keywords: 'ANDRIANANTENAINA Angelo, AI Engineer, LLM, RAG, MLOps, Laravel, FastAPI, GoalPay, FinTech, Madagascar, remote, freelance IA'
+      title: 'Développeur IA freelance à Madagascar — n8n, agents IA & data | Angelo',
+      description: 'Développeur IA freelance basé à Madagascar : automatisation n8n, agents IA, développement web et SaaS, data et contenu marketing IA. Prix affichés, travail à distance en français. Co-fondateur de GoalPay.',
+      keywords: 'développeur IA freelance Madagascar, freelance n8n, expert automatisation, agent IA, développeur freelance Madagascar, data scientist freelance, ANDRIANANTENAINA Angelo'
     },
     nav: {
       home: 'Accueil',
@@ -18,8 +18,9 @@ export const content = {
     },
     hero: {
       badge: 'Disponible en remote · UTC+3',
+      kicker: 'Développeur IA freelance à Madagascar',
       title: 'Je transforme vos données et l’IA en produits qui tournent en production.',
-      subtitle: 'Assistants IA sur vos documents, modèles prédictifs déployés, pipelines de données automatisés. AI Engineer · LLM, RAG & MLOps · Co-fondateur de GoalPay.',
+      subtitle: 'Automatisation n8n et agents IA, développement web et SaaS, data et modèles prédictifs, contenu marketing avec l’IA. Co-fondateur de GoalPay, je travaille à distance pour des PME et startups francophones.',
       ctaPrimary: 'Discuter d’un projet',
       ctaSecondary: 'Voir les études de cas',
       stats: [
@@ -30,31 +31,34 @@ export const content = {
     },
     services: {
       title: 'Services',
-      subtitle: 'Trois façons concrètes de mettre l’IA et vos données au travail.',
+      subtitle: 'Quatre domaines où je livre des résultats concrets, avec des prix indicatifs affichés.',
       cta: 'En discuter',
-      items: [
-        {
-          title: 'Assistant IA sur vos documents (RAG)',
-          problem: 'Votre équipe perd du temps à chercher l’information dans vos documents, votre support client répond toujours aux mêmes questions.',
-          delivery: 'Un assistant IA branché sur votre base de connaissances (support client ou documentation interne), avec sources citées et supervision humaine.',
-          timeline: '2 à 4 semaines selon le volume de documents',
-          exampleId: 'ai-photo-album'
-        },
-        {
-          title: 'Mise en production de modèles ML (MLOps)',
-          problem: 'Votre modèle fonctionne dans un notebook mais personne ne peut l’utiliser, le mesurer dans le temps ni le réentraîner proprement.',
-          delivery: 'Passage du notebook à une API surveillée : tracking des expériences, registre de modèles, réentraînement automatisé, monitoring des performances.',
-          timeline: '3 à 6 semaines selon la complexité du pipeline',
-          exampleId: 'predictor-bot'
-        },
-        {
-          title: 'Automatisation et pipelines de données',
-          problem: 'Vos données sont dispersées, collectées à la main, et personne n’a une vue fiable et à jour de votre activité.',
-          delivery: 'Pipelines de collecte et nettoyage automatisés, tableaux de bord clairs pour suivre vos indicateurs clés sans effort manuel.',
-          timeline: '1 à 3 semaines selon les sources de données',
-          exampleId: 'goalpay'
-        }
-      ]
+      from: 'À partir de',
+      viewService: 'Voir le service',
+      allServices: 'Voir tous les services et les tarifs',
+      hubTitle: 'Services de développement IA, automatisation et data',
+      hubIntro: 'Développeur IA freelance basé à Madagascar, j’accompagne à distance les PME, startups et indépendants francophones : automatisation n8n et agents IA, développement web et SaaS, data et modèles prédictifs, contenu marketing avec l’IA. Les prix sont indicatifs ; le devis final suit un premier échange gratuit de 30 minutes.',
+      summaryLabel: 'En bref',
+      forWhoTitle: 'Pour qui ?',
+      problemsTitle: 'Les problèmes que je règle',
+      offersTitle: 'Offres et tarifs indicatifs',
+      timelineLabel: 'Délai',
+      priceNote: 'Prix indicatifs hors taxes. Le devis final dépend du périmètre, fixé ensemble lors de l’appel découverte.',
+      processTitle: 'Comment on travaille ensemble',
+      process: [
+        { title: 'Appel découverte (30 min, gratuit)', text: 'On clarifie votre besoin, vos outils et le résultat attendu.' },
+        { title: 'Cadrage et devis', text: 'Périmètre, livrables, délai et prix fixés par écrit avant de commencer.' },
+        { title: 'Livraisons itératives', text: 'Une démo chaque semaine pour valider et ajuster en route.' },
+        { title: 'Mise en production et transmission', text: 'Mise en ligne, documentation, formation et accès remis à votre nom.' }
+      ],
+      faqTitle: 'Questions fréquentes sur ce service',
+      relatedProjectsTitle: 'Études de cas liées',
+      relatedServicesTitle: 'Services complémentaires',
+      ctaTitle: 'Un projet en tête ?',
+      ctaText: 'Réservez un appel de 30 minutes : vous repartez avec une estimation claire, même si on ne travaille pas ensemble.',
+      ctaBooking: 'Réserver un appel gratuit',
+      ctaEmail: 'Écrire un email',
+      breadcrumbHome: 'Accueil'
     },
     about: {
       title: 'À propos',
@@ -180,11 +184,11 @@ export const content = {
         },
         {
           q: 'Quels sont vos délais habituels ?',
-          a: 'Entre 1 et 6 semaines selon le service : 1 à 3 semaines pour l’automatisation de pipelines, 2 à 4 semaines pour un assistant IA (RAG), 3 à 6 semaines pour la mise en production d’un modèle (MLOps).'
+          a: 'De 1 à 10 semaines selon le service : 1 à 3 semaines pour une automatisation n8n ou un site vitrine, 2 à 5 semaines pour un agent IA, 3 à 6 semaines pour un modèle prédictif en production, 4 à 10 semaines pour un MVP SaaS.'
         },
         {
           q: 'Comment le prix est-il fixé ?',
-          a: 'Sur devis, après le premier échange, selon le périmètre et la complexité du projet. Pas de tarif générique affiché, car chaque mission est différente.'
+          a: 'Chaque service affiche une fourchette indicative : par exemple 800 à 2 500 € pour une automatisation n8n, 1 500 à 4 000 € pour un agent IA, 3 000 à 8 000 € pour un MVP SaaS. Le devis final est fixé par écrit après le premier échange, selon le périmètre.'
         },
         {
           q: 'Travaillez-vous avec des clients à l’international, en remote ?',
@@ -192,7 +196,15 @@ export const content = {
         },
         {
           q: 'Quelles technologies utilisez-vous ?',
-          a: 'Python, FastAPI, Laravel, PostgreSQL, MLflow, XGBoost, scikit-learn, Docker, et les outils LLM/RAG selon le projet.'
+          a: 'n8n pour l’automatisation, Python, FastAPI, Laravel, Vue.js et PostgreSQL pour le développement, MLflow, XGBoost et scikit-learn pour la data, et les principaux modèles LLM (GPT, Claude, modèles open source) pour les agents IA.'
+        },
+        {
+          q: 'Pourquoi choisir un développeur IA freelance basé à Madagascar ?',
+          a: 'Vous travaillez en français avec un fuseau horaire proche de l’Europe (UTC+3, 1 à 2 heures d’écart), à des tarifs plus accessibles qu’en Europe, avec un niveau d’exigence de production : GoalPay, que j’ai co-fondé, a traité plus de 100 millions d’Ariary.'
+        },
+        {
+          q: 'Proposez-vous des automatisations avec n8n et des agents IA ?',
+          a: 'Oui, c’est mon cœur de métier : workflows n8n qui relient vos outils (formulaires, CRM, agenda, email, facturation) et agents IA qui qualifient vos prospects, prennent des rendez-vous, relancent et répondent à vos clients, avec validation humaine sur les actions sensibles.'
         },
         {
           q: 'Proposez-vous un premier échange gratuit ?',
@@ -202,7 +214,9 @@ export const content = {
     },
     footer: {
       rights: '© 2026 ANDRIANANTENAINA Angelo. Tous droits réservés.',
-      built: 'Construit avec intention · Vue 3 + Vite'
+      built: 'Construit avec intention · Vue 3 + Vite',
+      servicesTitle: 'Services',
+      projectsTitle: 'Études de cas'
     },
     common: {
       light: 'Clair',
@@ -213,9 +227,9 @@ export const content = {
 
   en: {
     meta: {
-      title: 'ANDRIANANTENAINA Angelo — AI Engineer · LLM, RAG & MLOps',
-      description: 'I turn your data and AI into products that run in production: document AI assistants, deployed predictive models, automated data pipelines. Co-founder of GoalPay.',
-      keywords: 'ANDRIANANTENAINA Angelo, AI Engineer, LLM, RAG, MLOps, Laravel, FastAPI, GoalPay, FinTech, Madagascar, remote, freelance AI'
+      title: 'Freelance AI developer in Madagascar — n8n, AI agents & data | Angelo',
+      description: 'Freelance AI developer based in Madagascar: n8n automation, AI agents, web and SaaS development, data and AI content marketing. Transparent pricing, remote work in English and French. Co-founder of GoalPay.',
+      keywords: 'freelance AI developer Madagascar, freelance n8n developer, automation expert, AI agent developer, freelance developer Madagascar, freelance data scientist, ANDRIANANTENAINA Angelo'
     },
     nav: {
       home: 'Home',
@@ -228,8 +242,9 @@ export const content = {
     },
     hero: {
       badge: 'Available remote · UTC+3',
+      kicker: 'Freelance AI developer in Madagascar',
       title: 'I turn your data and AI into products that run in production.',
-      subtitle: 'Document AI assistants, deployed predictive models, automated data pipelines. AI Engineer · LLM, RAG & MLOps · Co-founder of GoalPay.',
+      subtitle: 'n8n automation and AI agents, web and SaaS development, data and predictive models, AI-powered content marketing. Co-founder of GoalPay, I work remotely with SMEs and startups.',
       ctaPrimary: 'Discuss a project',
       ctaSecondary: 'View case studies',
       stats: [
@@ -240,31 +255,34 @@ export const content = {
     },
     services: {
       title: 'Services',
-      subtitle: 'Three concrete ways to put AI and your data to work.',
+      subtitle: 'Four areas where I deliver concrete results, with indicative prices shown upfront.',
       cta: 'Let’s talk',
-      items: [
-        {
-          title: 'Document AI assistant (RAG)',
-          problem: 'Your team wastes time searching for information across your documents, and your support team keeps answering the same questions.',
-          delivery: 'An AI assistant connected to your knowledge base (customer support or internal docs), with cited sources and human oversight.',
-          timeline: '2 to 4 weeks depending on document volume',
-          exampleId: 'ai-photo-album'
-        },
-        {
-          title: 'ML model productionization (MLOps)',
-          problem: 'Your model works in a notebook, but no one can use it, track it over time, or retrain it properly.',
-          delivery: 'From notebook to a monitored API: experiment tracking, model registry, automated retraining, performance monitoring.',
-          timeline: '3 to 6 weeks depending on pipeline complexity',
-          exampleId: 'predictor-bot'
-        },
-        {
-          title: 'Automation and data pipelines',
-          problem: 'Your data is scattered, collected by hand, and no one has a reliable, up-to-date view of your business.',
-          delivery: 'Automated collection and cleaning pipelines, clear dashboards to track your key metrics without manual effort.',
-          timeline: '1 to 3 weeks depending on data sources',
-          exampleId: 'goalpay'
-        }
-      ]
+      from: 'From',
+      viewService: 'View service',
+      allServices: 'See all services and pricing',
+      hubTitle: 'AI development, automation and data services',
+      hubIntro: 'Freelance AI developer based in Madagascar, I work remotely with SMEs, startups and freelancers: n8n automation and AI agents, web and SaaS development, data and predictive models, AI-powered content marketing. Prices are indicative; the final quote follows a free 30-minute call.',
+      summaryLabel: 'In short',
+      forWhoTitle: 'Who is it for?',
+      problemsTitle: 'Problems I solve',
+      offersTitle: 'Offers and indicative pricing',
+      timelineLabel: 'Timeline',
+      priceNote: 'Indicative prices, excluding taxes. The final quote depends on the scope we define together during the discovery call.',
+      processTitle: 'How we work together',
+      process: [
+        { title: 'Discovery call (30 min, free)', text: 'We clarify your need, your tools and the expected outcome.' },
+        { title: 'Scoping and quote', text: 'Scope, deliverables, timeline and price agreed in writing before we start.' },
+        { title: 'Iterative delivery', text: 'A demo every week to validate and adjust along the way.' },
+        { title: 'Launch and handover', text: 'Go-live, documentation, training and access handed over in your name.' }
+      ],
+      faqTitle: 'Frequently asked questions about this service',
+      relatedProjectsTitle: 'Related case studies',
+      relatedServicesTitle: 'Related services',
+      ctaTitle: 'Got a project in mind?',
+      ctaText: 'Book a 30-minute call: you leave with a clear estimate, even if we don’t end up working together.',
+      ctaBooking: 'Book a free call',
+      ctaEmail: 'Send an email',
+      breadcrumbHome: 'Home'
     },
     about: {
       title: 'About',
@@ -390,11 +408,11 @@ export const content = {
         },
         {
           q: 'What are your typical timelines?',
-          a: 'Between 1 and 6 weeks depending on the service: 1 to 3 weeks for data pipeline automation, 2 to 4 weeks for an AI assistant (RAG), 3 to 6 weeks for ML model productionization (MLOps).'
+          a: 'From 1 to 10 weeks depending on the service: 1 to 3 weeks for an n8n automation or a website, 2 to 5 weeks for an AI agent, 3 to 6 weeks for a predictive model in production, 4 to 10 weeks for a SaaS MVP.'
         },
         {
           q: 'How is pricing determined?',
-          a: 'On a quote basis, after the first call, depending on scope and project complexity. No generic rate card, since every project is different.'
+          a: 'Each service shows an indicative range: for example €800 to €2,500 for an n8n automation, €1,500 to €4,000 for an AI agent, €3,000 to €8,000 for a SaaS MVP. The final quote is agreed in writing after the first call, based on scope.'
         },
         {
           q: 'Do you work remotely with international clients?',
@@ -402,7 +420,15 @@ export const content = {
         },
         {
           q: 'What technologies do you use?',
-          a: 'Python, FastAPI, Laravel, PostgreSQL, MLflow, XGBoost, scikit-learn, Docker, and LLM/RAG tooling depending on the project.'
+          a: 'n8n for automation, Python, FastAPI, Laravel, Vue.js and PostgreSQL for development, MLflow, XGBoost and scikit-learn for data, and the main LLMs (GPT, Claude, open-source models) for AI agents.'
+        },
+        {
+          q: 'Why hire a freelance AI developer based in Madagascar?',
+          a: 'You get a time zone close to Europe (UTC+3, 1 to 2 hours apart), rates below European ones, and production-grade standards: GoalPay, which I co-founded, has processed over 100 million Ariary.'
+        },
+        {
+          q: 'Do you build n8n automations and AI agents?',
+          a: 'Yes, it is my core work: n8n workflows connecting your tools (forms, CRM, calendar, email, invoicing) and AI agents that qualify leads, book meetings, follow up and answer customers, with human approval for sensitive actions.'
         },
         {
           q: 'Do you offer a free initial call?',
@@ -412,7 +438,9 @@ export const content = {
     },
     footer: {
       rights: '© 2026 ANDRIANANTENAINA Angelo. All rights reserved.',
-      built: 'Built with intention · Vue 3 + Vite'
+      built: 'Built with intention · Vue 3 + Vite',
+      servicesTitle: 'Services',
+      projectsTitle: 'Case studies'
     },
     common: {
       light: 'Light',

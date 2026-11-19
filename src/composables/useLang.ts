@@ -1,51 +1,29 @@
-import { computed, ref, watch } from 'vue'
+import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { content, type Lang } from '@/data/content'
+import { content } from '@/data/content'
+import { alternatePath, withLang, type Lang } from '@/i18n'
 
-const currentLang = ref<Lang>('fr')
-
+/** Language comes from the URL (/en prefix), so each language has its own indexable page. */
 export function useLang() {
   const route = useRoute()
   const router = useRouter()
 
-  const syncFromQuery = () => {
-    const q = route.query.lang
-    if (q === 'en' || q === 'fr') {
-      currentLang.value = q
-    } else {
-      currentLang.value = 'fr'
-    }
+  const lang = computed<Lang>(() => route.meta.lang ?? (route.path.startsWith('/en') ? 'en' : 'fr'))
+  const t = computed(() => content[lang.value])
+
+  const setLang = (target: Lang) => {
+    if (target !== lang.value) router.push(alternatePath(route, target))
   }
 
-  syncFromQuery()
-
-  watch(
-    () => route.query.lang,
-    () => syncFromQuery()
-  )
-
-  const setLang = (lang: Lang) => {
-    currentLang.value = lang
-    const query = { ...route.query, lang }
-    if (lang === 'fr') {
-      const { lang: _, ...rest } = query
-      router.replace({ query: rest })
-    } else {
-      router.replace({ query })
-    }
-    document.documentElement.lang = lang
-  }
-
-  // On enlève le type strict Content pour éviter le conflit fr/en
-  const t = computed(() => content[currentLang.value])
-
-  const lang = computed(() => currentLang.value)
+  /** Localised version of an FR path, e.g. lp('/#contact') → '/en#contact' in English. */
+  const lp = (path: string) => withLang(path, lang.value)
 
   return {
     lang,
     t,
     setLang,
-    isFr: computed(() => currentLang.value === 'fr'),
-    isEn: computed(() => currentLang.value === 'en')
+    lp,
+    isFr: computed(() => lang.value === 'fr'),
+    isEn: computed(() => lang.value === 'en')
   }
 }

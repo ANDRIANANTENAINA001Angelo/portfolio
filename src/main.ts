@@ -1,12 +1,8 @@
-import { createApp } from 'vue'
-import { createHead } from '@vueuse/head'
+import { ViteSSG } from 'vite-ssg'
 import App from './App.vue'
-import router from './router'
+import { routes, scrollBehavior } from './router'
 import './styles/main.css'
 
-const app = createApp(App)
-const head = createHead()
-
-app.use(router)
-app.use(head)
-app.mount('#app')
+// Pre-rendered at build time (vite-ssg): every route ships as static HTML
+// readable by search engines and AI crawlers, then hydrates as a Vue app.
+export const createApp = ViteSSG(App, { routes, scrollBehavior, base: import.meta.env.BASE_URL })

@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import { onMounted, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import AppNav from '@/components/AppNav.vue'
 import AppFooter from '@/components/AppFooter.vue'
 import CookieConsent from '@/components/CookieConsent.vue'
-import { useLang } from '@/composables/useLang'
-import { usePageSeo } from '@/composables/useSeo'
+import { alternatePath } from '@/i18n'
 import { trackPageView } from '@/composables/useAnalytics'
 
 const route = useRoute()
-const { t, lang } = useLang()
-
-usePageSeo(t)
+const router = useRouter()
 
 onMounted(() => {
-  document.documentElement.lang = lang.value
+  // Old links used ?lang=en: send them to the /en page
+  if (route.query.lang === 'en' && route.meta.lang !== 'en') {
+    router.replace(alternatePath(route, 'en'))
+  }
 })
 
 watch(

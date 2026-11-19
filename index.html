@@ -2,184 +2,19 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)" />
-
-    <!-- Preload the hero (LCP) image: the SPA only renders the <img> after JS mounts,
-         so without this hint the browser discovers it too late. -->
-    <link rel="preload" as="image" href="/images/profile.webp" fetchpriority="high" type="image/webp" />
-
-    <!-- Primary SEO -->
-    <title>ANDRIANANTENAINA Angelo — AI Engineer · LLM, RAG & MLOps</title>
-    <meta name="description" content="Je transforme vos données et l'IA en produits qui tournent en production : assistants IA sur vos documents, modèles prédictifs déployés, pipelines de données automatisés. Co-fondateur de GoalPay." />
-    <meta name="keywords" content="ANDRIANANTENAINA Angelo, AI Engineer, LLM, RAG, MLOps, Laravel, FastAPI, GoalPay, Madagascar, remote, freelance IA" />
-    <meta name="author" content="ANDRIANANTENAINA Angelo" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://andrianantenaina-angelo.site/" />
     <link rel="describedby" type="text/markdown" href="/llms.txt" />
 
-    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://andrianantenaina-angelo.site/" />
-    <meta property="og:title" content="ANDRIANANTENAINA Angelo — AI Engineer · LLM, RAG & MLOps" />
-    <meta property="og:description" content="Assistants IA sur vos documents, modèles prédictifs déployés, pipelines de données automatisés. Co-fondateur de GoalPay (100M+ Ar traités). Disponible en remote." />
-    <meta property="og:image" content="https://andrianantenaina-angelo.site/preview-opengraph.jpg" />
-    <meta property="og:image:secure_url" content="https://andrianantenaina-angelo.site/preview-opengraph.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="ANDRIANANTENAINA Angelo — AI Engineer portfolio" />
-    <meta property="og:site_name" content="ANDRIANANTENAINA Angelo" />
-    <meta property="og:locale" content="fr_FR" />
-    <meta property="og:locale:alternate" content="en_US" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://andrianantenaina-angelo.site/" />
-    <meta name="twitter:title" content="ANDRIANANTENAINA Angelo — AI Engineer · LLM, RAG & MLOps" />
-    <meta name="twitter:description" content="Assistants IA sur vos documents, modèles prédictifs déployés, pipelines de données automatisés. Co-fondateur de GoalPay. Disponible en remote." />
-    <meta name="twitter:image" content="https://andrianantenaina-angelo.site/preview-opengraph.jpg" />
-    <meta name="twitter:image:alt" content="ANDRIANANTENAINA Angelo — AI Engineer portfolio" />
+    <!-- Per-page SEO (title, description, canonical, hreflang, Open Graph, JSON-LD)
+         is generated at build time by vite-ssg from src/composables/useSeo.ts. -->
 
     <!-- Fonts: self-hosted (public/fonts/), declared in src/styles/main.css.
          Preloaded here since they're the LCP-critical text typeface. -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin-ext.woff2" crossorigin />
-
-    <!-- JSON-LD Person (AEO / rich results) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "ANDRIANANTENAINA Angelo",
-      "url": "https://andrianantenaina-angelo.site/",
-      "image": "https://andrianantenaina-angelo.site/preview-opengraph.jpg",
-      "jobTitle": "AI Engineer",
-      "description": "AI Engineer specialized in LLM, RAG and MLOps, co-founder of GoalPay. Helps SMEs and startups turn data and AI into production-ready products.",
-      "email": "contact@andrianantenaina-angelo.site",
-      "telephone": "+261345992047",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "MG",
-        "addressLocality": "Fianarantsoa"
-      },
-      "sameAs": [
-        "https://github.com/ANDRIANANTENAINA001Angelo",
-        "https://www.linkedin.com/in/andrianantenaina-angelo",
-        "https://web.facebook.com/andrianantenaina.angelo.ia/",
-        "https://www.codeur.com/-angeloa25og"
-      ],
-      "knowsAbout": ["LLM", "RAG", "MLOps", "Laravel", "FastAPI", "Python", "Machine Learning", "Artificial Intelligence"],
-      "potentialAction": {
-        "@type": "ReserveAction",
-        "name": "Book a 30-minute call",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://calendly.com/a-angelo-mada/30min",
-          "actionPlatform": [
-            "http://schema.org/DesktopWebPlatform",
-            "http://schema.org/MobileWebPlatform"
-          ]
-        },
-        "result": {
-          "@type": "Reservation",
-          "name": "30-minute discovery call"
-        }
-      },
-      "makesOffer": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Assistant IA sur vos documents (RAG)",
-            "description": "Assistant IA branché sur votre base de connaissances (support client ou documentation interne), avec sources citées et supervision humaine.",
-            "areaServed": "Remote",
-            "availableLanguage": ["fr", "en"]
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Mise en production de modèles ML (MLOps)",
-            "description": "Passage du notebook à une API surveillée : tracking des expériences, registre de modèles, réentraînement automatisé, monitoring des performances.",
-            "areaServed": "Remote",
-            "availableLanguage": ["fr", "en"]
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Automatisation et pipelines de données",
-            "description": "Pipelines de collecte et nettoyage automatisés, tableaux de bord clairs pour suivre vos indicateurs clés sans effort manuel.",
-            "areaServed": "Remote",
-            "availableLanguage": ["fr", "en"]
-          }
-        }
-      ]
-    }
-    </script>
-
-    <!-- JSON-LD FAQPage (rich results) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Comment se déroule une mission avec vous ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Un premier échange gratuit de 30 minutes pour comprendre votre besoin, suivi d'un cadrage clair (périmètre, livrables, délai), puis des livraisons itératives avec points de suivi réguliers et documentation à la fin."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Quels sont vos délais habituels ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Entre 1 et 6 semaines selon le service : 1 à 3 semaines pour l'automatisation de pipelines, 2 à 4 semaines pour un assistant IA (RAG), 3 à 6 semaines pour la mise en production d'un modèle (MLOps)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Comment le prix est-il fixé ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sur devis, après le premier échange, selon le périmètre et la complexité du projet. Pas de tarif générique affiché, car chaque mission est différente."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Travaillez-vous avec des clients à l'international, en remote ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Oui. Je suis basé à Fianarantsoa, Madagascar (UTC+3, aligné avec l'Europe), et je travaille en remote en français et en anglais."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Quelles technologies utilisez-vous ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Python, FastAPI, Laravel, PostgreSQL, MLflow, XGBoost, scikit-learn, Docker, et les outils LLM/RAG selon le projet."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Proposez-vous un premier échange gratuit ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Oui, vous pouvez réserver un créneau de 30 minutes directement dans mon agenda (section Contact), sans engagement."
-          }
-        }
-      ]
-    }
-    </script>
   </head>
   <body>
     <div id="app"></div>

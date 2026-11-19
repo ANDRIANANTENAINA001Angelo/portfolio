@@ -1,4 +1,5 @@
-const img = (path: string) => `${import.meta.env.BASE_URL}images/projects/${path}`
+// Site is served from '/', kept as a plain string so this module also loads in vite.config.ts
+const img = (path: string) => `/images/projects/${path}`
 
 export interface ProjectImage {
   src: string
@@ -267,6 +268,8 @@ export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find(p => p.slug === slug)
 }
 
-export function getProjectUrl(project: Project): string {
-  return `/projets/${project.slug}/${project.techSlug}`
+export function getProjectUrl(project: Project, lang: 'fr' | 'en' = 'fr'): string {
+  return lang === 'fr'
+    ? `/projets/${project.slug}/${project.techSlug}`
+    : `/en/projects/${project.slug}/${project.techSlug}`
 }

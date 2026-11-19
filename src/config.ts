@@ -1,14 +1,17 @@
 /**
  * Site configuration — change ONLY here.
- * Used for SEO, Open Graph, sitemap references, canonical URLs, etc.
+ * Used for SEO, Open Graph, canonical URLs, sitemap and llms.txt.
  *
- * Local:    leave as '' or use http://localhost:5173
- * Staging:  your render/preview URL
- * Prod:     https://andrianantenaina-angelo.site
+ * Production builds always use PROD_URL (it is baked into the pre-rendered HTML).
+ * VITE_SITE_URL only overrides it in dev (`npm run dev`).
+ * Must stay loadable from vite.config.ts (Node), hence the optional `import.meta.env`.
  */
-export const SITE_URL =
-  (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, '') ||
-  'https://andrianantenaina-angelo.site'
+export const PROD_URL = 'https://www.andrianantenaina-angelo.site'
+
+const env = import.meta.env as Record<string, string | boolean | undefined> | undefined
+const devUrl = env?.DEV ? (env.VITE_SITE_URL as string | undefined) : undefined
+
+export const SITE_URL = (devUrl || PROD_URL).replace(/\/$/, '')
 
 export const SITE_NAME = 'ANDRIANANTENAINA Angelo'
 export const OG_IMAGE = `${SITE_URL}/preview-opengraph.jpg`

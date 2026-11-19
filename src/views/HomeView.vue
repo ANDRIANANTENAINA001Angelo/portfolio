@@ -7,6 +7,28 @@ import ProjectsSection from '@/components/ProjectsSection.vue'
 import SkillsSection from '@/components/SkillsSection.vue'
 import ContactSection from '@/components/ContactSection.vue'
 import FAQSection from '@/components/FAQSection.vue'
+import { useLang } from '@/composables/useLang'
+import { useSeo } from '@/composables/useSeo'
+import { homePath } from '@/i18n'
+import { businessSchema, faqSchema, personSchema, websiteSchema } from '@/seo/schema'
+
+const { t, lang } = useLang()
+const l = lang.value
+
+useSeo({
+  lang: l,
+  title: t.value.meta.title,
+  description: t.value.meta.description,
+  keywords: t.value.meta.keywords,
+  path: homePath(l),
+  alternates: { fr: homePath('fr'), en: homePath('en') },
+  jsonLd: [
+    websiteSchema(l),
+    personSchema(l),
+    businessSchema(l),
+    faqSchema(t.value.faq.items.map(i => ({ q: i.q, a: i.a })))
+  ]
+})
 </script>
 
 <template>

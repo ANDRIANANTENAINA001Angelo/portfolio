@@ -174,7 +174,8 @@ C’est l’image qui apparaît sur WhatsApp, Facebook, LinkedIn.
 
 | Besoin | Fichier |
 |--------|---------|
-| Changer le domaine | `src/config.ts` (+ env `VITE_SITE_URL`) |
+| Changer le domaine | `src/config.ts` (`PROD_URL`) |
+| Services, offres, prix | `src/data/services.ts` |
 | Changer un texte | `src/data/content.ts` |
 | Ajouter / éditer un projet | `src/data/projects.ts` |
 | Image d’un projet | `public/images/projects/{slug}-N.jpg` |

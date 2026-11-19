@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
+import { alternatePath, servicesPath } from '@/i18n'
 import { useLang } from '@/composables/useLang'
 import { useTheme } from '@/composables/useTheme'
 
-const { t, lang, setLang } = useLang()
+const { t, lang, setLang, lp } = useLang()
 const { isDark, toggleTheme } = useTheme()
 const scrolled = ref(false)
 const mobileOpen = ref(false)
@@ -33,22 +35,26 @@ onMounted(() => {
 })
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
-const navItems = [
-  { href: '/#services', id: 'services', key: 'services' as const },
-  { href: '/#projects', id: 'projects', key: 'projects' as const },
-  { href: '/#about', id: 'about', key: 'about' as const },
-  { href: '/#experience', id: 'experience', key: 'experience' as const },
-  { href: '/#skills', id: 'skills', key: 'skills' as const },
-  { href: '/#contact', id: 'contact', key: 'contact' as const }
-]
+const navItems = computed(() => [
+  { href: servicesPath(lang.value), id: 'services', key: 'services' as const },
+  { href: lp('/#projects'), id: 'projects', key: 'projects' as const },
+  { href: lp('/#about'), id: 'about', key: 'about' as const },
+  { href: lp('/#experience'), id: 'experience', key: 'experience' as const },
+  { href: lp('/#skills'), id: 'skills', key: 'skills' as const },
+  { href: lp('/#contact'), id: 'contact', key: 'contact' as const }
+])
 
 const closeMobile = () => { mobileOpen.value = false }
+
+// Real link to the other language so crawlers discover the /en pages
+const route = useRoute()
+const altHref = computed(() => alternatePath(route, lang.value === 'fr' ? 'en' : 'fr'))
 </script>
 
 <template>
   <header class="nav" :class="{ scrolled, open: mobileOpen }">
     <div class="container nav-inner">
-      <a href="/" class="logo" @click="closeMobile">
+      <a :href="lp('/')" class="logo" @click="closeMobile">
         Angelo
       </a>
 
@@ -66,13 +72,15 @@ const closeMobile = () => { mobileOpen.value = false }
       </nav>
 
       <div class="nav-actions">
-        <button
+        <a
           class="lang-toggle"
+          :href="altHref"
+          :hreflang="lang === 'fr' ? 'en' : 'fr'"
           :aria-label="t.common.lang"
-          @click="setLang(lang === 'fr' ? 'en' : 'fr')"
+          @click.prevent="setLang(lang === 'fr' ? 'en' : 'fr')"
         >
           {{ lang === 'fr' ? 'EN' : 'FR' }}
-        </button>
+        </a>
 
         <button
           class="theme-toggle"

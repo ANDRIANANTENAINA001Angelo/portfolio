@@ -10,7 +10,7 @@ const props = defineProps<{
 
 const { t, lang } = useLang()
 
-const url = computed(() => getProjectUrl(props.project))
+const url = computed(() => getProjectUrl(props.project, lang.value))
 const title = computed(() => props.project.title[lang.value])
 const description = computed(() => props.project.shortDescription[lang.value])
 const statusLabel = computed(() => t.value.projects.status[props.project.status])
