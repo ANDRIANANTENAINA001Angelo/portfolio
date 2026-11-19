@@ -20,7 +20,7 @@ export const content = {
     hero: {
       badge: 'Entrepreneur & Ingénieur IA · Remote UTC+3',
       kicker: 'Développeur IA freelance à Madagascar',
-      title: 'Je transforme vos données et l’IA en produits qui tournent en production.',
+      title: 'L’IA au service de vos ambitions.',
       subtitle: 'Automatisation n8n et agents IA, développement web et SaaS, data et modèles prédictifs, contenu marketing avec l’IA. Co-fondateur de GoalPay, je travaille à distance pour des PME et startups francophones.',
       ctaPrimary: 'Discuter d’un projet',
       ctaSecondary: 'Voir les études de cas',
@@ -286,7 +286,7 @@ export const content = {
     hero: {
       badge: 'Entrepreneur & AI Engineer · Remote UTC+3',
       kicker: 'Freelance AI developer in Madagascar',
-      title: 'I turn your data and AI into products that run in production.',
+      title: 'AI that serves your ambitions.',
       subtitle: 'n8n automation and AI agents, web and SaaS development, data and predictive models, AI-powered content marketing. Co-founder of GoalPay, I work remotely with SMEs and startups.',
       ctaPrimary: 'Discuss a project',
       ctaSecondary: 'View case studies',

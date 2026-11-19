@@ -130,47 +130,6 @@ export const projects: Project[] = [
     status: 'completed'
   },
   {
-    id: 'code-scale-ai-platform',
-    slug: 'code-scale-ai-platform',
-    techSlug: 'fastapi-pgvector-rag-ocr',
-    title: {
-      fr: 'Plateforme IA interne — Code & Scale',
-      en: 'Internal AI Platform — Code & Scale'
-    },
-    shortDescription: {
-      fr: 'Évolution d’une plateforme IA interne (RAG, OCR, embeddings, pgvector) chez Code & Scale.',
-      en: 'Evolution of an internal AI platform (RAG, OCR, embeddings, pgvector) at Code & Scale.'
-    },
-    longDescription: {
-      fr: 'Stage Backend & IA chez Code & Scale. Développement et amélioration continue d’une plateforme interne d’IA basée sur Python, FastAPI et PostgreSQL avec composants RAG, OCR et embeddings.',
-      en: 'Backend & AI internship at Code & Scale. Development and continuous improvement of an internal AI platform based on Python, FastAPI and PostgreSQL with RAG, OCR and embeddings components.'
-    },
-    challenge: {
-      fr: 'Améliorer les performances de traitement de documents et la fiabilité des services de la plateforme IA.',
-      en: 'Improve document processing performance and service reliability of the AI platform.'
-    },
-    solution: {
-      fr: 'Intégration de RAG, OCR, embeddings et pgvector. Optimisation via traitement parallèle et batch. Tests et revues techniques.',
-      en: 'Integration of RAG, OCR, embeddings and pgvector. Optimization via parallel and batch processing. Tests and technical reviews.'
-    },
-    architecture: {
-      fr: 'Documents entrants → OCR → embeddings → pgvector (PostgreSQL) → recherche sémantique → API FastAPI.',
-      en: 'Incoming documents → OCR → embeddings → pgvector (PostgreSQL) → semantic search → FastAPI API.'
-    },
-    results: {
-      fr: 'Nouvelles fonctionnalités livrées, bugs corrigés, performances de traitement de fichiers améliorées et fiabilité accrue.',
-      en: 'New features delivered, bugs fixed, file processing performance improved and reliability increased.'
-    },
-    technologies: ['FastAPI', 'pgvector', 'Docker', 'Poetry', 'RAG', 'OCR', 'Embeddings', 'PostgreSQL'],
-    tags: ['ai', 'rag', 'backend'],
-    images: [
-      // { src: '/images/projects/code-scale-1.jpg', alt: 'Code & Scale AI platform' }
-    ],
-    featured: false,
-    year: '2025',
-    status: 'completed'
-  },
-  {
     id: 'ai-photo-album',
     slug: 'ai-photo-album',
     techSlug: 'laravel-fastapi-opencv-llm',

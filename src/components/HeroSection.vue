@@ -74,11 +74,11 @@ const { t, lp } = useLang()
 
 /* The one bold move: a wide, heavy headline */
 .hero-title {
-  font-size: clamp(2.4rem, 5.4vw, 4.1rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.25rem);
   font-weight: 780;
   font-stretch: 118%;
   letter-spacing: -0.025em;
-  line-height: 1.02;
+  line-height: 1.05;
   color: var(--text);
   margin-bottom: 1.5rem;
 }

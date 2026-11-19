@@ -143,7 +143,7 @@ export const services: Service[] = [
         }
       }
     ],
-    relatedProjects: ['code-scale-ai-platform', 'ai-photo-album'],
+    relatedProjects: ['ai-photo-album', 'goalpay'],
     relatedServices: ['data-dashboards', 'ai-content-marketing'],
     keywords: {
       fr: 'freelance n8n, expert automatisation n8n, agent IA, automatisation IA, développeur IA freelance Madagascar',
