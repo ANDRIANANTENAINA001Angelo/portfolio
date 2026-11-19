@@ -46,7 +46,9 @@ export default defineConfig({
     // Every page in both languages, generated from the services and projects data
     // (rendered without the trailing slash; addDirectoryIndexes() then serves them at "/x/")
     includedRoutes: () =>
-      allPages().flatMap(p => [p.paths.fr, p.paths.en]).map(path => (path === '/' ? path : path.replace(/\/$/, ''))),
+      allPages()
+        .flatMap(p => Object.values(p.paths))
+        .map(path => (path === '/' ? path : path.replace(/\/$/, ''))),
     async onFinished() {
       await writeFile(join(outDir, 'sitemap.xml'), sitemapXml())
       await writeFile(join(outDir, 'robots.txt'), robotsTxt())

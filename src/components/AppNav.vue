@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { alternatePath, servicesPath } from '@/i18n'
+import { aboutPath, alternatePath, resourcesPath, servicesPath } from '@/i18n'
 import { useLang } from '@/composables/useLang'
 import { useTheme } from '@/composables/useTheme'
 
@@ -38,9 +38,9 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 const navItems = computed(() => [
   { href: servicesPath(lang.value), id: 'services', key: 'services' as const },
   { href: lp('/#projects'), id: 'projects', key: 'projects' as const },
-  { href: lp('/#about'), id: 'about', key: 'about' as const },
+  { href: aboutPath(lang.value), id: 'about', key: 'about' as const },
   { href: lp('/#experience'), id: 'experience', key: 'experience' as const },
-  { href: lp('/#skills'), id: 'skills', key: 'skills' as const },
+  { href: resourcesPath(lang.value), id: 'resources', key: 'resources' as const },
   { href: lp('/#contact'), id: 'contact', key: 'contact' as const }
 ])
 

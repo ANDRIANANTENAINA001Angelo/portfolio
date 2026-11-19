@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useLang } from '@/composables/useLang'
+import { aboutPath } from '@/i18n'
 
-const { t } = useLang()
+const { t, lang } = useLang()
 </script>
 
 <template>
@@ -17,6 +18,9 @@ const { t } = useLang()
           <p v-for="(p, i) in t.about.body" :key="i" class="about-p">
             {{ p }}
           </p>
+          <router-link :to="aboutPath(lang)" class="about-more">
+            {{ lang === 'fr' ? 'Parcours complet et profils en ligne' : 'Full background and online profiles' }} →
+          </router-link>
         </div>
 
         <div class="about-values">
@@ -77,5 +81,11 @@ const { t } = useLang()
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+}
+.about-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
 }
 </style>

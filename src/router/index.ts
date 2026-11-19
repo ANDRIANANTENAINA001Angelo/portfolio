@@ -12,6 +12,9 @@ declare module 'vue-router' {
 const ServicesView = () => import('@/views/ServicesView.vue')
 const ServiceDetailView = () => import('@/views/ServiceDetailView.vue')
 const ProjectDetailView = () => import('@/views/ProjectDetailView.vue')
+const AboutView = () => import('@/views/AboutView.vue')
+const ResourcesView = () => import('@/views/ResourcesView.vue')
+const ArticleView = () => import('@/views/ArticleView.vue')
 
 // French at the root, English under /en (one indexable URL per language).
 export const routes: RouteRecordRaw[] = [
@@ -47,7 +50,25 @@ export const routes: RouteRecordRaw[] = [
     props: true,
     meta: { lang: 'en', page: 'project' }
   },
-  { path: '/en/:pathMatch(.*)*', redirect: '/en' },
+  { path: '/a-propos', name: 'about-fr', component: AboutView, meta: { lang: 'fr', page: 'about' } },
+  { path: '/en/about', name: 'about-en', component: AboutView, meta: { lang: 'en', page: 'about' } },
+  { path: '/ressources', name: 'resources-fr', component: ResourcesView, meta: { lang: 'fr', page: 'resources' } },
+  { path: '/en/resources', name: 'resources-en', component: ResourcesView, meta: { lang: 'en', page: 'resources' } },
+  {
+    path: '/ressources/:slug',
+    name: 'article-fr',
+    component: ArticleView,
+    props: true,
+    meta: { lang: 'fr', page: 'article' }
+  },
+  {
+    path: '/en/resources/:slug',
+    name: 'article-en',
+    component: ArticleView,
+    props: true,
+    meta: { lang: 'en', page: 'article' }
+  },
+  { path: '/en/:pathMatch(.*)*', redirect: '/en/' },
   { path: '/:pathMatch(.*)*', redirect: '/' }
 ]
 

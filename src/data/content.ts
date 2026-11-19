@@ -5,7 +5,7 @@ export const content = {
     meta: {
       title: 'Développeur IA freelance à Madagascar — n8n, agents IA & data | Angelo',
       description: 'Développeur IA freelance basé à Madagascar : automatisation n8n, agents IA, développement web et SaaS, data et contenu marketing IA. Prix affichés, travail à distance en français. Co-fondateur de GoalPay.',
-      keywords: 'développeur IA freelance Madagascar, freelance n8n, expert automatisation, agent IA, développeur freelance Madagascar, data scientist freelance, ANDRIANANTENAINA Angelo'
+      keywords: 'développeur IA freelance Madagascar, ingénieur IA, entrepreneur IA, freelance n8n, expert automatisation, agent IA, développeur freelance Madagascar, Angelo ANDRIANANTENAINA'
     },
     nav: {
       home: 'Accueil',
@@ -14,10 +14,11 @@ export const content = {
       experience: 'Expérience',
       projects: 'Études de cas',
       skills: 'Compétences',
+      resources: 'Ressources',
       contact: 'Contact'
     },
     hero: {
-      badge: 'Disponible en remote · UTC+3',
+      badge: 'Entrepreneur & Ingénieur IA · Remote UTC+3',
       kicker: 'Développeur IA freelance à Madagascar',
       title: 'Je transforme vos données et l’IA en produits qui tournent en production.',
       subtitle: 'Automatisation n8n et agents IA, développement web et SaaS, data et modèles prédictifs, contenu marketing avec l’IA. Co-fondateur de GoalPay, je travaille à distance pour des PME et startups francophones.',
@@ -62,9 +63,9 @@ export const content = {
     },
     about: {
       title: 'À propos',
-      subtitle: 'Un AI Engineer qui livre en production.',
+      subtitle: 'Entrepreneur et ingénieur IA : je livre en production, et je raisonne en résultats.',
       body: [
-        'Je suis ANDRIANANTENAINA Angelo, AI Engineer basé à Fianarantsoa, Madagascar (UTC+3, aligné avec l’Europe). Je conçois des produits qui combinent développement logiciel et intelligence artificielle, et je les mets réellement en production.',
+        'Je suis Angelo ANDRIANANTENAINA, entrepreneur et ingénieur IA basé à Fianarantsoa, Madagascar (UTC+3, aligné avec l’Europe). Je conçois des produits qui combinent développement logiciel et intelligence artificielle, et je les mets réellement en production.',
         'En tant que co-fondateur de GoalPay, j’ai conçu et développé une plateforme FinTech qui a déjà traité plus de 100 millions d’Ariary sur 4 500+ transactions. Cette expérience m’a appris à coder pour le réel : sécurité, performance, observabilité et continuité de service.',
         'Mon Master en Intelligence Artificielle (Gouvernance et Ingénierie des Données, ENI Fianarantsoa) me donne une double compétence : comprendre les modèles de Machine Learning et les rendre utilisables dans de vrais produits (RAG, LLM, MLOps).',
         'Ma façon de travailler : communication claire et régulière (essentielle en remote et en asynchrone), livraisons fréquentes plutôt qu’un grand livrable final, et une documentation technique que vous pouvez relire sans moi.'
@@ -174,6 +175,44 @@ export const content = {
         email: 'Email'
       }
     },
+    aboutPage: {
+      metaTitle: 'À propos — Angelo ANDRIANANTENAINA, entrepreneur & ingénieur IA',
+      metaDescription: 'Qui est Angelo ANDRIANANTENAINA ? Entrepreneur et ingénieur IA basé à Fianarantsoa, Madagascar, co-fondateur de GoalPay. Parcours, spécialités et liens vers tous ses profils.',
+      role: 'Entrepreneur & Ingénieur IA · Fianarantsoa, Madagascar',
+      answerLabel: 'Qui est Angelo ANDRIANANTENAINA ?',
+      answer: 'Angelo ANDRIANANTENAINA est un entrepreneur et ingénieur en intelligence artificielle basé à Fianarantsoa, Madagascar. Co-fondateur de la FinTech GoalPay et titulaire d’un Master en Intelligence Artificielle de l’ENI Fianarantsoa, il conçoit des automatisations n8n, des agents IA, des produits data et des SaaS pour des PME, startups et agences, en freelance ou intégré à leurs équipes.',
+      disambiguation: 'Cette page concerne l’ingénieur IA et co-fondateur de GoalPay, à ne pas confondre avec le footballeur malgache homonyme.',
+      factsTitle: 'En résumé',
+      facts: [
+        { label: 'Rôle', value: 'Entrepreneur & Ingénieur IA' },
+        { label: 'Entreprise', value: 'Co-fondateur de GoalPay (FinTech, Madagascar)' },
+        { label: 'Spécialités', value: 'Automatisation n8n, agents IA, data et MLOps, développement SaaS' },
+        { label: 'Formation', value: 'Master en Intelligence Artificielle, ENI Fianarantsoa' },
+        { label: 'Basé à', value: 'Fianarantsoa, Madagascar (UTC+3), en remote' },
+        { label: 'Langues', value: 'Français, anglais, malagasy' },
+        { label: 'Collaboration', value: 'Freelance, mission longue ou intégration en équipe ou en agence' }
+      ],
+      storyTitle: 'Mon histoire',
+      timelineTitle: 'Parcours',
+      profilesTitle: 'Retrouvez-moi en ligne',
+      profilesIntro: 'Mes profils officiels. Chacun renvoie vers ce site.',
+      servicesTitle: 'Ce que je fais pour vous',
+      contactTitle: 'Travailler ensemble',
+      contactText: 'Un projet, une mission ou une collaboration en équipe ? Réservez un appel de 30 minutes ou écrivez-moi.'
+    },
+    resources: {
+      title: 'Ressources',
+      hubMetaTitle: 'Ressources : automatisation n8n, agents IA et data pour PME | Angelo',
+      hubTitle: 'Ressources : automatisation, agents IA et data pour les PME',
+      hubIntro: 'Des réponses concrètes aux questions que me posent les dirigeants avant un projet : prix, choix d’outils, retour sur investissement, méthode.',
+      readMore: 'Lire l’article',
+      published: 'Publié le',
+      updated: 'Mis à jour le',
+      answerLabel: 'En bref',
+      faqTitle: 'Questions fréquentes',
+      relatedService: 'Le service lié',
+      byline: 'Par'
+    },
     faq: {
       title: 'Questions fréquentes',
       subtitle: 'Ce qu’on me demande le plus souvent avant de démarrer une mission.',
@@ -213,10 +252,12 @@ export const content = {
       ]
     },
     footer: {
-      rights: '© 2026 ANDRIANANTENAINA Angelo. Tous droits réservés.',
+      rights: '© 2026 Angelo ANDRIANANTENAINA. Tous droits réservés.',
       built: 'Construit avec intention · Vue 3 + Vite',
       servicesTitle: 'Services',
-      projectsTitle: 'Études de cas'
+      projectsTitle: 'Études de cas',
+      moreTitle: 'En savoir plus',
+      profilesTitle: 'Profils'
     },
     common: {
       light: 'Clair',
@@ -229,7 +270,7 @@ export const content = {
     meta: {
       title: 'Freelance AI developer in Madagascar — n8n, AI agents & data | Angelo',
       description: 'Freelance AI developer based in Madagascar: n8n automation, AI agents, web and SaaS development, data and AI content marketing. Transparent pricing, remote work in English and French. Co-founder of GoalPay.',
-      keywords: 'freelance AI developer Madagascar, freelance n8n developer, automation expert, AI agent developer, freelance developer Madagascar, freelance data scientist, ANDRIANANTENAINA Angelo'
+      keywords: 'freelance AI developer Madagascar, AI engineer, AI entrepreneur, freelance n8n developer, automation expert, AI agent developer, Angelo ANDRIANANTENAINA'
     },
     nav: {
       home: 'Home',
@@ -238,10 +279,11 @@ export const content = {
       experience: 'Experience',
       projects: 'Case studies',
       skills: 'Skills',
+      resources: 'Resources',
       contact: 'Contact'
     },
     hero: {
-      badge: 'Available remote · UTC+3',
+      badge: 'Entrepreneur & AI Engineer · Remote UTC+3',
       kicker: 'Freelance AI developer in Madagascar',
       title: 'I turn your data and AI into products that run in production.',
       subtitle: 'n8n automation and AI agents, web and SaaS development, data and predictive models, AI-powered content marketing. Co-founder of GoalPay, I work remotely with SMEs and startups.',
@@ -286,9 +328,9 @@ export const content = {
     },
     about: {
       title: 'About',
-      subtitle: 'An AI Engineer who ships to production.',
+      subtitle: 'Entrepreneur and AI engineer: I ship to production and think in business outcomes.',
       body: [
-        'I am ANDRIANANTENAINA Angelo, an AI Engineer based in Fianarantsoa, Madagascar (UTC+3, aligned with Europe). I design products that combine software engineering and artificial intelligence, and I actually ship them to production.',
+        'I am Angelo ANDRIANANTENAINA, an entrepreneur and AI engineer based in Fianarantsoa, Madagascar (UTC+3, aligned with Europe). I design products that combine software engineering and artificial intelligence, and I actually ship them to production.',
         'As co-founder of GoalPay, I designed and built a FinTech platform that has already processed more than 100 million Ariary across 4,500+ transactions. This experience taught me to code for the real world: security, performance, observability and service continuity.',
         'My Master’s degree in Artificial Intelligence (Data Governance & Engineering, ENI Fianarantsoa) gives me dual competence: understanding machine learning models and making them usable in real products (RAG, LLM, MLOps).',
         'How I work: clear, frequent communication (essential for remote and async teams), frequent deliveries rather than one big handoff, and documentation you can read without me in the room.'
@@ -398,6 +440,44 @@ export const content = {
         email: 'Email'
       }
     },
+    aboutPage: {
+      metaTitle: 'About — Angelo ANDRIANANTENAINA, entrepreneur & AI engineer',
+      metaDescription: 'Who is Angelo ANDRIANANTENAINA? Entrepreneur and AI engineer based in Fianarantsoa, Madagascar, co-founder of GoalPay. Background, expertise and links to all his profiles.',
+      role: 'Entrepreneur & AI Engineer · Fianarantsoa, Madagascar',
+      answerLabel: 'Who is Angelo ANDRIANANTENAINA?',
+      answer: 'Angelo ANDRIANANTENAINA is an entrepreneur and artificial intelligence engineer based in Fianarantsoa, Madagascar. Co-founder of the FinTech GoalPay and holder of a Master’s degree in Artificial Intelligence from ENI Fianarantsoa, he builds n8n automations, AI agents, data products and SaaS for SMEs, startups and agencies, as a freelancer or embedded in their teams.',
+      disambiguation: 'This page is about the AI engineer and co-founder of GoalPay, not to be confused with the Malagasy footballer of the same name.',
+      factsTitle: 'At a glance',
+      facts: [
+        { label: 'Role', value: 'Entrepreneur & AI Engineer' },
+        { label: 'Company', value: 'Co-founder of GoalPay (FinTech, Madagascar)' },
+        { label: 'Expertise', value: 'n8n automation, AI agents, data and MLOps, SaaS development' },
+        { label: 'Education', value: 'Master’s degree in Artificial Intelligence, ENI Fianarantsoa' },
+        { label: 'Based in', value: 'Fianarantsoa, Madagascar (UTC+3), remote' },
+        { label: 'Languages', value: 'French, English, Malagasy' },
+        { label: 'Engagement', value: 'Freelance, long-term contract, or embedded in a team or agency' }
+      ],
+      storyTitle: 'My story',
+      timelineTitle: 'Background',
+      profilesTitle: 'Find me online',
+      profilesIntro: 'My official profiles. Each one links back to this site.',
+      servicesTitle: 'What I do for you',
+      contactTitle: 'Work together',
+      contactText: 'A project, a contract or a team collaboration? Book a 30-minute call or send me an email.'
+    },
+    resources: {
+      title: 'Resources',
+      hubMetaTitle: 'Resources: n8n automation, AI agents and data for SMEs | Angelo',
+      hubTitle: 'Resources: automation, AI agents and data for SMEs',
+      hubIntro: 'Straight answers to the questions business owners ask me before a project: pricing, tool choices, return on investment, method.',
+      readMore: 'Read the article',
+      published: 'Published on',
+      updated: 'Updated on',
+      answerLabel: 'In short',
+      faqTitle: 'Frequently asked questions',
+      relatedService: 'Related service',
+      byline: 'By'
+    },
     faq: {
       title: 'Frequently asked questions',
       subtitle: 'What people usually ask before starting a project.',
@@ -437,10 +517,12 @@ export const content = {
       ]
     },
     footer: {
-      rights: '© 2026 ANDRIANANTENAINA Angelo. All rights reserved.',
+      rights: '© 2026 Angelo ANDRIANANTENAINA. All rights reserved.',
       built: 'Built with intention · Vue 3 + Vite',
       servicesTitle: 'Services',
-      projectsTitle: 'Case studies'
+      projectsTitle: 'Case studies',
+      moreTitle: 'Learn more',
+      profilesTitle: 'Profiles'
     },
     common: {
       light: 'Light',

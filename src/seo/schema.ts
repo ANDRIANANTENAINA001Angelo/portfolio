@@ -2,15 +2,19 @@
  * schema.org builders (JSON-LD). One Person + one ProfessionalService entity,
  * referenced by @id from every page so search and answer engines link them together.
  */
-import { SITE_URL, SITE_NAME, OG_IMAGE, PROFILE_IMAGE, SOCIAL } from '@/config'
+import { SITE_URL, SITE_NAME, ALT_NAME, OG_IMAGE, PROFILE_IMAGE, SOCIAL, PROFILES, GOALPAY } from '@/config'
 import { services, type Service } from '@/data/services'
 import type { Project } from '@/data/projects'
-import { servicePath, type Lang } from '@/i18n'
+import type { Article, ArticleBody } from '@/data/articles'
+import { aboutPath, servicePath, type Lang } from '@/i18n'
 import { absoluteUrl } from '@/composables/useSeo'
 
 export const PERSON_ID = `${SITE_URL}/#person`
 export const BUSINESS_ID = `${SITE_URL}/#business`
 export const WEBSITE_ID = `${SITE_URL}/#website`
+export const GOALPAY_ID = `${SITE_URL}/#goalpay`
+
+const SAME_AS = PROFILES.map(p => p.url)
 
 const AREA_SERVED = ['Madagascar', 'France', 'Belgique', 'Suisse', 'Canada', 'Worldwide']
 
@@ -20,26 +24,83 @@ export function personSchema(lang: Lang) {
     '@type': 'Person',
     '@id': PERSON_ID,
     name: SITE_NAME,
-    alternateName: 'Angelo ANDRIANANTENAINA',
+    givenName: 'Angelo',
+    familyName: 'ANDRIANANTENAINA',
+    alternateName: ALT_NAME,
     url: `${SITE_URL}/`,
+    mainEntityOfPage: absoluteUrl(aboutPath(lang)),
     image: PROFILE_IMAGE,
-    jobTitle: lang === 'fr' ? 'Développeur IA freelance' : 'Freelance AI developer',
+    jobTitle: lang === 'fr' ? 'Entrepreneur & Ingénieur IA' : 'Entrepreneur & AI Engineer',
     description:
       lang === 'fr'
-        ? 'Développeur IA freelance basé à Fianarantsoa, Madagascar : automatisation n8n, agents IA, data et développement web. Co-fondateur de GoalPay.'
-        : 'Freelance AI developer based in Fianarantsoa, Madagascar: n8n automation, AI agents, data and web development. Co-founder of GoalPay.',
+        ? 'Entrepreneur et ingénieur IA basé à Fianarantsoa, Madagascar : automatisation n8n, agents IA, data et développement SaaS, en freelance ou en équipe. Co-fondateur de GoalPay.'
+        : 'Entrepreneur and AI engineer based in Fianarantsoa, Madagascar: n8n automation, AI agents, data and SaaS development, freelance or embedded in teams. Co-founder of GoalPay.',
+    // Homonyms exist (notably a Malagasy footballer): spell out who this entity is
+    disambiguatingDescription:
+      lang === 'fr'
+        ? 'Ingénieur IA et co-fondateur de la FinTech GoalPay, diplômé de l’ENI Fianarantsoa. À ne pas confondre avec le footballeur homonyme.'
+        : 'AI engineer and co-founder of the FinTech GoalPay, graduate of ENI Fianarantsoa. Not to be confused with the footballer of the same name.',
     email: SOCIAL.email,
     telephone: SOCIAL.phone,
     address: { '@type': 'PostalAddress', addressLocality: 'Fianarantsoa', addressCountry: 'MG' },
+    homeLocation: { '@type': 'Place', name: 'Fianarantsoa, Madagascar' },
     nationality: { '@type': 'Country', name: 'Madagascar' },
     alumniOf: { '@type': 'CollegeOrUniversity', name: 'École Nationale d’Informatique (ENI) Fianarantsoa' },
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      name: lang === 'fr' ? 'Master en Intelligence Artificielle' : 'Master’s degree in Artificial Intelligence',
+      credentialCategory: 'degree'
+    },
     knowsLanguage: ['fr', 'en', 'mg'],
     knowsAbout: [
       'n8n', 'Automatisation', 'AI agents', 'LLM', 'RAG', 'MLOps', 'Machine Learning',
       'Data science', 'SaaS', 'Laravel', 'FastAPI', 'Python', 'Vue.js', 'PostgreSQL', 'SEO', 'AEO'
     ],
-    worksFor: { '@id': BUSINESS_ID },
-    sameAs: [SOCIAL.github, SOCIAL.linkedin, SOCIAL.facebook, SOCIAL.codeur]
+    worksFor: [{ '@id': BUSINESS_ID }, { '@id': GOALPAY_ID }],
+    sameAs: SAME_AS
+  }
+}
+
+export function goalpaySchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': GOALPAY_ID,
+    name: GOALPAY.name,
+    url: GOALPAY.url,
+    founder: { '@id': PERSON_ID },
+    address: { '@type': 'PostalAddress', addressCountry: 'MG' }
+  }
+}
+
+/** About page: tells engines this page is the reference description of the person */
+export function profilePageSchema(lang: Lang) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    url: absoluteUrl(aboutPath(lang)),
+    inLanguage: lang,
+    dateModified: new Date().toISOString().slice(0, 10),
+    mainEntity: personSchema(lang)
+  }
+}
+
+export function articleSchema(article: Article, body: ArticleBody, lang: Lang, path: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${absoluteUrl(path)}#article`,
+    headline: body.title,
+    description: body.description,
+    abstract: body.answer,
+    url: absoluteUrl(path),
+    mainEntityOfPage: absoluteUrl(path),
+    inLanguage: lang,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
+    image: OG_IMAGE,
+    author: { '@id': PERSON_ID, '@type': 'Person', name: SITE_NAME, url: absoluteUrl(aboutPath(lang)) },
+    publisher: { '@id': PERSON_ID }
   }
 }
 
@@ -48,7 +109,7 @@ export function businessSchema(lang: Lang) {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': BUSINESS_ID,
-    name: lang === 'fr' ? `${SITE_NAME} — Développeur IA freelance` : `${SITE_NAME} — Freelance AI developer`,
+    name: lang === 'fr' ? `${SITE_NAME} — Entrepreneur & Ingénieur IA` : `${SITE_NAME} — Entrepreneur & AI Engineer`,
     url: `${SITE_URL}/`,
     image: OG_IMAGE,
     logo: PROFILE_IMAGE,
@@ -59,7 +120,7 @@ export function businessSchema(lang: Lang) {
     areaServed: AREA_SERVED,
     availableLanguage: ['fr', 'en'],
     priceRange: '€€',
-    sameAs: [SOCIAL.linkedin, SOCIAL.github, SOCIAL.facebook, SOCIAL.codeur],
+    sameAs: SAME_AS,
     potentialAction: {
       '@type': 'ReserveAction',
       name: lang === 'fr' ? 'Réserver un appel découverte de 30 minutes' : 'Book a 30-minute discovery call',

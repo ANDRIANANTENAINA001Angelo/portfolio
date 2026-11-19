@@ -48,6 +48,8 @@ npm run preview
 | What                     | File                         |
 |--------------------------|------------------------------|
 | Services, offers, prices | `src/data/services.ts`       |
+| Articles (Resources)     | `src/data/articles.ts`       |
+| Online profiles (sameAs) | `src/config.ts` (`PROFILES`) |
 | Canonical domain         | `src/config.ts` (`PROD_URL`) |
 
 ## Deploy

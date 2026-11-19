@@ -38,7 +38,7 @@ const { t, lp } = useLang()
             <source srcset="/images/profile.webp" type="image/webp" />
             <img
               src="/images/profile.jpg"
-              alt="ANDRIANANTENAINA Angelo"
+              alt="Angelo ANDRIANANTENAINA, entrepreneur et ingénieur IA"
               class="photo"
               width="320"
               height="320"
